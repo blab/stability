@@ -48,6 +48,11 @@ class tree_refine(object):
 		tmp_nucseqs.sort(key = lambda x:x.annotations['num_date'])
 		self.nuc_aln = MultipleSeqAlignment(tmp_nucseqs)
 
+		# start stability work here
+		import pprint
+		pp = pprint.PrettyPrinter(indent=4)
+		for node in self.tree.postorder_node_iter():
+			pp.pprint(vars(node))
 
 	def remove_outgroup(self):
 		"""Reroot tree to outgroup"""
