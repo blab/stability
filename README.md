@@ -16,7 +16,25 @@ Run `tree_refine` to annotate tree with trunk vs side branch etc and list mutati
 python src/H3N2_process.py --start mutations --stop mutations
 ```
 
+### Visual data check
 
+From `augur/`, run full pipeline:
+
+```
+python src/H3N2_process.py -v 1 -y 10`
+```
+
+Then, from `auspice/`, run:
+
+```
+jekyll serve
+```
+
+The nextflu tree will be visible at `http://localhost:4000/`.
+
+## Notes
+
+Change the parameters `-v 1 -y 10` to something sensible in the final analysis. This will give something easier to run during testing however.
 
 ## License and copyright
 
