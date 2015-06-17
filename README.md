@@ -7,14 +7,16 @@
 From `augur/` directory run nextflu pipeline to filter, align, build a tree and do ancestral state reconstruction on this tree:
 
 ```
-python src/H3N2_process.py -v 1 -y 10 --stop ancestral
+python src/H3N2_process.py -v 1 -y 10 --stop refine
 ```
 
 Run `tree_refine` to annotate tree with trunk vs side branch etc and list mutations:
 
 ```
-python src/H3N2_process.py --start refine --stop refine
+python src/H3N2_process.py --start mutations --stop mutations
 ```
+
+
 
 ## License and copyright
 

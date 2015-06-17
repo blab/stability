@@ -2,6 +2,7 @@ import time, argparse,re,os
 from virus_filter import flu_filter
 from virus_clean import virus_clean
 from tree_refine import tree_refine
+from tree_mutations import tree_mutations
 from process import process, virus_config
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -219,7 +220,14 @@ class H3N2_refine(tree_refine):
 			node.ne = self.nonepitope_distance(node.aa_seq, root.aa_seq)
 			node.rb = self.receptor_binding_distance(node.aa_seq, root.aa_seq)
 
-class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine):
+class H3N2_mutations(tree_mutations):
+	def __init__(self, **kwargs):
+		tree_mutations.__init__(self, **kwargs)
+
+	def mutations(self):
+		self.catalog_mutations() 
+
+class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine, H3N2_mutations):
 	"""docstring for H3N2_process, H3N2_filter"""
 	def __init__(self,verbose = 0, force_include = None, 
 				force_include_all = False, max_global= True, **kwargs):
@@ -230,6 +238,7 @@ class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine):
 		H3N2_filter.__init__(self,**kwargs)
 		H3N2_clean.__init__(self,**kwargs)
 		H3N2_refine.__init__(self,**kwargs)
+		H3N2_mutations.__init__(self,**kwargs)
 		self.verbose = verbose
 
 	def run(self, steps, viruses_per_month=50, raxml_time_limit = 1.0):
@@ -265,13 +274,10 @@ class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine):
 			print "--- Tree refine at " + time.strftime("%H:%M:%S") + " ---"
 			self.refine()
 			self.dump()
-		if 'frequencies' in steps:
-			print "--- Estimating frequencies at " + time.strftime("%H:%M:%S") + " ---"
-			self.determine_variable_positions()
-			self.estimate_frequencies(tasks = ["mutations", "clades", "tree"])
-			if 'genotype_frequencies' in steps: 
-					self.estimate_frequencies(tasks = ["genotypes"])
-			self.dump()
+		if 'mutations' in steps:
+			print "--- Tree mutations at " + time.strftime("%H:%M:%S") + " ---"
+			self.mutations()
+			self.dump()			
 		if 'export' in steps:
 			self.temporal_regional_statistics()
 			# exporting to json, including the H3N2 specific fields
@@ -280,7 +286,7 @@ class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine):
 			self.generate_indexHTML()
 
 if __name__=="__main__":
-	all_steps = ['filter', 'align', 'clean', 'tree', 'ancestral', 'refine', 'frequencies','genotype_frequencies', 'export']
+	all_steps = ['filter', 'align', 'clean', 'tree', 'ancestral', 'refine', 'mutations', 'export']
 	from process import parser, shift_cds
 	params = parser.parse_args()
 
