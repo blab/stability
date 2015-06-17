@@ -1,15 +1,25 @@
-## Live website
+## Analysis of stabilizing and destabilizing mutations in influenza evolution
 
-nextflu is live at [nextflu.org](http://nextflu.org).
+## Pipeline
 
-## Introduction
+### Generate list of mutations
 
-nextflu is designed to perform near real-time tracking of influenza virus evolution. It's divided into two components: [augur](augur/), which takes a `.fasta` file of flu sequences and builds an annotated phylogeny, and [auspice](auspice/), which displays this annotated phylogeny in an interactive web-based visualization.
+From `augur/` directory run nextflu pipeline to filter, align, build a tree and do ancestral state reconstruction on this tree:
 
-The current version of nextflu is focused on tracking seasonal influenza H3N2 evolution in humans, looking at sequences from the hemagglutinin (HA) gene. Future versions may extend this analysis to other genes in H3N2 or other influenza subtypes. We would also like to implement formal predictive models to make nextflu a platform for forecasting evolution in addition to up-to-date tracking.
+```
+python src/H3N2_process.py -v 1 -y 10 --stop ancestral
+```
+
+Run `tree_refine` to annotate tree with trunk vs side branch etc and list mutations:
+
+```
+python src/H3N2_process.py --start refine --stop refine
+```
 
 ## License and copyright
 
-Copyright 2014-2015 Trevor Bedford and Richard Neher.
+This software is based on the nextflu pipeline.
+
+nextflu is copyright 2014-2015 Trevor Bedford and Richard Neher.
 
 Source code to nextflu is made available under the terms of the [GNU Affero General Public License](LICENSE.txt) (AGPL). nextflu is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
