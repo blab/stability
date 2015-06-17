@@ -21,6 +21,7 @@ virus_config.update({
 	# data source and sequence parsing/cleaning/processing
 	'virus':'H3N2',
 	'alignment_file':'data/H3N2_gisaid_epiflu_sequence.fasta',
+	'fasta_fields':{0:'strain', 1:'isolate_id', 3:'passage', 5:'date', 7:'lab', 8:"accession"},
 	'outgroup':'A/Beijing/32/1992',
 	#'force_include':'source-data/HI_strains.txt',
 	'force_include_all':False,
