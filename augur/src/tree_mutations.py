@@ -14,14 +14,14 @@ class tree_mutations(object):
 
 		'''                     
 		
+		mutation_trunkFileName = "mutation_trunk.txt"
+		mutation_trunkFile = open(mutation_trunkFileName, 'w')
+		
 		import pprint
 		pp = pprint.PrettyPrinter(indent=4)
 		for node in self.tree.postorder_internal_node_iter():
 			sequence = str(node.seq)
-                        for child in node.child_nodes():
-        					mutation = str(child.aa_muts)
-        					trunk = str(child.trunk)
-        					#pp.pprint(mutation + '\n' + trunk + '\n' + sequence)
-        					pp.pprint(mutation)
-        					pp.pprint(trunk)
-        					pp.pprint(sequence)
+            	for child in node.child_nodes():
+        			mutation = str(child.aa_muts)
+        			trunk = str(child.trunk)
+        			mutation_trunkFile.write(trunk + "\n" + mutation + "\n")

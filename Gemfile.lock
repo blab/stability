@@ -88,7 +88,7 @@ GEM
     simple-cloudfront-invalidator (1.0.1)
       colored (= 1.2)
     therubyracer (0.12.1)
-      libv8 (~> 3.16.14.0)
+      libv8 (~> 3.16.14.7)
       ref
     thor (0.18.1)
     timers (4.0.1)
