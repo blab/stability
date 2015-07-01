@@ -31,8 +31,8 @@ class tree_mutations(object):
                                 mutation += mut + ";"
                         print(trunk)
                         print(mutation)
-                        mutation_trunk_file.write(trunk)
-                        mutation_trunk_file.write(mutation)
+                        mutation_trunk_file.write(trunk + "\n" + mutation + "\n")
+                        #mutation_trunk_file.write(mutation)
                         node_foldx(self, child, mutation)
 
 

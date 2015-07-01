@@ -1,0 +1,75 @@
+
+
+IMPORTANT WARNING: Sequences A/Umea/1982/1992 and A/Stockholm/13/1992 are exactly identical
+
+
+IMPORTANT WARNING: Sequences A/Malaysia/10081/1996 and A/Malaysia/10111/1996 are exactly identical
+
+
+IMPORTANT WARNING: Sequences A/Germany/AF1748/2008 and A/Germany/AF1872/2008 are exactly identical
+
+
+IMPORTANT WARNING: Sequences A/Switzerland/9715293/2013 and A/Bangkok/SI_MI24/2015 are exactly identical
+
+
+IMPORTANT WARNING: Sequences A/Alaska/35/2014 and A/New_Hampshire/18/2014 are exactly identical
+
+IMPORTANT WARNING
+Found 5 sequences that are exactly identical to other sequences in the alignment.
+Normally they should be excluded from the analysis.
+
+Just in case you might need it, an alignment file with 
+sequence duplicates removed is printed to file temp.phyx.reduced
+
+
+Using BFGS method to optimize GTR rate parameters, to disable this specify "--no-bfgs" 
+
+
+
+This is RAxML version 8.1.24 released by Alexandros Stamatakis on June 29 2015.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+
+Alignment has 697 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 10.53%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 user-specified trees
+
+All free model parameters will be estimated by RAxML
+ML estimate of 25 per site rate categories
+
+Likelihood of final tree will be evaluated and optimized under GAMMA
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 697
+Name: No Name Provided
+DataType: DNA
+Substitution Matrix: GTR
+
+
+
+
+RAxML was called as follows:
+
+raxml -f d -T 6 -j -s temp.phyx -n topology -c 25 -m GTRCAT -p 344312987 -t initial_tree.newick 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.337 0.203 0.222 0.238 
+
