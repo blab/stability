@@ -1,0 +1,11 @@
+<TITLE>FOLDX_runscript;
+<JOBSTART>#;
+<PDBS>4WE4_repaired;
+<BATCH>#;
+<COMMANDS>FOLDX_commandfile;
+<BuildModel>mutant1,individual_list.txt;
+<END>#;
+<OPTIONS>FOLDX_optionfile;
+<END>#;
+<JOBEND>#;
+<ENDFILE>#;
