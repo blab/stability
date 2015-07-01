@@ -2,113 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/stability.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150617-235348_70017/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/RAxML_info.branches" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/raxml_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-154813_926936/temp.phyx.reduced" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/RAxML_checkpoint.topology.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-174107_950819/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-180145_867029/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-180145_867029/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-180145_867029/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-180145_867029/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-180145_867029/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-193248_467439/temp.phyx.reduced" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/RAxML_checkpoint.topology.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-195827_944850/temp.phyx.reduced" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-201906_796787/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-201906_796787/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-201945_130135/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-201945_130135/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-202629_287852/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-202629_287852/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-222816_238374/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-222816_238374/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-224043_679821/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150618-224043_679821/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-172909_781156/temp.phyx.reduced" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173105_151218/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173105_151218/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173105_151218/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173105_151218/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_checkpoint.topology.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_checkpoint.topology.2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_info.branches" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/RAxML_result.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/raxml_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-173139_844709/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205039_555024/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205039_555024/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205039_555024/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205039_555024/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205104_530958/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205104_530958/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205104_530958/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205104_530958/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-205104_530958/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-223348_473334/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-223348_473334/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-223348_473334/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150619-223348_473334/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-170834_688437/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-170834_688437/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/RAxML_flagCheck" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150622-173334_725004/temp.phyx.reduced" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutation_trunk.txt" afterPath="$PROJECT_DIR$/augur/mutation_trunk.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_mutations.py" afterPath="$PROJECT_DIR$/augur/src/tree_mutations.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_refine.py" afterPath="$PROJECT_DIR$/augur/src/tree_refine.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FoldX/feed_foldx.py" afterPath="$PROJECT_DIR$/FoldX/feed_foldx.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/H3N2/index.html" afterPath="$PROJECT_DIR$/auspice/H3N2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FoldX/individual_list.txt" afterPath="$PROJECT_DIR$/FoldX/individual_list.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/run_foldxPipeline.py" afterPath="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stability.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="feed_foldx.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="feed_foldx.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.6708595" vertical-offset="55" max-vertical-offset="780">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -146,16 +44,16 @@
         <entry file="file://$PROJECT_DIR$/augur/run_foldxPipeline.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7034483" vertical-offset="0" max-vertical-offset="725">
+            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="660">
               <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -167,7 +65,7 @@
       <file leaf-file-name="H3N2_process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0" vertical-offset="3135" max-vertical-offset="4905">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4905">
               <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
@@ -185,9 +83,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/FoldX/run_foldxPipeline" />
-        <option value="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
-        <option value="$PROJECT_DIR$/FoldX/feed_foldx.py" />
         <option value="$PROJECT_DIR$/augur/src/tree_mutations.py" />
+        <option value="$PROJECT_DIR$/FoldX/feed_foldx.py" />
+        <option value="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
       </list>
     </option>
   </component>
@@ -218,6 +116,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,19 +151,57 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.run_foldxPipeline">
+    <configuration default="false" name="feed_foldx" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FoldX" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stability" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FoldX/feed_foldx.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="run_foldxPipeline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/augur" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="stability" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -387,7 +324,16 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.feed_foldx" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run_foldxPipeline" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.run_foldxPipeline" />
+        <item index="1" class="java.lang.String" itemvalue="Python.feed_foldx" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -403,21 +349,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -448,53 +394,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/augur/src/process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="6330">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_infer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17518248" vertical-offset="0" max-vertical-offset="1035">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/mutation_tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5294943" vertical-offset="2513" max-vertical-offset="3225">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0" vertical-offset="3135" max-vertical-offset="4905">
-          <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/run_foldxPipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="180">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
@@ -502,11 +412,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7034483" vertical-offset="0" max-vertical-offset="725">
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="660">
           <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4905">
+          <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="6330">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_infer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17518248" vertical-offset="0" max-vertical-offset="1035">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/mutation_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5294943" vertical-offset="2513" max-vertical-offset="3225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4905">
+          <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/run_foldxPipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6708595" vertical-offset="55" max-vertical-offset="780">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

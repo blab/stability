@@ -20,24 +20,28 @@ finalFileName = "ddG_mutations.txt"
 finalFile = open(finalFileName, 'a')
 
 for line in mutation_trunk_file:
-    trunk = line
-    mutation = mutation_trunk_file.next()
+    if line == "True" or line == "False":
+        trunk = line
+        print(trunk)
+        finalFile.write(trunk)
+    else:
+        mutation = line
+        print(mutation)
+        mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
+        mutationFile.write(mutation)
+        mutationFile.close()
 
-    mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
-    mutationFile.write(mutation)
-    mutationFile.close()
+        # runs foldx to get ddG value which it outputs to a seperate file.
+        os.system("./foldx3b6 -runfile mutate_runfile.txt")
 
-    # runs foldx to get ddG value which it outputs to a seperate file.
-    os.system("./foldx3b6 -runfile mutate_runfile.txt")
+        # need to obtain the resulting ddG value from the output file
+        ddGFileName = "Average_mutant1.txt"
+        ddGFile = open(ddGFileName, 'r')
+        for line in ddGFile:
+            if line[:5] == "1MBN_":
+                ddGline = line.split()
+                ddG = ddGline[2]
+        # write the final information to a seperate file.
 
-    # need to obtain the resulting ddG value from the output file
-    ddGFileName = "Average_mutant1.txt"
-    ddGFile = open(ddGFileName, 'r')
-    for line in ddGFile:
-        if line[:5] == "1MBN_":
-            ddGline = line.split()
-            ddG = ddGline[2]
-    # write the final information to a seperate file.
-    finalFile.write(trunk)
-    finalFile.write(mutation)
-    finalFile.write(ddG)
+        finalFile.write(mutation)
+        finalFile.write(ddG)
