@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>nextflu / H3N2 / 3y</title>
+
+    	<!-- Customized Bootstrap + Font Awesome -->
+		<link href="css/style.css" rel="stylesheet" media="screen">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.png"/>			
+		
+	</head>
+
+	<body>
+
+		<div class="container">
+
+		<div class="row">
+	<div class="col-md-3">
+		<div class="logo-container">
+			<div class="bigtitle">
+				<span class="c2">n</span><span class="c3">e</span><span class="c4">x</span><span class="c5">t</span><span class="c6">f</span><span class="c7">l</span><span class="c8">u</span>
+			</div>
+			<div class="subtitle-box">
+				Real-time tracking of seasonal influenza virus evolution in humans
+			</div>
+			<div class="spacer"></div>
+		</div>
+		<div class="io-container">
+			<form class="form-inline form-small">
+				<div class="form-group">
+					<label class="control-label">Virus</label>
+					<select id="virus_select" class="form-control" onChange="document.location = this.value" value="GO">
+						
+						<option value="/H3N2/3y/" 
+							 selected="selected" 
+							>A/H3N2</option>
+						
+						<option value="/H1N1pdm/3y/" 
+							
+							>A/H1N1pdm</option>
+						
+						<option value="/Vic/3y/" 
+							
+							>B/Vic</option>
+						
+						<option value="/Yam/3y/" 
+							
+							>B/Yam</option>
+						
+					</select>
+				</div>
+			</form>
+			<div class="spacer"></div>
+			<form class="form-inline form-small">
+				<div class="form-group">
+					<label class="control-label">Time</label>
+					<select id="resolution_select" class="form-control" onChange="document.location = this.value" value="GO">
+					
+						 
+							
+								<option value="/H3N2/1y"
+								
+								>1y</option>
+							
+								<option value="/H3N2/3y"
+								 selected="selected" 
+								>3y</option>
+							
+								<option value="/H3N2/6y"
+								
+								>6y</option>
+							
+								<option value="/H3N2/12y"
+								
+								>12y</option>
+							
+					
+					
+						
+					
+						
+					
+						
+					
+					</select>
+				</div>
+			</form>	
+		</div>
+		<div class="bigspacer"></div>	
+		<div class="io-container title">
+			HA phylogeny
+		</div>
+		<div class="spacer"></div>		
+		<div class="row">
+			<div class="col-xs-6 io-container">
+				<div>
+					<svg id="date-input"></svg>
+				</div>
+				<div>
+					<h5 id="legend-title">Legend</h5>
+					<svg id="legend"></svg>
+				</div>
+				<div class="spacer"></div>
+			</div>
+			<div class="col-xs-6 io-container">			
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+							<label class="col-xs-4 control-label">Color by</label>
+							<div class="col-xs-8 controls">
+								<select id="coloring" class="form-control">
+								
+									
+									<option value=ep>epitope mutations</option>
+									
+								
+									
+									<option value=ne>non epitope mutations</option>
+									
+								
+									
+									<option value=rb>receptor binding mutations</option>
+									
+								
+									
+									<option value=lbi>local branching index</option>
+									
+								
+									
+									<option value=region>geographic region</option>
+									
+								
+									
+									<option value=date>sampling date</option>
+									
+								
+									
+									<option value=dfreq>frequency change</option>
+									
+								
+									
+								
+									
+																						
+								</select>
+							</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label">Or</label>
+						<div class="col-xs-8 controls">
+							<input id="gt-color" type="search" placeholder= "HA1 positions..."  class="form-control">
+						</div>
+					</div>		
+				</form>
+				<div class="spacer"></div>
+				
+				
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+						<label class="col-xs-4 control-label">Region</label>
+						<div class="col-xs-8 controls">
+							<select id="region" class="form-control">
+								
+								<option value="all">all</option>
+								
+								<option value="Africa">Africa</option>
+								
+								<option value="China">China</option>
+								
+								<option value="Europe">Europe</option>
+								
+								<option value="JapanKorea">Japan / Korea</option>
+								
+								<option value="NorthAmerica">North America</option>
+								
+								<option value="Oceania">Oceania</option>
+								
+								<option value="SouthAmerica">South America</option>
+								
+								<option value="SouthAsia">South Asia</option>
+								
+								<option value="SoutheastAsia">Southeast Asia</option>
+								
+								<option value="WestAsia">West Asia</option>
+								
+							</select>
+						</div>
+					</div>
+				</form>
+				
+
+				<div id="search"></div>
+				<div class="spacer"></div>
+				<div>
+					<button id="reset" class="btn btn-default">reset layout</button>
+				</div>
+				<div class="spacer"></div>
+			</div>					
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="bigspacer"></div>
+		<div class="treeplot-container">
+			<svg id="treeplot"></svg>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="bigspacer"></div>
+		<div class="bigspacer"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var genericDomain = [0,0.111,0.222,0.333, 0.444, 0.555, 0.666, 0.777, 0.888, 1.0];
+	var path = 'data/';
+	var tip_labels = true;
+</script>
+<script>
+var file_prefix = "";
+var time_window = 1;
+var time_ticks=[2013.0, 2013.5, 2014.0, 2014.5, 2015.0, 2015.5];
+var LBItau = 0.0005;
+var dfreq_dn = 2;
+var LBItime_window = 0.5;
+var	vaccineChoice = {};
+vaccineChoice['A/Fujian/411/2002'] = "2003-09-25";
+vaccineChoice['A/California/7/2004'] = "2005-02-21";
+vaccineChoice['A/Wisconsin/67/2005'] = "2006-02-21";
+vaccineChoice['A/Brisbane/10/2007'] = "2007-09-25";
+vaccineChoice['A/Perth/16/2009'] = "2009-09-25";
+vaccineChoice['A/Victoria/361/2011'] = "2012-02-21";
+vaccineChoice['A/Texas/50/2012'] = "2013-09-25";
+vaccineChoice['A/Switzerland/9715293/2013'] = "2014-09-25";
+var vaccineStrains = Object.keys(vaccineChoice);
+
+var restrictTo = {"region":"all"};
+
+var genome_annotation = {'HA1':[[1,1,1], [1,160,329]],
+						 'HA2':[[1.2,1.2,1.2], [329,450,580]]}
+
+</script>
+
+<script src="js/auspice.js"></script>
+
+
+    	</div>
+
+	</body>
+
+</html>
