@@ -32,7 +32,7 @@ class tree_refine(object):
 			self.translate_all()
 			self.add_aa_mutations()
 		self.add_node_attributes()
-		self.reduce()
+	#	self.reduce()
 		self.layout()
 		self.define_trunk()
 
