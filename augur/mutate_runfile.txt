@@ -1,6 +1,6 @@
 <TITLE>FOLDX_runscript;
 <JOBSTART>#;
-<PDBS>4WE4_repaired_formatted_1.pdb;
+<PDBS>4WE4_repaired_formatted.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
 <BuildModel>mutant1,individual_list.txt;
