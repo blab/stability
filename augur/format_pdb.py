@@ -1,7 +1,7 @@
 pdb_fileName = "4WE4_repaired.pdb"
 pdb_file = open(pdb_fileName, 'r')
 
-new_pdb_fileName = "4WE4_repaired2.pdb"
+new_pdb_fileName = "4WE4_repaired_nochain.pdb"
 new_pdb_file = open(new_pdb_fileName, 'w')
 
 
@@ -15,10 +15,10 @@ for line in pdb_file:
 	new_pdb_file.write(newLine)
 new_pdb_file.close()
 
-pdb_fileName = "4WE4_repaired2.pdb"
+pdb_fileName = "4WE4_repaired_nochain.pdb"
 pdb_file = open(pdb_fileName, 'r')
 
-new_pdb_fileName = "4WE4_repaired3.pdb"
+new_pdb_fileName = "4WE4_repaired_formatted.pdb"
 new_pdb_file = open(new_pdb_fileName, 'w')
 
 # this should renumber the second half of the pdb file since it used to be separated into 
