@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/1MBN_repaired.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/4WE4_repaired2.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/4WE4_repaired2_1.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/4WE4_repaired3.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/4WE4_repaired3_1.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/Unrecognized_molecules.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/WT_4WE4_repaired2_1.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/WT_4WE4_repaired3_1.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150630-232618_328500/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150630-232618_328500/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/RAxML_checkpoint.topology.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/RAxML_checkpoint.topology.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/RAxML_checkpoint.topology.2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/RAxML_info.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/RAxML_log.topology" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/initial_tree.newick" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/temp.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/temp.phyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-170639_897583/temp.phyx.reduced" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-183301_635451/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-183301_635451/temp_out.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-183521_447546/temp_in.fasta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/temp_20150701-183521_447546/temp_out.fasta" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Average_mutant1" afterPath="$PROJECT_DIR$/augur/Average_mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Dif_mutant1" afterPath="$PROJECT_DIR$/augur/Dif_mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/PdbList_mutant1" afterPath="$PROJECT_DIR$/augur/PdbList_mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Raw_mutant1" afterPath="$PROJECT_DIR$/augur/Raw_mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/ddG_mutations.txt" afterPath="$PROJECT_DIR$/augur/ddG_mutations.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/feed_foldx.py" afterPath="$PROJECT_DIR$/augur/feed_foldx.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/format_pdb.py" afterPath="$PROJECT_DIR$/augur/format_pdb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/individual_list.txt" afterPath="$PROJECT_DIR$/augur/individual_list.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutate_runfile.txt" afterPath="$PROJECT_DIR$/augur/mutate_runfile.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutation_trunk.txt" afterPath="$PROJECT_DIR$/augur/mutation_trunk.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/run_foldxPipeline.py" afterPath="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_mutations.py" afterPath="$PROJECT_DIR$/augur/src/tree_mutations.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -61,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7517241" vertical-offset="415" max-vertical-offset="1155">
-              <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="295" max-vertical-offset="1020">
+              <caret line="47" column="72" selection-start-line="47" selection-start-column="72" selection-end-line="47" selection-end-column="72" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -73,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/augur/src/temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2560" max-vertical-offset="3345">
-              <caret line="173" column="19" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
+            <state vertical-scroll-proportion="-0.7172414" vertical-offset="2320" max-vertical-offset="3345">
+              <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
               <folding>
                 <element signature="e#2876#2895#0" expanded="true" />
               </folding>
@@ -112,7 +79,7 @@
       <file leaf-file-name="mutation_trunk.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/mutation_trunk.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11160">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5640">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -707,22 +674,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/temp.py">
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2560" max-vertical-offset="3345">
-          <caret line="173" column="19" selection-start-line="173" selection-start-column="19" selection-end-line="173" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="295" max-vertical-offset="1020">
+          <caret line="47" column="72" selection-start-line="47" selection-start-column="72" selection-end-line="47" selection-end-column="72" />
           <folding>
-            <element signature="e#2876#2895#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
+    <entry file="file://$PROJECT_DIR$/augur/src/temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7517241" vertical-offset="415" max-vertical-offset="1155">
-          <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+        <state vertical-scroll-proportion="-0.7172414" vertical-offset="2320" max-vertical-offset="3345">
+          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#2876#2895#0" expanded="true" />
           </folding>
         </state>
       </provider>
