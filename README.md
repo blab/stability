@@ -2,6 +2,36 @@
 
 ## Pipeline
 
+### Run nextflu pipeline and FoldX
+
+From 'augur/' directory run nextflu pipeline to filter, align, build a tree, do ancestral state reconstruction, annotate trunk branches and list mutations. Also feeds mutations to FoldX to get the resulting ddG from the mutations listed. 
+
+```
+python run_foldxPipeline.py 4WE4 1 30
+```
+
+#### Parameters
+
+First parameter "4WE4" specifies the protein structure to be used by foldx to calculate ddGs. Second "1" and third "30" parameters specify viruses sampled per month and years respectively. 
+
+#### Changes to Code when changing protein structure
+
+Before running the full pipeline, need to make sure that the nextflu pipeline is configured correctly for the HA protein structure that will be used. 
+
+##### Outgroup
+In [`H3N2_process.py`](src/H3N2_process.py) need to make the outgroup equal to the protein structure that will be used. Have added outgroups for 4WE4, 4WE5, 4WE6 and 4WE9. Just uncomment the one you're going to use and comment out the others. 
+
+##### Amino Acid Sites
+
+In [`tree_mutations.py`](src/tree_mutations.py) need to specify what range of amino acid sites the used protein structure covers since the structure doesn't automatically cover all sites. In calculating ddGs we have to ignore mutations that are not within the range. Have added ranges for 4WE4, 4WE5, 4WE6, 4WE9, uncomment out whichever one you're using. Change lowerRange and upperRange.
+
+##### Pdb file repaired and formatted
+Pipeline assumes that the pdb file to be used is properly repaired and formatted for foldX. Can use  [`repair_format_structure.py`](repair_format_structure.py) to repair and format the structure. From the 'augur/' directory run the following command, give the function the code for a pdb structure (ex. 4WE4)
+
+```
+python repair_format_structure.py 4WE4
+```
+
 ### Generate list of mutations
 
 From `augur/` directory run nextflu pipeline to filter, align, build a tree and do ancestral state reconstruction on this tree:

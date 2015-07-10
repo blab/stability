@@ -6,8 +6,6 @@ Augur is the processing pipeline to track flu evolution.  It currently
 * subsamples, cleans and aligns sequences
 * builds a phylogenetic tree from this data
 * reports statistics about mutations and branching patterns of the tree
-* infers mutation frequency trajectories through time.
-
 
 ## Pipeline
 
@@ -41,9 +39,9 @@ Uses [FastTree](http://meta.microbesonline.org/fasttree/) to get a starting tree
 
 Reroot the tree based on outgroup strain, collapse nodes with zero-length branches, ladderize the tree and collect strain metadata.
 
-### [Frequency estimation](src/bernoulli_frequency.py)
+### [Tree Mutations](src/tree_mutations.py)
 
-Estimate genotype and clade frequency trajectories using a Bernoulli observation model combined with a genetic drift model of process noise.
+Iterates through the tree in preorder traversal, reporting the mutations that were needed to get from the root to each node in the tree. Prints mutations and whether the node is a trunk or not to [`mutation_trunk.txt`](mutation_trunk.txt).
 
 ### [Streamline](src/streamline.py)
 

@@ -58,11 +58,9 @@ def write_final_doc(trunk, ddG, mutations):
 # we order them alphabetically in a list so that they are easily compared
 def make_ordered_list(mutations):
     mutations = mutations[:len(mutations) -1]
-    print(mutations)
     list_mutations = mutations.split(",")
     list_mutations = sorted(list_mutations)
     ordered_mutations = ','.join(list_mutations)
-    print(ordered_mutations)
     return ordered_mutations
 
 def main():
@@ -96,6 +94,7 @@ def main():
                     overwrite_mutation_file(mutations)
                     os.system("./foldx3b6 -runfile mutate_runfile.txt")
                     ddG = get_ddG()
+                    print("*** DDG: " + ddG)
                     mutations_run_dictionary[ordered_mutations] = ddG
                     write_final_doc(trunk, ddG, mutations)
 

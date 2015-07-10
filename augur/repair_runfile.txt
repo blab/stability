@@ -1,9 +1,9 @@
 <TITLE>FOLDX_runscript;
 <JOBSTART>#;
-<PDBS>4WE4_original.pdb;
+<PDBS>4WE6_original.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
-<RepairPDB>4WE4_repaired;
+<RepairPDB>4WE6_repaired;
 <END>#;
 <OPTIONS>FOLDX_optionfile;
 <END>#;

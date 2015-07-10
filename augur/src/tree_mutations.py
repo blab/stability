@@ -27,6 +27,21 @@ class tree_mutations(object):
         lowerRange = 9
         upperRange = 501
 
+        '''
+        # 4WE5
+        lowerRange = 4
+        upperRange = 496
+        '''
+        '''
+        # 4WE6
+        lowerRange = 38
+        upperRange = 580
+        '''
+        '''
+        # 4WE9
+        lowerRange = 8
+        upperRange = 502
+        '''
 
 
 
