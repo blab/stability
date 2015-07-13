@@ -4,8 +4,8 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 4WE4_repaired_formatted_1.pdb
+PDB file analysed: 4WE5_formatted_1.pdb
 Output type: BuildModel
 Pdb	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex
-4WE4_repaired_formatted_1_1.pdb	39.4621	-332.051	-171.469	-570.72	-26.6395	772.367	-730.286	38.6088	312.224	763.477	0	0	1.12406	12.9917	238.045	-9.70292	0	-23.244	0	0	2.78127	0
-WT_4WE4_repaired_formatted_1_1.pdb	29.0013	-334.572	-172.663	-572.458	-27.4545	773.65	-733.549	36.0962	314.584	761.701	0	0	1.12406	12.2599	237.961	-8.90254	0	-23.244	0	0	2.43043	0
+4WE5_formatted_1_1.pdb	47.1581	-342.25	-176.245	-560.961	-18.95	753.562	-720.651	40.5615	304.127	781.026	0	0	1.49705	19.1298	245.564	-12.4638	0	-23.1029	0	0	1.87942	0
+WT_4WE5_formatted_1_1.pdb	45.8346	-342.21	-176.841	-562.316	-19.9831	754.006	-722.494	40.9704	305.597	781.555	0	0	1.49705	19.4841	245.622	-12.2085	0	-23.1029	0	0	1.87942	0

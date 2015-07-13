@@ -22,11 +22,11 @@ class tree_mutations(object):
         mutation_trunk_file = open(mutation_trunk_fileName, 'w')
 
         # Change depending on protein structure/outgroup you are using
-
+        '''
         # 4WE4 1968 protein structure
         lowerRange = 9
         upperRange = 501
-
+		'''
         '''
         # 4WE5
         lowerRange = 4
@@ -37,11 +37,11 @@ class tree_mutations(object):
         lowerRange = 38
         upperRange = 580
         '''
-        '''
+        
         # 4WE9
         lowerRange = 8
         upperRange = 502
-        '''
+        
 
 
 
@@ -88,11 +88,12 @@ class tree_mutations(object):
         # Print to "mutation_trunk.txt" trunk and mutation information.
         def node_foldx(self, node, current_total_mutations):
             if node.parent_node is None:  # root of the tree
+                print("Root : " + node.aa_seq)
                 for child in node.child_nodes():
+                    print("Child: " + child.aa_seq)
+                    print("Child: " + child.aa_muts)
                     if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
                         current_total_mutations = ""
-                        #print(child.aa_seq)
-                        #print(child.aa_muts)
                         current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
                         # these are the mutations needed to make the structure equal to the first node
                         mutation_trunk_file.write("RootMut" + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + ";\n")

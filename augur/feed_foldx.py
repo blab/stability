@@ -24,7 +24,7 @@ runfile = open(runfileName, 'w')
 
 # makes a mutation run file for the specified pdb file.
 def make_run_file(name_extension):
-    pdb_file_name = pdb_name + "_repaired_" + name_extension + ".pdb"
+    pdb_file_name = pdb_name + name_extension + ".pdb"
     runfileName = "mutate_runfile.txt"
     runfile = open(runfileName, 'w')
     runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "individual_list.txt"))
@@ -41,7 +41,7 @@ def get_ddG():
     ddGFileName = "Average_mutant1"
     ddGFile = open(ddGFileName, 'r')
     for line in ddGFile:
-        if line[:5] == "4WE4_":
+        if line[:5] == pdb_name + "_":
             ddGline = line.split()
             ddG = ddGline[2]
     ddGFile.close()
@@ -76,7 +76,7 @@ def main():
                 print(line)
                 mutations = split_line[1].strip("\n")
                 overwrite_mutation_file(mutations)
-                make_run_file("formatted")
+                make_run_file("_formatted")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
 
             else:
@@ -90,7 +90,7 @@ def main():
                     ddG = mutations_run_dictionary[ordered_mutations]
                     write_final_doc(trunk, ddG, mutations)
                 else:
-                    make_run_file("formatted_1")
+                    make_run_file("_formatted_1")
                     overwrite_mutation_file(mutations)
                     os.system("./foldx3b6 -runfile mutate_runfile.txt")
                     ddG = get_ddG()
