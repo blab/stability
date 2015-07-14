@@ -33,7 +33,8 @@ def make_run_file(name_extension):
 def overwrite_mutation_file(mutations):
     mutationFileName = "individual_list.txt"
     mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
-    mutationFile.write(mutations)
+    print(mutations)
+    mutationFile.write(mutations + ";")
     mutationFile.close()
 
 # opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
@@ -45,13 +46,13 @@ def get_ddG():
             ddGline = line.split()
             ddG = ddGline[2]
     ddGFile.close()
-    return ddG
+    return float(ddG)
     # probably want to delete this file so that if it's not found can then write some error
 
 # writes the resulting trunk, ddG and mutation information to a file called "ddG_mutations.txt"
 def write_final_doc(trunk, ddG, mutations):
     finalFile = open(finalFileName, 'a')
-    finalFile.write(trunk + "\t" + ddG + "\t" + mutations + "\n")
+    finalFile.write(trunk + "\t" + str(ddG) + "\t" + mutations + "\n")
     finalFile.close()
 
 # sometimes the mutations are not ordered the same in the file, so in order to compare them in the dictionary
@@ -68,9 +69,8 @@ def main():
     mutations_run_dictionary = {}
     for line in mutation_trunk_file:
         if line != "":
-            # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
             split_line = line.split("\t")
-
+            # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
             if split_line[0] == "RootMut":
                 print("*** Making mutations needed to make the root equal to the protein structure we are using.")
                 print(line)
@@ -78,25 +78,29 @@ def main():
                 overwrite_mutation_file(mutations)
                 make_run_file("_formatted")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
-
             else:
                 foldx_round += 1
                 print("*** This is round " + str(foldx_round) + " for foldX mutations")
                 print(line)
                 trunk = split_line[0]
+                total_ddG = 0
                 mutations = split_line[1].strip("\n")
-                ordered_mutations = make_ordered_list(mutations)
-                if ordered_mutations in mutations_run_dictionary:
-                    ddG = mutations_run_dictionary[ordered_mutations]
-                    write_final_doc(trunk, ddG, mutations)
-                else:
-                    make_run_file("_formatted_1")
-                    overwrite_mutation_file(mutations)
-                    os.system("./foldx3b6 -runfile mutate_runfile.txt")
-                    ddG = get_ddG()
-                    print("*** DDG: " + ddG)
-                    mutations_run_dictionary[ordered_mutations] = ddG
-                    write_final_doc(trunk, ddG, mutations)
+                mutations_list = mutations.split(",")
+                print(mutations)
+                print(mutations_list)
+                for mut in mutations_list:
+                    print(mut)
+                    if mut in mutations_run_dictionary:
+                        total_ddG += mutations_run_dictionary[mut]
+                    else:
+                        make_run_file("_formatted_1")
+                        overwrite_mutation_file(mut)
+                        os.system("./foldx3b6 -runfile mutate_runfile.txt")
+                        current_mut_ddG = get_ddG()
+                        total_ddG += current_mut_ddG
+                        mutations_run_dictionary[mut] = current_mut_ddG
+                print("*** DDG: " + str(total_ddG))
+                write_final_doc(trunk, total_ddG, mutations)
 
 
 pdb_name = sys.argv[1]

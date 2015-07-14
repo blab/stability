@@ -4,19 +4,6 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 4WE5_formatted_1.pdb
+PDB file analysed: 4WE4_formatted_1.pdb
 Output type: BuildModel
 BuildModel Results Files
-Residue to Mutate SER 162 has residue index 158
-Residue to Mutate MET 260 has residue index 256
-Residue to Mutate GLN 261 has residue index 257
-Residue to Mutate LYS 144 has residue index 140
-Residue to Mutate LYS 50 has residue index 46
-Residue to Mutate THR 212 has residue index 208
-Residue to Mutate ASN 312 has residue index 308
-Residue to Mutate LYS 62 has residue index 58
-
-The Stability of each mutant and their relative wild-type are in Raw_mutant1
-The differences in stability (DDG=DGmutant-DGwt) of each mutant are in Dif_mutant1
-The average of the differences in stability (DDG=DGmutant-DGwt) of each mutant for the 1 runs are in Average_mutant1
-The list of all generated pdbs is in PdbList_mutant1

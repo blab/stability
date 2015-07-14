@@ -22,11 +22,11 @@ class tree_mutations(object):
         mutation_trunk_file = open(mutation_trunk_fileName, 'w')
 
         # Change depending on protein structure/outgroup you are using
-        '''
+
         # 4WE4 1968 protein structure
         lowerRange = 9
         upperRange = 501
-		'''
+
         '''
         # 4WE5
         lowerRange = 4
@@ -37,11 +37,11 @@ class tree_mutations(object):
         lowerRange = 38
         upperRange = 580
         '''
-        
+        '''
         # 4WE9
         lowerRange = 8
         upperRange = 502
-        
+        '''
 
 
 
@@ -96,13 +96,13 @@ class tree_mutations(object):
                         current_total_mutations = ""
                         current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
                         # these are the mutations needed to make the structure equal to the first node
-                        mutation_trunk_file.write("RootMut" + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + ";\n")
+                        mutation_trunk_file.write("RootMut" + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + "\n")
                     node_foldx(self, child, "")
             else:  # internal or leaf node
                 for child in node.child_nodes():
                     trunk = str(child.trunk)
                     current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
-                    mutation_trunk_file.write(trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +";\n")
+                    mutation_trunk_file.write(trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +"\n")
                     node_foldx(self, child, current_total_mutations)
 
 
