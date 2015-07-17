@@ -4,6 +4,12 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 4WE4_formatted_1.pdb
+PDB file analysed: 2YP7_formatted_1.pdb
 Output type: BuildModel
 BuildModel Results Files
+Residue to Mutate GLY 186 has residue index 178
+
+The Stability of each mutant and their relative wild-type are in Raw_mutant1
+The differences in stability (DDG=DGmutant-DGwt) of each mutant are in Dif_mutant1
+The average of the differences in stability (DDG=DGmutant-DGwt) of each mutant for the 1 runs are in Average_mutant1
+The list of all generated pdbs is in PdbList_mutant1

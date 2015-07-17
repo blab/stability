@@ -101,7 +101,7 @@ def main():
                         mutations_run_dictionary[mut] = current_mut_ddG
                 print("*** DDG: " + str(total_ddG))
                 write_final_doc(trunk, total_ddG, mutations)
-
+	print(mutations_run_dictionary)
 
 pdb_name = sys.argv[1]
 main()

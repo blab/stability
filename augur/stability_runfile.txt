@@ -1,9 +1,9 @@
 <TITLE>FOLDX_runscript;
 <JOBSTART>#;
-<PDBS>4KVN_original.pdb;
+<PDBS>2YP7_formatted_1.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
-<RepairPDB>4KVN_repaired;
+<Stability>Stability.txt;
 <END>#;
 <OPTIONS>FOLDX_optionfile;
 <END>#;

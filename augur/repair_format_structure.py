@@ -35,7 +35,7 @@ def adjust_sites():
 
     # some of the structures are off from the normal sequence numbering we use
     adjust = 0   # normal
-    adjust = 40  # 4WE6
+    #adjust = 40  # 4WE6
 
     for line in nochain_file:
         newLine = line

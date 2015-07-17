@@ -1,0 +1,10 @@
+FoldX 3.0 Beta 6.1 (2014)
+by the FoldX Consortium 
+Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
+Luis Serrano and Francois Stricher
+------------------------------------------------------
+
+PDB file analysed: 2YP7_formatted_1.pdb
+Output type: Conformational Stability - Free Energy in kcal/mol
+	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex	Number of Residues
+2YP7_formatted_1.pdb	-31.5496	-347.982	-194.915	-568.089	-28.3464	768.157	-726.063	21.3459	321.368	745.163	0	0	1.12406	11.4874	234.317	-14.6209	0	-22.0697	0	0	1.8908	0	496

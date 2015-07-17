@@ -22,11 +22,11 @@ class tree_mutations(object):
         mutation_trunk_file = open(mutation_trunk_fileName, 'w')
 
         # Change depending on protein structure/outgroup you are using
-
+        '''
         # 4WE4 1968 protein structure
         lowerRange = 9
         upperRange = 501
-
+		'''
         '''
         # 4WE5
         lowerRange = 4
@@ -42,7 +42,9 @@ class tree_mutations(object):
         lowerRange = 8
         upperRange = 502
         '''
-
+        # 2YP7
+        lowerRange = 8
+        upperRange = 503
 
 
         # Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501.
