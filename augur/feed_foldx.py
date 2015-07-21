@@ -33,7 +33,6 @@ def make_run_file(name_extension):
 def overwrite_mutation_file(mutations):
     mutationFileName = "individual_list.txt"
     mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
-    print(mutations)
     mutationFile.write(mutations + ";")
     mutationFile.close()
 
@@ -42,7 +41,7 @@ def get_ddG():
     ddGFileName = "Average_mutant1"
     ddGFile = open(ddGFileName, 'r')
     for line in ddGFile:
-        if line[:5] == pdb_name + "_":
+        if line.startswith(pdb_name):
             ddGline = line.split()
             ddG = ddGline[2]
     ddGFile.close()
@@ -50,9 +49,9 @@ def get_ddG():
     # probably want to delete this file so that if it's not found can then write some error
 
 # writes the resulting trunk, ddG and mutation information to a file called "ddG_mutations.txt"
-def write_final_doc(trunk, ddG, mutations):
+def write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations):
     finalFile = open(finalFileName, 'a')
-    finalFile.write(trunk + "\t" + str(ddG) + "\t" + mutations + "\n")
+    finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\n")
     finalFile.close()
 
 # sometimes the mutations are not ordered the same in the file, so in order to compare them in the dictionary
@@ -63,6 +62,19 @@ def make_ordered_list(mutations):
     list_mutations = sorted(list_mutations)
     ordered_mutations = ','.join(list_mutations)
     return ordered_mutations
+
+def run_mutations(mutations_run_dictionary, mutations):
+    ddG = 0.0
+    if mutations != "":
+        if mutations in mutations_run_dictionary:
+            ddG = mutations_run_dictionary[mutations]
+        else:
+            make_run_file("_formatted_1")
+            overwrite_mutation_file(mutations)
+            os.system("./foldx3b6 -runfile mutate_runfile.txt")
+            ddG = get_ddG()
+            mutations_run_dictionary[mutations] = ddG
+    return ddG
 
 def main():
     foldx_round = 0
@@ -78,30 +90,23 @@ def main():
                 overwrite_mutation_file(mutations)
                 make_run_file("_formatted")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
+                ddG = get_ddG()
+                write_final_doc("Root", ddG, mutations, "Root", ddG, mutations)
             else:
                 foldx_round += 1
                 print("*** This is round " + str(foldx_round) + " for foldX mutations")
                 print(line)
-                trunk = split_line[0]
-                total_ddG = 0
-                mutations = split_line[1].strip("\n")
-                mutations_list = mutations.split(",")
-                print(mutations)
-                print(mutations_list)
-                for mut in mutations_list:
-                    print(mut)
-                    if mut in mutations_run_dictionary:
-                        total_ddG += mutations_run_dictionary[mut]
-                    else:
-                        make_run_file("_formatted_1")
-                        overwrite_mutation_file(mut)
-                        os.system("./foldx3b6 -runfile mutate_runfile.txt")
-                        current_mut_ddG = get_ddG()
-                        total_ddG += current_mut_ddG
-                        mutations_run_dictionary[mut] = current_mut_ddG
-                print("*** DDG: " + str(total_ddG))
-                write_final_doc(trunk, total_ddG, mutations)
-	print(mutations_run_dictionary)
+                parent_trunk = split_line[0]
+                child_trunk = split_line[2]
+                parent_mutations = split_line[1].strip("\n")
+                child_mutations = split_line[3].strip("\n")
+                print("Running parent mutations: " + parent_trunk + " " + parent_mutations)
+                print("Running child mutations: " + child_trunk + " " + child_mutations)
+                parent_ddG = run_mutations(mutations_run_dictionary, parent_mutations)
+                child_ddG = run_mutations(mutations_run_dictionary, child_mutations)
+                print("*** Parent_DDG: " + str(parent_ddG))
+                print("*** Child_DDG: " + str(parent_ddG))
+                write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations)
 
 pdb_name = sys.argv[1]
 main()

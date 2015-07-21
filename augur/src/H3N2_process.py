@@ -169,6 +169,7 @@ class H3N2_filter(flu_filter):
 		}
 		# TAATTCTATTAACC
 		# GTGCATTAATTAAAAA
+		
 		'''
 		# 4KVN
 		self.outgroup = {

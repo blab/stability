@@ -3,7 +3,7 @@
 <PDBS>2YP7_formatted_1.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
-<Stability>Stability.txt;
+<Stability>stability.txt;
 <END>#;
 <OPTIONS>FOLDX_optionfile;
 <END>#;

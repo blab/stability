@@ -26,7 +26,7 @@ class tree_mutations(object):
         # 4WE4 1968 protein structure
         lowerRange = 9
         upperRange = 501
-		'''
+        '''
         '''
         # 4WE5
         lowerRange = 4
@@ -42,6 +42,7 @@ class tree_mutations(object):
         lowerRange = 8
         upperRange = 502
         '''
+        
         # 2YP7
         lowerRange = 8
         upperRange = 503
@@ -105,6 +106,29 @@ class tree_mutations(object):
                     trunk = str(child.trunk)
                     current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
                     mutation_trunk_file.write(trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +"\n")
+                    node_foldx(self, child, current_total_mutations)
+
+        # Go through all the nodes and print the mutations that were needed to get to that node from the root.
+        # Print to "mutation_trunk.txt" trunk and mutation information.
+        def node_foldx(self, node, current_total_mutations):
+            if node.parent_node is None:  # root of the tree
+                print("Root : " + node.aa_seq)
+                for child in node.child_nodes():
+                    print("Child: " + child.aa_seq)
+                    print("Child: " + child.aa_muts)
+                    if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
+                        current_total_mutations = ""
+                        current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
+                        # these are the mutations needed to make the structure equal to the first node
+                        mutation_trunk_file.write("RootMut" + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + "\n")
+                    node_foldx(self, child, "")
+            else:  # internal or leaf node
+                local_parent_mutation = str(current_total_mutations)
+                local_parent_trunk = str(node.trunk)
+                for child in node.child_nodes():
+                    trunk = str(child.trunk)
+                    current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
+                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +"\n")
                     node_foldx(self, child, current_total_mutations)
 
 
