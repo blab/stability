@@ -7,16 +7,11 @@ Luis Serrano and Francois Stricher
 PDB file analysed: 2YP7_trimer_formatted_1.pdb
 Output type: BuildModel
 BuildModel Results Files
-Residue to Mutate ILE 192 has residue index 184
-Residue to Mutate ASN 225 has residue index 217
-Residue to Mutate ILE 230 has residue index 222
-Residue to Mutate SER 199 has residue index 191
-Residue to Mutate SER 45 has residue index 37
 Residue to Mutate GLU 280 has residue index 272
-Residue to Mutate ASP 53 has residue index 45
-Residue to Mutate LYS 472 has residue index 464
+Residue to Mutate ILE 230 has residue index 222
 Residue to Mutate TYR 94 has residue index 86
-Residue to Mutate ASN 312 has residue index 304
+Residue to Mutate ASP 53 has residue index 45
+Residue to Mutate GLY 78 has residue index 70
 
 The Stability of each mutant and their relative wild-type are in Raw_mutant1
 The differences in stability (DDG=DGmutant-DGwt) of each mutant are in Dif_mutant1

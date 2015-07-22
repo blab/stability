@@ -1,9 +1,9 @@
 <TITLE>FOLDX_runscript;
 <JOBSTART>#;
-<PDBS>2YP7_formatted_1.pdb;
+<PDBS>2YP7_trimer_formatted_1.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
-<Stability>stability.txt;
+<Stability>Stability.txt;
 <END>#;
 <OPTIONS>FOLDX_optionfile;
 <END>#;
