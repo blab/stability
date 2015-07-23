@@ -74,6 +74,15 @@ class tree_mutations(object):
             #current_total_mutations = check_multiple_mutations(current_total_mutations)
             return current_total_mutations
 
+        def determine_tip(node):
+            tip = False
+            children = 0
+            for child in node.child_nodes():
+                children += 1
+            if children == 0:
+                tip = True
+            return tip
+
         # Go through all the nodes and print the mutations that were needed to get to that node from the root.
         # Print to "mutation_trunk.txt" trunk and mutation information.
         def node_foldx(self, node, current_total_mutations):
@@ -93,8 +102,9 @@ class tree_mutations(object):
                 local_parent_trunk = str(node.trunk)
                 for child in node.child_nodes():
                     trunk = str(child.trunk)
+                    tip = determine_tip(child)
                     current_total_mutations = update_mutations(child.aa_muts, local_parent_mutation)
-                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +"\n")
+                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + str(tip) + "\n")
                     node_foldx(self, child, current_total_mutations)
 
 

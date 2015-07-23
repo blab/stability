@@ -70,7 +70,7 @@ def print_summary_ddG():
     transition_ddG_file.write("Branch -> Branch transitions = " + str(BB_average) + "\n")
 
 #
-def find_unique_mutations():
+#def find_unique_mutations():
 
 # tracks the main trunk stability values, used to plot main trunk and sidebranches
 def update_stability_pathway(transition_ddG, stability_pathway):
