@@ -4,7 +4,7 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 2YP7_trimer_formatted_1.pdb
+PDB file analysed: 1HA0_trimer_formatted_1.pdb
 Output type: Conformational Stability - Free Energy in kcal/mol
 	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex	Number of Residues
-2YP7_trimer_formatted_1.pdb	1527.56	-687.557	-372.317	-1145.87	-58.4245	1553.54	-1464.65	61.7784	632.498	3016.81	0	0	12.3646	44.163	471.843	-25.3047	0	-44.1367	0	0	4.66993	0	1489
+1HA0_trimer_formatted_1.pdb	1975.34	-610.472	-336.862	-1189.33	-51.3877	1622.94	-1533.39	246.998	639.633	3166.2	0	0	11.2406	68.2534	645.397	-16.5776	0	-46.7694	0	0	4.86335	0	1490

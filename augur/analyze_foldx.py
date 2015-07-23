@@ -113,7 +113,7 @@ def get_translation_info(line, stability_pathway, trunk_identifier):
 
 def main():
     make_run_file("_formatted_1")
-    #os.system("./foldx3b6 -runfile stability_runfile.txt")
+    os.system("./foldx3b6 -runfile stability_runfile.txt")
     stability = get_stability()
     stability_pathway = [stability]
 
@@ -127,11 +127,10 @@ def main():
     transition_ddG_file.close()
     plt.show()
 
-
-transition_ddG = "transition_ddG_mutations.txt"
+pdb_name = sys.argv[1]
+transition_ddG = pdb_name + "_transition_ddG_mutations.txt"
 transition_ddG_file = open(transition_ddG, 'w')
 TT_ddG_list = []
 TB_ddG_list = []
 BB_ddG_list = []
-pdb_name = sys.argv[1]
 main()

@@ -4,14 +4,14 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 2YP7_trimer_formatted_1.pdb
+PDB file analysed: 1HA0_trimer_formatted_1.pdb
 Output type: BuildModel
 BuildModel Results Files
-Residue to Mutate GLU 280 has residue index 272
-Residue to Mutate ILE 230 has residue index 222
-Residue to Mutate TYR 94 has residue index 86
-Residue to Mutate ASP 53 has residue index 45
-Residue to Mutate GLY 78 has residue index 70
+Residue to Mutate GLU 280 has residue index 271
+Residue to Mutate GLY 78 has residue index 69
+Residue to Mutate TYR 94 has residue index 85
+Residue to Mutate ILE 230 has residue index 221
+Residue to Mutate ASN 45 has residue index 36
 
 The Stability of each mutant and their relative wild-type are in Raw_mutant1
 The differences in stability (DDG=DGmutant-DGwt) of each mutant are in Dif_mutant1

@@ -23,9 +23,14 @@ class tree_mutations(object):
 
         # Change depending on protein structure/outgroup you are using
         '''
-        # 4WE4 1968 protein structure
+        # 4WE4 1968 Hong Kong protein structure
         lowerRange = 9
         upperRange = 501
+        '''
+        '''
+        # 1HA0 1968 Aichi protein structure
+        lowerRange = 9
+        upperRange = 502
         '''
         '''
         # 4WE5
