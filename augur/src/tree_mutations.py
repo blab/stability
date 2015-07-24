@@ -15,8 +15,6 @@ class tree_mutations(object):
 
         '''
 
-
-
         # file that mutation and trunk information will be printed to
         mutation_trunk_fileName = "mutation_trunk.txt"
         mutation_trunk_file = open(mutation_trunk_fileName, 'w')
