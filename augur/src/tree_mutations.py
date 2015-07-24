@@ -21,66 +21,6 @@ class tree_mutations(object):
         mutation_trunk_fileName = "mutation_trunk.txt"
         mutation_trunk_file = open(mutation_trunk_fileName, 'w')
 
-        # Change depending on protein structure/outgroup you are using
-        '''
-        # 4WE4 1968 Hong Kong protein structure
-        lowerRange = 9
-        upperRange = 501
-        '''
-        '''
-        # 1HA0 1968 Aichi protein structure
-        lowerRange = 9
-        upperRange = 502
-        '''
-        '''
-        # 4WE5
-        lowerRange = 4
-        upperRange = 496
-        '''
-        '''
-        # 4WE6
-        lowerRange = 38
-        upperRange = 580
-        '''
-        '''
-        # 4WE9
-        lowerRange = 8
-        upperRange = 502
-        '''
-        
-        # 2YP7
-        lowerRange = 8
-        upperRange = 503
-
-
-        # Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501.
-        def check_siterange(mut):
-            site = int(mut[1:len(mut) - 1])
-            #print(mut + "->" + str(site))
-            if lowerRange <= site <= upperRange:
-                return mut + ","
-            else:
-                return ""
-
-        # Checks list of mutations so that only one occurs at each site.
-        # So if in list had S9A, A9K. Would only include S9K in list.
-        def check_multiple_mutations(mutations):
-            mutation_dictionary = {}
-            complete_mutations = ""
-            mutation_list = mutations.split(",")
-            if len(mutation_list) > 1:
-                for mut in mutation_list:
-                    if len(mut) > 0:
-                        site = int(mut[1:len(mut) - 1])
-                        if site not in mutation_dictionary:
-                            mutation_dictionary[site] = mut[0] + mut[len(mut) - 1]
-                        else:
-                            mutation_dictionary[site] = mutation_dictionary.get(site)[0] + mut[len(mut) - 1]
-            for site, mutation in mutation_dictionary.items():
-                complete_mutations += mutation[0] + str(site) + mutation[1] + ","
-            return complete_mutations
-            #print(mutations)
-
         # Add the current nodes mutations to the total list of mutations that were needed to get to that
         # node from the root
         def update_mutations(current_node_mutations, current_total_mutations):
@@ -88,8 +28,7 @@ class tree_mutations(object):
             if str(current_node_mutations) != "":
                 currentMutation = str(current_node_mutations).split(",")
                 for mut in currentMutation:
-                    current_total_mutations += check_siterange(mut)
-            current_total_mutations = check_multiple_mutations(current_total_mutations)
+                    current_total_mutations += mut + ","
             return current_total_mutations
 
         # check if the current node has any children/is a tip

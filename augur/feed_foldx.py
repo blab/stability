@@ -29,12 +29,52 @@ def make_run_file(name_extension):
     runfile = open(runfileName, 'w')
     runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "individual_list.txt"))
 
+# Checks list of mutations so that only one occurs at each site.
+# So if in list had S9A, A9K. Would only include S9K in list.
+def check_multiple_mutations(mutations):
+    mutation_dictionary = {}
+    complete_mutations = ""
+    mutation_list = mutations.split(",")
+    if len(mutation_list) > 1:
+        for mut in mutation_list:
+            if len(mut) > 0:  # to get rid of that last , ""
+                site = int(mut[1:len(mut) - 1])
+                if site not in mutation_dictionary:
+                    mutation_dictionary[site] = mut[0] + mut[len(mut) - 1]
+                else:
+                    mutation_dictionary[site] = mutation_dictionary.get(site)[0] + mut[len(mut) - 1]
+    for site, mutation in mutation_dictionary.items():
+        complete_mutations += mutation[0] + str(site) + mutation[1] + ","
+    return complete_mutations[:len(complete_mutations) - 1]  # to get rid of the comma
+    #print(mutations)
+
+# Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501.
+def check_siterange(mut):
+    lowerRange = 9
+    upperRange = 502
+    missing_lower = 328
+    missing_upper = 333
+    site = int(mut[1:len(mut) - 1])
+    if missing_lower <= site <= missing_upper:
+        return ""
+    elif lowerRange <= site <= upperRange:
+        return mut + ","
+    else:
+        return ""
+
+
 # creates a new file listing all mutations needed for current FoldX run, overwrites the current file
 def overwrite_mutation_file(mutations):
-    mutationFileName = "individual_list.txt"
-    mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
-    mutationFile.write(mutations + ";")
-    mutationFile.close()
+    if mutations != "":
+        mutations_list = mutations.split(",")
+        current_run_mutations = ""
+        for mut in mutations_list:
+                current_run_mutations += check_siterange(mut)  # will have extra comma at end
+        current_run_mutations = check_multiple_mutations(current_run_mutations)  # does not have extra comma
+        mutationFileName = "individual_list.txt"
+        mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
+        mutationFile.write(current_run_mutations + ";")
+        mutationFile.close()
 
 # opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
 def get_ddG():
@@ -49,9 +89,9 @@ def get_ddG():
     # probably want to delete this file so that if it's not found can then write some error
 
 # writes the resulting trunk, ddG and mutation information to a file called "ddG_mutations.txt"
-def write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations):
+def write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations, child_tip):
     finalFile = open(finalFileName, 'a')
-    finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\n")
+    finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\t" + child_tip + "\n")
     finalFile.close()
 
 # sometimes the mutations are not ordered the same in the file, so in order to compare them in the dictionary
@@ -106,7 +146,8 @@ def main():
                 child_ddG = run_mutations(mutations_run_dictionary, child_mutations)
                 print("*** Parent_DDG: " + str(parent_ddG))
                 print("*** Child_DDG: " + str(parent_ddG))
-                write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations)
+                child_tip = split_line[4]
+                write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations, child_tip)
 
 pdb_name = sys.argv[1]
 main()
