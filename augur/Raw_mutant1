@@ -7,5 +7,5 @@ Luis Serrano and Francois Stricher
 PDB file analysed: 2YP7_trimer_formatted_1.pdb
 Output type: BuildModel
 Pdb	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex
-2YP7_trimer_formatted_1_1.pdb	1526.38	-687.032	-374.74	-1146.62	-58.5016	1554.78	-1465.49	61.6507	633.914	3016.68	0	0	12.3646	44.1636	471.828	-25.3189	0	-44.1367	0	0	4.66993	0
-WT_2YP7_trimer_formatted_1_1.pdb	1526.91	-688.998	-376.269	-1147.38	-58.6734	1556.26	-1465.65	61.8319	635.876	3018.9	0	0	12.3646	44.0722	471.979	-25.9642	0	-44.1367	0	0	4.66993	0
+2YP7_trimer_formatted_1_1.pdb	1522.75	-688.054	-374.655	-1147.86	-58.6184	1553.53	-1467.51	62.8812	633.594	3017.11	0	0	12.3646	44.6817	472.512	-25.0911	0	-44.1367	0	0	4.51892	0
+WT_2YP7_trimer_formatted_1_1.pdb	1522.59	-687.477	-375.565	-1146.88	-58.0303	1552.19	-1466.82	62.5792	634.468	3016.43	0	0	12.3646	44.2489	472.017	-25.1603	0	-44.1367	0	0	4.36853	0

@@ -3,16 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/2YP7_trimer_formatted_1.pdb" afterPath="$PROJECT_DIR$/augur/2YP7_trimer_formatted_1.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/2YP7_trimer_formatted_1_1.pdb" afterPath="$PROJECT_DIR$/augur/2YP7_trimer_formatted_1_1.pdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Average_mutant1" afterPath="$PROJECT_DIR$/augur/Average_mutant1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Dif_mutant1" afterPath="$PROJECT_DIR$/augur/Dif_mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/PdbList_mutant1" afterPath="$PROJECT_DIR$/augur/PdbList_mutant1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/H3N2_process.py" afterPath="$PROJECT_DIR$/augur/src/H3N2_process.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/Raw_mutant1" afterPath="$PROJECT_DIR$/augur/Raw_mutant1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/WT_2YP7_trimer_formatted_1.pdb" afterPath="$PROJECT_DIR$/augur/WT_2YP7_trimer_formatted_1.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/WT_2YP7_trimer_formatted_1_1.pdb" afterPath="$PROJECT_DIR$/augur/WT_2YP7_trimer_formatted_1_1.pdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/ddG_mutations.txt" afterPath="$PROJECT_DIR$/augur/ddG_mutations.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/feed_foldx.py" afterPath="$PROJECT_DIR$/augur/feed_foldx.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/individual_list.txt" afterPath="$PROJECT_DIR$/augur/individual_list.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutant1" afterPath="$PROJECT_DIR$/augur/mutant1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutate_runfile.txt" afterPath="$PROJECT_DIR$/augur/mutate_runfile.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mutation_trunk.txt" afterPath="$PROJECT_DIR$/augur/mutation_trunk.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_mutations.py" afterPath="$PROJECT_DIR$/augur/src/tree_mutations.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1110">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="1125">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -54,8 +54,8 @@
       <file leaf-file-name="feed_foldx.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/augur/feed_foldx.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53651685" vertical-offset="1013" max-vertical-offset="2370">
-              <caret line="93" column="174" selection-start-line="93" selection-start-column="174" selection-end-line="93" selection-end-column="174" />
+            <state vertical-scroll-proportion="0.30477527" vertical-offset="1928" max-vertical-offset="2640">
+              <caret line="143" column="57" selection-start-line="143" selection-start-column="57" selection-end-line="143" selection-end-column="57" />
               <folding>
                 <element signature="e#167#176#0" expanded="true" />
               </folding>
@@ -129,8 +129,8 @@
         <option value="$PROJECT_DIR$/augur/repair_format_structure.py" />
         <option value="$PROJECT_DIR$/augur/analyze_foldx.py" />
         <option value="$PROJECT_DIR$/augur/box_whisker.py" />
-        <option value="$PROJECT_DIR$/augur/src/tree_mutations.py" />
         <option value="$PROJECT_DIR$/augur/run_foldxPipeline.py" />
+        <option value="$PROJECT_DIR$/augur/src/tree_mutations.py" />
         <option value="$PROJECT_DIR$/augur/feed_foldx.py" />
       </list>
     </option>
@@ -892,6 +892,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="1125">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/augur/run_foldxPipeline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
@@ -902,20 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1110">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/feed_foldx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53651685" vertical-offset="1013" max-vertical-offset="2370">
-          <caret line="93" column="174" selection-start-line="93" selection-start-column="174" selection-end-line="93" selection-end-column="174" />
+        <state vertical-scroll-proportion="0.30477527" vertical-offset="1928" max-vertical-offset="2640">
+          <caret line="143" column="57" selection-start-line="143" selection-start-column="57" selection-end-line="143" selection-end-column="57" />
           <folding>
             <element signature="e#167#176#0" expanded="true" />
           </folding>

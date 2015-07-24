@@ -50,10 +50,11 @@ class tree_mutations(object):
                     print("Child: " + child.aa_seq)
                     print("Child: " + child.aa_muts)
                     if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
+                        root_child_seq = child.aa_seq
                         current_total_mutations = ""
-                        current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
+                        #current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
                         # these are the mutations needed to make the structure equal to the first node
-                        mutation_trunk_file.write("RootMut" + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + "\n")
+                        mutation_trunk_file.write("Root_seq" + "\t" + root_child_seq + "\n")
                     node_foldx(self, child, "")
             else:  # internal or leaf node
                 local_parent_mutation = str(current_total_mutations)

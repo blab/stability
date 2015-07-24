@@ -116,6 +116,21 @@ def run_mutations(mutations_run_dictionary, mutations):
             mutations_run_dictionary[mutations] = ddG
     return ddG
 
+def align(root_sequence, structure_sequence):
+    list_mutations = []
+    print(structure_sequence + "\n")
+    print(root_sequence + "\n")
+    for index in range(len(root_sequence)):
+        site = index + 9
+        print("site: " + str(site) + " Structure: " + structure_sequence[index] + " Root: " + root_sequence[index])
+        if root_sequence[index] != structure_sequence[index]:
+            mutation = structure_sequence[index] + str(site) + root_sequence[index]
+            print(" Mutation: " + mutation)
+            list_mutations.append(mutation)
+    report_mutations = ','.join(list_mutations)
+    print(report_mutations)
+    return report_mutations
+
 def main():
     foldx_round = 0
     mutations_run_dictionary = {}
@@ -123,15 +138,18 @@ def main():
         if line != "":
             split_line = line.split("\t")
             # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
-            if split_line[0] == "RootMut":
+            if split_line[0] == "Root_seq":
                 print("*** Making mutations needed to make the root equal to the protein structure we are using.")
                 print(line)
-                mutations = split_line[1].strip("\n")
+                child_root_sequence = split_line[1][8:502]
+                structure_sequence = "STATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRKSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQIFLYAQASGRITVSTKRSQQTVIPNIGSRPRVRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTQGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQI"
+                #mutations = split_line[1].strip("\n")
+                mutations = align(child_root_sequence, structure_sequence)
                 overwrite_mutation_file(mutations)
                 make_run_file("_formatted")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
                 ddG = get_ddG()
-                write_final_doc("Root", ddG, mutations, "Root", ddG, mutations)
+                #write_final_doc("Root", ddG, mutations, "Root", ddG, mutations)
             else:
                 foldx_round += 1
                 print("*** This is round " + str(foldx_round) + " for foldX mutations")
