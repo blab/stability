@@ -3,9 +3,9 @@ import sys
 
 
 def main():
-    #os.system("python src/H3N2_process.py -v" + viruses_per_month + " -y" + years)
-    #os.system("python feed_foldx.py " + pdb_name)
-    os.system("python analyze_foldx.py " + pdb_name)
+    os.system("python src/H3N2_process.py -v" + viruses_per_month + " -y" + years)
+    os.system("python feed_foldx.py " + pdb_name)
+    #os.system("python analyze_foldx.py " + pdb_name)
 
 pdb_name = sys.argv[1]
 viruses_per_month = sys.argv[2]

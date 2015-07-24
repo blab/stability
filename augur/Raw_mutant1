@@ -4,8 +4,8 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 1HA0_trimer_formatted_1.pdb
+PDB file analysed: 2YP7_trimer_formatted_1.pdb
 Output type: BuildModel
 Pdb	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex
-1HA0_trimer_formatted_1_1.pdb	1976.81	-610.933	-335.293	-1188.18	-51.4823	1622.6	-1531.07	246.802	637.617	3165.88	0	0	11.2406	68.0797	645.601	-16.618	0	-46.7694	0	0	4.94206	0
-WT_1HA0_trimer_formatted_1_1.pdb	1974.01	-611.157	-337.51	-1189.36	-51.34	1622.77	-1533.38	247.003	639.646	3166.36	0	0	11.2406	68.2231	645.397	-16.5776	0	-46.7694	0	0	4.86375	0
+2YP7_trimer_formatted_1_1.pdb	1525.82	-686.421	-371.023	-1146.34	-57.785	1551.38	-1466.54	61.6805	633.266	3016.1	0	0	12.3646	44.0386	471.919	-25.1249	0	-44.1367	0	0	4.36301	0
+WT_2YP7_trimer_formatted_1_1.pdb	1526.83	-687.444	-374.565	-1145.93	-57.2292	1551.79	-1464.63	61.6099	634.78	3016.88	0	0	12.3646	44.2356	471.712	-25.2565	0	-44.1367	0	0	4.36301	0
