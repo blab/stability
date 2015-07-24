@@ -62,6 +62,24 @@ class tree_mutations(object):
             else:
                 return ""
 
+        # Checks list of mutations so that only one occurs at each site.
+        # So if in list had S9A, A9K. Would only include S9K in list.
+        def check_multiple_mutations(mutations):
+            mutation_dictionary = {}
+            complete_mutations = ""
+            mutation_list = mutations.split(",")
+            if len(mutation_list) > 1:
+                for mut in mutation_list:
+                    if len(mut) > 0:
+                        site = int(mut[1:len(mut) - 1])
+                        if site not in mutation_dictionary:
+                            mutation_dictionary[site] = mut[0] + mut[len(mut) - 1]
+                        else:
+                            mutation_dictionary[site] = mutation_dictionary.get(site)[0] + mut[len(mut) - 1]
+            for site, mutation in mutation_dictionary.items():
+                complete_mutations += mutation[0] + str(site) + mutation[1] + ","
+            return complete_mutations
+            #print(mutations)
 
         # Add the current nodes mutations to the total list of mutations that were needed to get to that
         # node from the root
@@ -71,17 +89,8 @@ class tree_mutations(object):
                 currentMutation = str(current_node_mutations).split(",")
                 for mut in currentMutation:
                     current_total_mutations += check_siterange(mut)
-            #current_total_mutations = check_multiple_mutations(current_total_mutations)
+            current_total_mutations = check_multiple_mutations(current_total_mutations)
             return current_total_mutations
-
-        def determine_tip(node):
-            tip = False
-            children = 0
-            for child in node.child_nodes():
-                children += 1
-            if children == 0:
-                tip = True
-            return tip
 
         # Go through all the nodes and print the mutations that were needed to get to that node from the root.
         # Print to "mutation_trunk.txt" trunk and mutation information.
@@ -102,9 +111,8 @@ class tree_mutations(object):
                 local_parent_trunk = str(node.trunk)
                 for child in node.child_nodes():
                     trunk = str(child.trunk)
-                    tip = determine_tip(child)
                     current_total_mutations = update_mutations(child.aa_muts, local_parent_mutation)
-                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + str(tip) + "\n")
+                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] +"\n")
                     node_foldx(self, child, current_total_mutations)
 
 

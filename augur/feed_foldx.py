@@ -29,28 +29,8 @@ def make_run_file(name_extension):
     runfile = open(runfileName, 'w')
     runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "individual_list.txt"))
 
-# Checks list of mutations so that only one occurs at each site.
-# So if in list had S9A, A9K. Would only include S9K in list.
-def check_multiple_mutations(mutations):
-    mutation_dictionary = {}
-    complete_mutations = ""
-    mutation_list = mutations.split(",")
-    if len(mutation_list) > 1:
-        for mut in mutation_list:
-            if len(mut) > 0:
-                site = int(mut[1:len(mut) - 1])
-                if site not in mutation_dictionary:
-                    mutation_dictionary[site] = mut[0] + mut[len(mut) - 1]
-                else:
-                    mutation_dictionary[site] = mutation_dictionary.get(site)[0] + mut[len(mut) - 1]
-    for site, mutation in mutation_dictionary.items():
-        complete_mutations += mutation[0] + str(site) + mutation[1] + ","
-    return complete_mutations
-    #print(mutations)
-
 # creates a new file listing all mutations needed for current FoldX run, overwrites the current file
 def overwrite_mutation_file(mutations):
-    mutations = check_multiple_mutations(mutations)
     mutationFileName = "individual_list.txt"
     mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
     mutationFile.write(mutations + ";")
@@ -73,6 +53,15 @@ def write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, chi
     finalFile = open(finalFileName, 'a')
     finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\n")
     finalFile.close()
+
+# sometimes the mutations are not ordered the same in the file, so in order to compare them in the dictionary
+# we order them alphabetically in a list so that they are easily compared
+def make_ordered_list(mutations):
+    mutations = mutations[:len(mutations) -1]
+    list_mutations = mutations.split(",")
+    list_mutations = sorted(list_mutations)
+    ordered_mutations = ','.join(list_mutations)
+    return ordered_mutations
 
 def run_mutations(mutations_run_dictionary, mutations):
     ddG = 0.0
