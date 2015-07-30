@@ -1,0 +1,10 @@
+FoldX 3.0 Beta 6.1 (2014)
+by the FoldX Consortium 
+Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
+Luis Serrano and Francois Stricher
+------------------------------------------------------
+
+PDB file analysed: 1HA0_trimer_formatted_1.pdb
+Output type: Conformational Stability - Free Energy in kcal/mol
+	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex	Number of Residues
+1HA0_trimer_formatted_1.pdb	1969.19	-616.009	-337.942	-1190.93	-54.4262	1627.87	-1533.63	249.788	639.842	3162.31	0	0	11.2406	70.9312	646.766	-17.8866	0	-46.7694	0	0	4.80972	0	1490
