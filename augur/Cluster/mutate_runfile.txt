@@ -1,0 +1,11 @@
+<TITLE>FOLDX_runscript;
+<JOBSTART>#;
+<PDBS>2YP7_trimer_formatted_1.pdb;
+<BATCH>#;
+<COMMANDS>FOLDX_commandfile;
+<BuildModel>mutant1,individual_list.txt;
+<END>#;
+<OPTIONS>FOLDX_optionfile;
+<END>#;
+<JOBEND>#;
+<ENDFILE>#;

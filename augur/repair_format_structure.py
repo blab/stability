@@ -19,8 +19,7 @@ def remove_chain_info():
     for line in repaired_file:
         nochain_line = line
         if len(line) > 21:
-            if line[21] == "A" or line[21] == "B":
-                nochain_line = line[:21] + " " + line[22:]
+            nochain_line = line[:21] + " " + line[22:]
         nochain_file.write(nochain_line)
     repaired_file.close()
     nochain_file.close()
@@ -35,19 +34,23 @@ def adjust_sites():
 
     # some of the structures are off from the normal sequence numbering we use
     adjust = 0   # normal
-    adjust = 40  # 4WE6
+    #adjust = 40  # 4WE6
 
     for line in nochain_file:
         newLine = line
         if len(line) > 26:
             current_line_number = int(line[23:26])
+            print(str(current_line_number))
             write_number = current_line_number + adjust
             if foundTER:
                 write_number = current_line_number + offset_number + adjust
             newLine = line[:23] + str(write_number) + line[26:]
         if line[0:3] == "TER":
-            foundTER = True
-            offset_number = current_line_number
+            if foundTER == False:
+                foundTER = True
+                offset_number = current_line_number
+            else:
+                offset_number = write_number
         formatted_file.write(newLine)
     formatted_file.close()
     os.remove(pdb_nochain_name)
