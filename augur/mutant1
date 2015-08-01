@@ -1,0 +1,10 @@
+FoldX 3.0 Beta 6.1 (2014)
+by the FoldX Consortium 
+Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
+Luis Serrano and Francois Stricher
+------------------------------------------------------
+
+PDB file analysed: 2YP7_trimer_formatted.pdb
+Output type: BuildModel
+BuildModel Results Files
+PROBLEM Specified residue not found: G1056R in individual_list.txt

@@ -20,8 +20,10 @@ def check_multiple_mutations(mutations):
     mutation_dictionary = {}
     complete_mutations = ""
     mutation_list = mutations.split(",")
+    print(mutation_list)
     if len(mutation_list) > 1:
         for mut in mutation_list:
+            print(mut)
             if len(mut) > 0:  # to get rid of that last , ""
                 site = int(mut[1:len(mut) - 1])
                 if site not in mutation_dictionary:
@@ -33,17 +35,30 @@ def check_multiple_mutations(mutations):
     return complete_mutations[:len(complete_mutations) - 1]  # to get rid of the comma
     #print(mutations)
 
-# Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501.
+# Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501. A392S
 def check_siterange(mut):
-    lowerRange = 9
-    upperRange = 502
+
+    #2YP7
+    lowerRange = 8
+    upperRange = 503
     missing_lower = 328
     missing_upper = 333
+
+    '''
+    #2HMG
+    lowerRange = 1
+    upperRange = 503
+    '''
+    #print("Mut: " + mut)
     site = int(mut[1:len(mut) - 1])
+
     if missing_lower <= site <= missing_upper:
         return ""
-    elif lowerRange <= site <= upperRange:
-        return mut + ","
+
+    if lowerRange <= site <= upperRange:
+        adjust1 = str(site + upperRange)
+        adjust2 = str(site + (2 * upperRange))
+        return mut + "," + mut[0] + adjust1 + mut[len(mut) - 1] + "," + mut[0] + adjust2 + mut[len(mut) - 1] + ","
     else:
         return ""
 
@@ -53,6 +68,7 @@ def overwrite_mutation_file(mutations):
     if mutations != "":
         mutations_list = mutations.split(",")
         current_run_mutations = ""
+        print(mutations_list)
         for mut in mutations_list:
                 current_run_mutations += check_siterange(mut)  # will have extra comma at end
         current_run_mutations = check_multiple_mutations(current_run_mutations)  # does not have extra comma
@@ -105,8 +121,13 @@ def run_mutations(pdb_name, mutations_run_dictionary, mutations):
 def align(root_sequence, structure_sequence):
     print("Aligning the protein structure sequence to the root sequence")
     list_mutations = []
+    #print("Root")
+    #print(root_sequence)
+    #print("Structure")
+    #print(structure_sequence)
     for index in range(len(root_sequence)):
         site = index + 9
+        #print(root_sequence[index] + " : " + structure_sequence[index])
         if root_sequence[index] != structure_sequence[index]:
             mutation = structure_sequence[index] + str(site) + root_sequence[index]
             list_mutations.append(mutation)
@@ -118,6 +139,7 @@ def main(pdb_name, structure_sequence):
     foldx_round = 0
     mutations_run_dictionary = {}
     for line in mutation_trunk_file:
+        #print(line)
         if line != "":
             split_line = line.split("\t")
             # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
@@ -168,8 +190,20 @@ elif pdb_name == "1HA0_trimer":
     finalFile = open(finalFileName, 'w')
     main(pdb_name, structure_sequence1)
     finalFile.close()
-
-
+elif pdb_name.startswith("4WE9_trimer"):
+    print("Using the 4WE9_trimer structure to calculate ddG for the given tree")
+    structure_sequence1 = "STATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQNSSIGEICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACIRRSNNSFFSRLNWLTHLNFKYPALNVTMPNNEQFDKLYIWGVHHPGTDKDQIFLYAQSSGRITVSTKRSQQAVIPNIGSRPRIRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQSTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGRGQAADLKSTQAAIDQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQI"
+    finalFileName = pdb_name + "_" + "_ddG_mutations.txt"
+    finalFile = open(finalFileName, 'w')
+    main(pdb_name, structure_sequence1)
+    finalFile.close()
+elif pdb_name.startswith("2HMG_trimer"):
+    print("Using the 2HMG_trimer structure to calculate ddG for the given tree")
+    structure_sequence1 = "QDLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSDFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRDEALNNRFQIKG"
+    finalFileName = pdb_name + "_" + "_ddG_mutations.txt"
+    finalFile = open(finalFileName, 'w')
+    main(pdb_name, structure_sequence1)
+    finalFile.close()
 
 
 

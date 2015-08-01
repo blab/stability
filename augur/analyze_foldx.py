@@ -25,6 +25,8 @@ def get_stability(pdb_name):
 # plot the main trunk pathway with annotated mutations
 def plot_trunk_stability(trunk_location, tt_line, mutations):
     plt.plot(trunk_location, tt_line, marker='o', color='blue')
+    plt.ylabel("dG (kcal/mol)")
+    plt.xlabel("number of mutations")
     if pdb_name == "2YP7_trimer":
         plt.annotate(mutations, (trunk_location[1], 7), color='green', size='xx-small', rotation='vertical', verticalalignment='center')
     elif pdb_name == "1HA0_trimer":
@@ -36,41 +38,36 @@ def plot_branch_stability(branch_mutation_position, tb_line, mutations):
     #plt.annotate(mutations, (branch_mutation_position[1], tb_line[1]), color='green', size='xx-small')
 
 # classify the transition between each local parent and child node
-def classify(parent_classify, child_classify):
+# trunk->trunk, trunk->side branch, side branch -> side branch
+def classify1(parent_classification, child_classification):
     transition_classification = ""
-    if parent_classify == "True":
-        if child_classify == "True":
+    if parent_classification == "True":
+        if child_classification == "True":
             transition_classification = "TT"
         else:
             transition_classification = "TB"
-    elif child_classify == "False":
+    elif child_classification == "False":
         transition_classification = "BB"
     else:
         transition_classification = "Root"
     return transition_classification
 
-# add each ddG value to the corresponding list of ddG values
-def add_ddG_classify_list(classification, ddG):
-    if classification == "TT":
-        TT_ddG_list.append(ddG)
-    elif classification == "TB":
-        TB_ddG_list.append(ddG)
-    elif classification == "BB":
-        BB_ddG_list.append(ddG)
+# classify the transition between each local parent and child node
+# trunk->trunk, trunk->branch or branch -> branch, branch -> tips
+def classify2(parent_classification, child_classification, children_present):
+    transition_classification = ""
+    if parent_classification == "True":
+        if child_classification == "True":
+            transition_classification = "TT"
+        else:
+            transition_classification = "BB"
+    elif parent_classification == "False":
+        if children_present == "False":
+            transition_classification = "BB"
+        else:
+            transition_classification = "BC"
+    return transition_classification
 
-# print the averages of the ddG lists for each classification
-def print_summary_ddG():
-    TT_average = np.average(TT_ddG_list)
-    TB_average = np.average(TB_ddG_list)
-    BB_average = np.average(BB_ddG_list)
-    print("ddG averages for different transition types in phylogenetic tree from HA sequences")
-    print("Trunk -> Trunk transitions = " + str(TT_average))
-    print("Trunk -> Branch transitions = " + str(TB_average))
-    print("Branch -> Branch transitions = " + str(BB_average))
-    transition_ddG_file.write("ddG averages for different transition types in phylogenetic tree from HA sequences" + "\n")
-    transition_ddG_file.write("Trunk -> Trunk transitions = " + str(TT_average) + "\n")
-    transition_ddG_file.write("Trunk -> Branch transitions = " + str(TB_average) + "\n")
-    transition_ddG_file.write("Branch -> Branch transitions = " + str(BB_average) + "\n")
 
 # tracks the main trunk stability values, used to plot main trunk and sidebranches
 def update_stability_pathway(transition_ddG, stability_pathway):
@@ -86,43 +83,41 @@ def get_translation_info(line, stability_pathway, trunk_identifier, mutation_ide
     if len(split_line) > 1:
         parent_classification = split_line[0]
         child_classification = split_line[3]
-        transition_classification = classify(parent_classification, child_classification)
-        if transition_classification != "Root":
-            parent_ddG = float(split_line[1])
-            child_ddG = float(split_line[4])
-            transition_ddG = child_ddG - parent_ddG
-            add_ddG_classify_list(transition_classification, transition_ddG)
+        child_present = split_line[6]
+        transition_classification1 = classify1(parent_classification, child_classification)
+        transition_classification2 = classify2(parent_classification, child_classification, child_present)
+        parent_ddG = float(split_line[1])
+        child_ddG = float(split_line[4])
+        transition_ddG = child_ddG - parent_ddG
 
-            parent_mutations = split_line[2]
-            parent_mutations_set = set(parent_mutations.split(","))
-            child_mutations = split_line[5]
-            child_mutations_set = set(child_mutations.split(","))
-            transition_mutations_set = child_mutations_set - parent_mutations_set
-            number_transition_mutations = len(transition_mutations_set)
-            print(current_number_mutations)
-            new_number_mutations = current_number_mutations + number_transition_mutations
-            index = [current_number_mutations, new_number_mutations]
-            if number_transition_mutations != 0:
-                if transition_classification == "TT":
-                    update_stability_pathway(transition_ddG, stability_pathway)
-                    index_stability_pathway = [len(stability_pathway) - 2, len(stability_pathway) - 1]
-                    print(index)
-                    tt_line = [stability_pathway[index_stability_pathway[0]], stability_pathway[index_stability_pathway[1]]]
-                    plot_trunk_stability(index, tt_line, ','.join(transition_mutations_set))
-                    trunk_identifier.append(parent_mutations)
-                    mutation_identifier.append(new_number_mutations)
+        parent_mutations = split_line[2]
+        parent_mutations_set = set(parent_mutations.split(","))
+        child_mutations = split_line[5]
+        child_mutations_set = set(child_mutations.split(","))
+        transition_mutations_set = child_mutations_set - parent_mutations_set
+        number_transition_mutations = len(transition_mutations_set)
+        new_number_mutations = current_number_mutations + number_transition_mutations
+        index = [current_number_mutations, new_number_mutations]
+        if number_transition_mutations != 0:
+            if transition_classification1 == "TT":
+                update_stability_pathway(transition_ddG, stability_pathway)
+                index_stability_pathway = [len(stability_pathway) - 2, len(stability_pathway) - 1]
+                tt_line = [stability_pathway[index_stability_pathway[0]], stability_pathway[index_stability_pathway[1]]]
+                plot_trunk_stability(index, tt_line, ','.join(transition_mutations_set))
+                trunk_identifier.append(parent_mutations)
+                mutation_identifier.append(new_number_mutations)
 
-                elif transition_classification == "TB":
-                    # looks for the side branches that branch off a main trunk node
-                    if parent_mutations in trunk_identifier:
-                        trunk_location = trunk_identifier.index(parent_mutations)
-                        branch_mutation_position = [mutation_identifier[trunk_location], mutation_identifier[trunk_location + 1]]
-                        tb_line = [stability_pathway[trunk_location], stability_pathway[trunk_location] + transition_ddG]
-                        plot_branch_stability(branch_mutation_position, tb_line, ','.join(transition_mutations_set))
+            elif transition_classification1 == "TB":
+                # looks for the side branches that branch off a main trunk node
+                if parent_mutations in trunk_identifier:
+                    trunk_location = trunk_identifier.index(parent_mutations)
+                    branch_mutation_position = [mutation_identifier[trunk_location], mutation_identifier[trunk_location + 1]]
+                    tb_line = [stability_pathway[trunk_location], stability_pathway[trunk_location] + transition_ddG]
+                    plot_branch_stability(branch_mutation_position, tb_line, ','.join(transition_mutations_set))
 
 
-            transition_ddG_file.write(transition_classification + "\t" + str(transition_ddG) + "\t" + ','.join(transition_mutations_set) + "\t" + parent_mutations + "\n")
-            return new_number_mutations
+        transition_ddG_file.write(transition_classification1 + "\t" + transition_classification2 + "\t" + str(transition_ddG) + "\t" + ','.join(transition_mutations_set) + "\t" + parent_mutations + "\n")
+        return new_number_mutations
 
 def main():
     #make_run_file("_formatted_1")
@@ -138,11 +133,6 @@ def main():
     for line in ddG_mutation_file:
         if len(line.split("\t")) > 1:
             current_number_mutations = get_translation_info(line, stability_pathway, trunk_identifier, mutation_identifier, current_number_mutations)
-    print(stability_pathway)
-    print(mutation_identifier)
-    for number in range(len(stability_pathway)):
-        print(str(stability_pathway[number]) + " : " + str(mutation_identifier[number]))
-    print_summary_ddG()
     ddG_mutation_file.close()
     transition_ddG_file.close()
     plt.show()
@@ -150,7 +140,4 @@ def main():
 pdb_name = sys.argv[1]
 transition_ddG = pdb_name + "_transition_ddG_mutations.txt"
 transition_ddG_file = open(transition_ddG, 'w')
-TT_ddG_list = []
-TB_ddG_list = []
-BB_ddG_list = []
 main()
