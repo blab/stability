@@ -24,7 +24,7 @@ def add_ddG_classify1_list(classification, ddG, tt, tb, bb):
         tb.append(ddG)
     elif classification == "BB":
         bb.append(ddG)
-
+'''
 def classify1(file, pdb_name):
     print("ddG averages for the structure, " + pdb_name)
     tt_list_total = []
@@ -55,7 +55,7 @@ def classify1(file, pdb_name):
     print(pdb_name)
     print(tabulate(table, headers=["Classification", "All Sites", "Epitope Sites", "Non-Epitope Sites"]))
     return matrix
-
+'''
 # add each ddG value to the corresponding list of ddG values
 def add_ddG_classify2_list(classification, ddG, tt, tb, bc):
     if classification == "TT":
@@ -100,16 +100,18 @@ def average_pdb(pdb1_matrix, pdb2_matrix, classification_system):
     print("ddG averages from both structures")
     average_matrix = (pdb1_matrix + pdb2_matrix)
     average_matrix /= 2
+    '''
     if classification_system == 1:
         table = [["Trunk -> Trunk", str(average_matrix[0, 0]) + " (n=" + str(64) + ")", str(average_matrix[0, 1]) + " (n=" + str(13) + ")", str(average_matrix[0, 2]) + " (n=" + str(15) + ")"], ["Trunk -> Side Branch", str(average_matrix[1, 0]) + " (n=" + str(248) + ")", str(average_matrix[1, 1]) + " (n=" + str(34) + ")", str(average_matrix[1, 2]) + " (n=" + str(53) + ")"], ["Side Branch -> Side Branch", str(average_matrix[2, 0]) + " (n=" + str(1039) + ")", str(average_matrix[2, 1]) + " (n=" + str(130) + ")", str(average_matrix[2, 2]) + " (n=" + str(212) + ")"]]
     else:
-        table = [["Trunk -> Trunk", str(average_matrix[0, 0]) + " (n=" + str(64) + ")", str(average_matrix[0, 1]) + " (n=" + str(13) + ")", str(average_matrix[0, 2]) + " (n=" + str(15) + ")"], ["Trunk -> Side Branch", str(average_matrix[1, 0]) + " (n=" + str(498) + ")", str(average_matrix[1, 1]) + " (n=" + str(71) + ")", str(average_matrix[1, 2]) + " (n=" + str(115) + ")"], ["Side Branch -> Tip", str(average_matrix[2, 0]) + " (n=" + str(789) + ")", str(average_matrix[2, 1]) + " (n=" + str(93) + ")", str(average_matrix[2, 2]) + " (n=" + str(150) + ")"]]
+    '''
+    table = [["Trunk -> Trunk", str(average_matrix[0, 0]) + " (n=" + str(64) + ")", str(average_matrix[0, 1]) + " (n=" + str(13) + ")", str(average_matrix[0, 2]) + " (n=" + str(15) + ")"], ["Trunk -> Side Branch", str(average_matrix[1, 0]) + " (n=" + str(498) + ")", str(average_matrix[1, 1]) + " (n=" + str(71) + ")", str(average_matrix[1, 2]) + " (n=" + str(115) + ")"], ["Side Branch -> Tip", str(average_matrix[2, 0]) + " (n=" + str(789) + ")", str(average_matrix[2, 1]) + " (n=" + str(93) + ")", str(average_matrix[2, 2]) + " (n=" + str(150) + ")"]]
     print(tabulate(table, headers=["Classification", "All Sites", "Epitope Sites", "Non-Epitope Sites"]))
 
 def main():
     transition_ddG1 = pdb_name1 + "_transition_ddG_mutations.txt"
     transition_ddG_file1 = open(transition_ddG1, 'r')
-    pdb1_summary1 = classify1(transition_ddG_file1, pdb_name1)
+    #pdb1_summary1 = classify1(transition_ddG_file1, pdb_name1)
     transition_ddG_file1.close()
     transition_ddG_file1 = open(transition_ddG1, 'r')
     pdb1_summary2 = classify2(transition_ddG_file1, pdb_name1)
@@ -119,7 +121,7 @@ def main():
     print("\n")
     transition_ddG2 = pdb_name2 + "_transition_ddG_mutations.txt"
     transition_ddG_file2 = open(transition_ddG2, 'r')
-    pdb2_summary1 = classify1(transition_ddG_file2, pdb_name2)
+    #pdb2_summary1 = classify1(transition_ddG_file2, pdb_name2)
     transition_ddG_file2.close()
     transition_ddG_file2 = open(transition_ddG2, 'r')
     pdb2_summary2 = classify2(transition_ddG_file2, pdb_name2)
@@ -127,7 +129,7 @@ def main():
 
     print("\n")
     print("\n")
-    average_pdb(pdb1_summary1, pdb2_summary1, 1)
+    #average_pdb(pdb1_summary1, pdb2_summary1, 1)
     average_pdb(pdb1_summary2, pdb2_summary2, 2)
 
 

@@ -7,20 +7,24 @@ import numpy as np
 
 # plot the main trunk pathway with annotated mutations
 def plot_trunk_stability(trunk_location, tt_line, mutations):
-    plt.plot(trunk_location, tt_line, marker='o', color='blue', linewidth=4)
+    blue_color = [(0.19, 0.65, 0.68)]
+    plt.plot(trunk_location, tt_line, marker='o', color=(0.19, 0.65, 0.68), linewidth=8)
     plt.ylabel("dG (kcal/mol)")
     plt.xlabel("number of mutations")
     epitope = epitope_classify(mutations)
+    '''
     if epitope == "True":
         plt.annotate(mutations, (trunk_location[1], 15), color='green', size='xx-small', rotation='vertical', verticalalignment='center')
     elif epitope == "Receptor":
         plt.annotate(mutations, (trunk_location[1], 15), color='black', size='xx-small', rotation='vertical', verticalalignment='center')
     else:
         plt.annotate(mutations, (trunk_location[1], 15), color='purple', size='xx-small', rotation='vertical', verticalalignment='center')
+    '''
 
 # plot the side branches off the main trunk pathway with annotated mutations
 def plot_branch_stability(branch_mutation_position, tb_line, mutations):
-    plt.plot(branch_mutation_position, tb_line, color='red', marker='v')
+    green_color = [(0.46, 0.74, 0.19)]
+    plt.plot(branch_mutation_position, tb_line, color=(0.46, 0.74, 0.19), marker='v')
     #plt.annotate(mutations, (branch_mutation_position[1], tb_line[1]), color='green', size='xx-small')
 
 def epitope_classify(mutation):

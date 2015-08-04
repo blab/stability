@@ -20,6 +20,7 @@ def get_random_list(length, offset):
         random_list.append(random_number)
     print(random_list)
     return random_list
+
 def plot_box(total_ddG):
     plt.boxplot(total_ddG)
     #plt.show()
