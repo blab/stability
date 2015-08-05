@@ -74,10 +74,10 @@ def average_pdb(pdb1_matrix, pdb2_matrix):
     print(tabulate(table, headers=["Classification", "All Sites", "Epitope Sites", "Non-Epitope Sites"]))
     return combined_matrix
 
-def get_random_list(length):
+def get_random_list(length, offset):
     random_list = []
     for number in range(length):
-        random_number = random.uniform(-0.05, 0.05) + 1
+        random_number = random.uniform(-0.15, 0.15) + offset
         random_list.append(random_number)
     return random_list
 
@@ -86,11 +86,31 @@ def make_plot(matrix, column, classification):
     green_color = (0.46, 0.74, 0.19)
     grey_color = (0.79608, 0.79608, 0.79608)
     red_color = (0.58039, 0.06667, 0.00000)
-    plt.figure()
-    plt.xlim(-0.75, 0.25)
+    plt.figure(figsize=(12, 10))
+    plt.ylabel("ddG \n (kcal/mol)")
     plt.ylim(-5, 5)
-    plt.tick_params(axis='x', which='both', bottom='off', top='off', labelbottom='off')
-    plt.text(1.1, np.average(matrix[column]), str(np.around(np.average(matrix[column]), 4)))
+    #plt.xlim(-1, 11)
+    bp = plt.boxplot(matrix, sym='', whis=0, patch_artist=True)
+    for column in range(len(matrix)):
+        plt.text(column + 1.25, np.average(matrix[column]) - 0.05, str(np.around(np.average(matrix[column]), 4)))
+        plt.plot([column + 0.75, column + 1.25], [np.average(matrix[column]), np.average(matrix[column])], color='red')
+        if column % 3 == 0:
+            plt.scatter(get_random_list(len(matrix[column]), column + 1), matrix[column], color=blue_color, alpha=0.5)
+        elif column %3 == 1:
+            plt.scatter(get_random_list(len(matrix[column]), column + 1), matrix[column], color=grey_color, alpha=0.5)
+        else:
+            plt.scatter(get_random_list(len(matrix[column]), column + 1), matrix[column], color=green_color, alpha=0.5)
+    for box in bp['boxes']:
+        box.set(facecolor=red_color, alpha=0.25)
+    for cap in bp['caps']:
+        cap.set(color='grey')
+    for whisker in bp['whiskers']:
+        whisker.set(color='grey')
+    for median in bp['medians']:
+        median.set(color='purple', linewidth=2)
+    plt.xticks([1,2,3,4,5,6,7,8,9], ["Trunk at\nall sites", "Side Branch at\nall sites", "Tips at\nall sites", "Trunk at\nepitope sites", "Side Branch at\nepitope sites", "Tips at\nepitope sites", "Trunk at\nnon-epitope sites", "Side Branch at\nnon-epitope sites", "Tips at\nnon-epitope sites"])
+    plt.show()
+    '''
     if classification == "Trunk":
         bp = plt.boxplot(matrix[column], sym='', whis=0, patch_artist=True)
         plt.setp(bp['boxes'],facecolor=blue_color, alpha=0.5)
@@ -115,6 +135,7 @@ def make_plot(matrix, column, classification):
         plt.setp(bp['medians'],color='purple')
         plt.scatter(get_random_list(len(matrix[column])), matrix[column], color=red_color, alpha=0.5)
         plt.show()
+    '''
 
 def main():
     transition_ddG1 = pdb_name1 + "_transition_ddG_mutations.txt"
@@ -130,6 +151,8 @@ def main():
 
     combined_matrix = average_pdb(pdb1_matrix, pdb2_matrix)
     make_plot(combined_matrix, 0, "Trunk")
+    '''
+    make_plot(combined_matrix, 0, "Trunk")
     make_plot(combined_matrix, 1, "Side Branch")
     make_plot(combined_matrix, 2, "Tips")
     make_plot(combined_matrix, 3, "Trunk")
@@ -138,7 +161,7 @@ def main():
     make_plot(combined_matrix, 6, "Trunk")
     make_plot(combined_matrix, 7, "Side Branch")
     make_plot(combined_matrix, 8, "Tips")
-
+    '''
 
 
 epitope_mask = "0000000000000000000000000000000000000000000011111011011001010011000100000001001011110011100110101000001100000100000001000110101011111101011010111110001010011111000101011011111111010010001111101110111001010001110011111111000000111110000000101010101110000000000011100100000001011011100000000000001001011000110111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
