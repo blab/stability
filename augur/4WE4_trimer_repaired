@@ -4,6 +4,5 @@ Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
 Luis Serrano and Francois Stricher
 ------------------------------------------------------
 
-PDB file analysed: 2HMG_trimer_repaired.pdb
-Output type: BuildModel
-BuildModel Results Files
+PDB file analysed: 4WE4_trimer_original.pdb
+Output type: RepairPDB

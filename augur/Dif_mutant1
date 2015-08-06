@@ -1,0 +1,10 @@
+FoldX 3.0 Beta 6.1 (2014)
+by the FoldX Consortium 
+Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
+Luis Serrano and Francois Stricher
+------------------------------------------------------
+
+PDB file analysed: 2HMG_trimer_repaired.pdb
+Output type: BuildModel
+Pdb	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex
+2HMG_trimer_repaired_1.pdb	0.627683	0.57613	0.57613	-0.00327516	1.42109e-14	-0.0776882	-0.161913	0.104025	-0.505575	0.119829	0	0	0	1.82573e-05	0	0	0	0	0	0	0	0

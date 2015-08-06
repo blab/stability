@@ -1,6 +1,6 @@
 <TITLE>FOLDX_runscript;
 <JOBSTART>#;
-<PDBS>2YP7_trimer_formatted.pdb;
+<PDBS>2HMG_trimer_repaired.pdb;
 <BATCH>#;
 <COMMANDS>FOLDX_commandfile;
 <BuildModel>mutant1,individual_list.txt;

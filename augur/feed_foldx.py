@@ -37,31 +37,68 @@ def check_multiple_mutations(mutations):
 
 # Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501. A392S
 def check_siterange(mut):
-
+    '''
     #2YP7
     lowerRange = 8
     upperRange = 503
     missing_lower = 328
     missing_upper = 333
-
     '''
-    #2HMG
-    lowerRange = 1
-    upperRange = 503
-    '''
+    if pdb_name.startswith("2HMG"):
+        lowerRange = 1
+        upperRange = 503
+    elif pdb_name.startswith("4WE4"):
+        lowerRange = 9
+        upperRange = 501
     #print("Mut: " + mut)
     site = int(mut[1:len(mut) - 1])
-
+    '''
     if missing_lower <= site <= missing_upper:
         return ""
-
+    '''
     if lowerRange <= site <= upperRange:
-        adjust1 = str(site + upperRange)
-        adjust2 = str(site + (2 * upperRange))
-        return mut + "," + mut[0] + adjust1 + mut[len(mut) - 1] + "," + mut[0] + adjust2 + mut[len(mut) - 1] + ","
+        #adjust1 = str(site + upperRange)
+        #adjust2 = str(site + (2 * upperRange))
+        return mut + ","  #+ mut[0] + adjust1 + mut[len(mut) - 1] + "," + mut[0] + adjust2 + mut[len(mut) - 1] + ","
     else:
         return ""
 
+def include_chain_info(mutations):
+    mutations_list = mutations.split(",")
+    foldx_mutations = ""
+    if pdb_name.startswith("4WE4"):
+        start1 = 9
+        end1 = 329
+        start2 = 330
+        end2 = 501
+        chain1 = "A"
+        chain2 = "U"
+        chain3 = "C"
+        chain4 = "W"
+        chain5 = "E"
+        chain6 = "Y"
+    elif pdb_name.startswith("2HMG"):
+        start1 = 1
+        end1 = 328
+        start2 = 330
+        end2 = 503
+        chain1 = "A"
+        chain2 = "B"
+        chain3 = "C"
+        chain4 = "D"
+        chain5 = "E"
+        chain6 = "F"
+    for mut in mutations_list:
+        site = int(mut[1:len(mut) - 1])
+        if start1 <= site <= end1:
+            site = str(site)
+            foldx_mutations += mut[0] + chain1 + site + mut[len(mut) - 1] + "," + mut[0] + chain3 + site + mut[len(mut) - 1] + "," + mut[0] + chain5 + site + mut[len(mut) - 1] + ","
+        elif start2 <= site <= end2:
+            if pdb_name.startswith("2HMG"):
+                site -= 1  # since it was missing a residue in the middle that we subsequently added? Do we only this when aligning?
+            site = str(site - end1)
+            foldx_mutations += mut[0] + chain2 + site + mut[len(mut) - 1] + "," + mut[0] + chain4 + site + mut[len(mut) - 1] + "," + mut[0] + chain6 + site + mut[len(mut) - 1] + ","
+    return foldx_mutations[:len(foldx_mutations) - 1]
 
 # creates a new file listing all mutations needed for current FoldX run, overwrites the current file
 def overwrite_mutation_file(mutations):
@@ -72,6 +109,7 @@ def overwrite_mutation_file(mutations):
         for mut in mutations_list:
                 current_run_mutations += check_siterange(mut)  # will have extra comma at end
         current_run_mutations = check_multiple_mutations(current_run_mutations)  # does not have extra comma
+        current_run_mutations = include_chain_info((current_run_mutations))  # does not have extra comma
         mutationFileName = "individual_list.txt"
         mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
         mutationFile.write(current_run_mutations + ";")
@@ -125,14 +163,21 @@ def align(root_sequence, structure_sequence):
     #print(root_sequence)
     #print("Structure")
     #print(structure_sequence)
-    for index in range(len(root_sequence)):
-        site = index + 9
+    for root_index in range(len(root_sequence)):
+        structure_index = root_index
+        if pdb_name.startswith("4WE4"):
+            site = root_index + 9
+        elif pdb_name.startswith("2HMG"):
+            site = root_index + 1
+            '''
+            if root_index > 328:
+                structure
+            '''
         #print(root_sequence[index] + " : " + structure_sequence[index])
-        if root_sequence[index] != structure_sequence[index]:
-            mutation = structure_sequence[index] + str(site) + root_sequence[index]
+        if root_sequence[root_index] != structure_sequence[structure_index]:
+            mutation = structure_sequence[structure_index] + str(site) + root_sequence[root_index]
             list_mutations.append(mutation)
     report_mutations = ','.join(list_mutations)
-    print(report_mutations)
     return report_mutations
 
 def main(pdb_name, structure_sequence):
@@ -145,10 +190,16 @@ def main(pdb_name, structure_sequence):
             # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
             if split_line[0] == "Root_seq":
                 print("*** Making mutations needed to make the root equal to the protein structure we are using.")
-                child_root_sequence = split_line[1][8:502]
+                if pdb_name.startswith("4WE4"):
+                    child_root_sequence = split_line[1][8:501]
+                elif pdb_name.startswith("2HMG"):
+                    child_root_sequence = split_line[1][0:503]
+                print(structure_sequence)
+                print()
+                print(child_root_sequence)
                 mutations = align(child_root_sequence, structure_sequence)
                 overwrite_mutation_file(mutations)
-                make_run_file(pdb_name, "_formatted")
+                make_run_file(pdb_name, "_repaired")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
             else:
                 foldx_round += 1
@@ -199,11 +250,17 @@ elif pdb_name.startswith("4WE9_trimer"):
     finalFile.close()
 elif pdb_name.startswith("2HMG_trimer"):
     print("Using the 2HMG_trimer structure to calculate ddG for the given tree")
-    structure_sequence1 = "QDLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSDFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRDEALNNRFQIKG"
+    structure_sequence1 = "QDLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSDFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTRGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRDEALNNRFQIKG"
+    finalFileName = pdb_name + "_" + "_ddG_mutations.txt"
+    finalFile = open(finalFileName, 'w')
+    main(pdb_name, structure_sequence1)
+    finalFile.close()
+elif pdb_name.startswith("4WE4_trimer"):
+    print("Using the 4WE4_trimer structure to calculate ddG for the given tree")
+    structure_sequence1 = "STATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQ"
     finalFileName = pdb_name + "_" + "_ddG_mutations.txt"
     finalFile = open(finalFileName, 'w')
     main(pdb_name, structure_sequence1)
     finalFile.close()
 
-
-
+                          #"QKLPGNDNSTATLCLGHHAVPNGTLVKTITNDQIEVTNATELVQSSSTGRICDSPHRILDGKNCTLIDALLGDPHCDGFQNKEWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFINEDFNWTGVAQDGGSYACKRGSVNSFFSRLNWLHKSEYKYPALNVTMPNNGKFDKLYIWGVHHPSTDRDQTSLYVRASGRVTVSTKRSQQTVTPNIGSRPWVRGLSSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRNGKSSIMRSDAPIGTCSSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRLIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKG"
