@@ -9,8 +9,9 @@ import numpy as np
 def plot_trunk_stability(trunk_location, tt_line, mutations):
     blue_color = [(0.19, 0.65, 0.68)]
     plt.plot(trunk_location, tt_line, marker='o', color=(0.19, 0.65, 0.68), linewidth=8)
-    plt.ylabel("dG (kcal/mol)")
+    plt.ylabel("Stability Change (-ddG)")
     plt.xlabel("number of mutations")
+    plt.ylim(-15, 5)
     epitope = epitope_classify(mutations)
     '''
     if epitope == "True":
@@ -24,7 +25,8 @@ def plot_trunk_stability(trunk_location, tt_line, mutations):
 # plot the side branches off the main trunk pathway with annotated mutations
 def plot_branch_stability(branch_mutation_position, tb_line, mutations):
     green_color = [(0.46, 0.74, 0.19)]
-    plt.plot(branch_mutation_position, tb_line, color=(0.46, 0.74, 0.19), marker='v')
+    grey_color = (0.79608, 0.79608, 0.79608)
+    plt.plot(branch_mutation_position, tb_line, color=grey_color, marker='v')
     #plt.annotate(mutations, (branch_mutation_position[1], tb_line[1]), color='green', size='xx-small')
 
 def epitope_classify(mutation):
@@ -66,7 +68,7 @@ def get_translation_info(line1, line2, stability_pathway, trunk_identifier, muta
             if transition_classification == "TT":
                 update_stability_pathway(average_ddG, stability_pathway)
                 index_stability_pathway = [len(stability_pathway) - 2, len(stability_pathway) - 1]
-                tt_line = [stability_pathway[index_stability_pathway[0]], stability_pathway[index_stability_pathway[1]]]
+                tt_line = [(stability_pathway[index_stability_pathway[0]]) * -1, (stability_pathway[index_stability_pathway[1]]) * -1]
                 plot_trunk_stability(index, tt_line, transition_mutations)
                 trunk_identifier.append(parent_mutations)
                 mutation_identifier.append(new_number_mutations)
@@ -76,7 +78,7 @@ def get_translation_info(line1, line2, stability_pathway, trunk_identifier, muta
                 if parent_mutations in trunk_identifier:
                     trunk_location = trunk_identifier.index(parent_mutations)
                     branch_mutation_position = [mutation_identifier[trunk_location], mutation_identifier[trunk_location + 1]]
-                    tb_line = [stability_pathway[trunk_location], stability_pathway[trunk_location] + average_ddG]
+                    tb_line = [(stability_pathway[trunk_location]) * -1, (stability_pathway[trunk_location] + average_ddG) * -1]
                     plot_branch_stability(branch_mutation_position, tb_line, transition_mutations)
 
 
