@@ -41,11 +41,12 @@ def main(file_part):
     print("Running...")
     env_show()
     sys.stdout.flush()
-    print("Running feed_foldx.py for 2YP7_trimer... output to 2YP7_trimer_ddG_mutations.txt")
-    os.system("srun -n 1 -c 1 -t 24:00:00 ../../usr/bin/python feed_foldx.py 2YP7_trimer " + file_part)
-    print("Running feed_foldx.py for 1HA0_trimer... output to 1HA0_trimer_ddG_mutations.txt")
-    os.system("srun -n 1 -c 1 -t 24:00:00 ../../usr/bin/python feed_foldx.py 1HA0_trimer " + file_part)
-
+    print("Running feed_foldx.py for 2HMG_trimer... output to 4WE4_trimer_ddG_mutations.txt")
+    os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 4WE4_trimer " + file_part)
+    
+    print("Running feed_foldx.py for 2YP7_trimer... output to 2HMG_trimer_ddG_mutations.txt")
+    os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 2HMG_trimer " + file_part)
+	
 
  
  
