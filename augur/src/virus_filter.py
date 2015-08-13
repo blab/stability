@@ -57,7 +57,7 @@ class virus_filter(object):
 			self.filter_length(self.min_length)
 			print len(self.viruses), "after filtering by length >=", self.min_length
 
-		self.filter_date()
+		#self.filter_date()
 		print len(self.viruses), "after filtering for precise dates"
 		self.sort_length()
 		if prepend_strains is not None:
