@@ -37,12 +37,23 @@ def check_multiple_mutations(mutations):
 
 # Need to limit mutation sites to range of protein structure, so for 4WE4 to sites 9-501. A392S
 def check_siterange(mut):
-    '''
-    #2YP7
-    lowerRange = 8
-    upperRange = 503
+    # compiled from 2YP7 and 1HA0 to run the same residues
+    lowerRange = 9
+    upperRange = 502
     missing_lower = 328
     missing_upper = 333
+    '''
+    if pdb_name.startswith("2YP7"):
+    	#2YP7
+    	lowerRange = 8
+    	upperRange = 503
+    	missing_lower = 328
+    	missing_upper = 333
+    elif pdb_name.startswith("1HA0"):
+    	#1HA0
+    	lowerRange = 9
+    	upperRange = 502
+	'''
     '''
     if pdb_name.startswith("2HMG"):
         lowerRange = 1
@@ -50,13 +61,12 @@ def check_siterange(mut):
     elif pdb_name.startswith("4WE4"):
         lowerRange = 9
         upperRange = 501
+    '''
     #print("Mut: " + mut)
     site = int(mut[1:len(mut) - 1])
-    '''
     if missing_lower <= site <= missing_upper:
         return ""
-    '''
-    if lowerRange <= site <= upperRange:
+    elif lowerRange <= site <= upperRange:
         #adjust1 = str(site + upperRange)
         #adjust2 = str(site + (2 * upperRange))
         return mut + ","  #+ mut[0] + adjust1 + mut[len(mut) - 1] + "," + mut[0] + adjust2 + mut[len(mut) - 1] + ","
