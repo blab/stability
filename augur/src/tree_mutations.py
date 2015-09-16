@@ -44,24 +44,29 @@ class tree_mutations(object):
         def node_foldx(self, node, current_total_mutations):
             if node.parent_node is None:  # root of the tree
                 print("Root : " + node.aa_seq)
+                print("Root Hash: " + str(node))
                 for child in node.child_nodes():
                     print("Child: " + child.aa_seq)
                     print("Child: " + child.aa_muts)
+                    print("Child Hash: " + str(child))
                     if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
                         root_child_seq = child.aa_seq
+                        root_child_hash = str(child)
                         current_total_mutations = ""
                         #current_total_mutations = update_mutations(child.aa_muts, current_total_mutations)
                         # these are the mutations needed to make the structure equal to the first node
-                        mutation_trunk_file.write("Root_seq" + "\t" + root_child_seq + "\n")
+                        mutation_trunk_file.write("Root_seq" + "\t" + root_child_seq + "\t" + "Root_hash" + "\t" + root_child_hash + "\n")
                     node_foldx(self, child, "")
             else:  # internal or leaf node
                 local_parent_mutation = str(current_total_mutations)
                 local_parent_trunk = str(node.trunk)
+                local_parent_hash = str(node)
                 for child in node.child_nodes():
                     trunk = str(child.trunk)
                     tip = determine_tip(child)
+                    hash = str(child)
                     current_total_mutations = update_mutations(child.aa_muts, local_parent_mutation)
-                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + "\t" + str(tip) +"\n")
+                    mutation_trunk_file.write(local_parent_trunk + "\t" + local_parent_mutation[:len(local_parent_mutation) - 1] + "\t" + local_parent_hash + "\t" + trunk + "\t" + current_total_mutations[:len(current_total_mutations) - 1] + "\t" + hash + "\t" + str(tip) +"\n")
                     node_foldx(self, child, current_total_mutations)
 
 
