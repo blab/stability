@@ -39,14 +39,41 @@ Uses [FastTree](http://meta.microbesonline.org/fasttree/) to get a starting tree
 
 Reroot the tree based on outgroup strain, collapse nodes with zero-length branches, ladderize the tree and collect strain metadata.
 
-### [Tree Mutations](src/tree_mutations.py)
+#### [Tree Mutations](src/tree_mutations.py)
 
-Iterates through the tree in preorder traversal, reporting the mutations that were needed to get from the root to each node in the tree. Prints mutations and whether the node is a trunk or not to [`mutation_trunk.txt`](mutation_trunk.txt).
+Iterates through the tree in preorder traversal, reporting the mutations that were needed to get from the root to each node in the tree. Uses Beijing 1992 sequence as outgroup. Prints information to [`mutation_trunk.txt`](mutation_trunk.txt). On the first line prints information about the first child of the root that is not the outgroup.
+	
+	Root Sequence \t Root Hash
 
+In a preorder traversal prints the following information about each node and child pair
+	
+	Node Trunk \t Node Mutations \t Node Hash \t Child Trunk \t Child Mutations \t Child Hash \t Child Tip
+	
 ### [Streamline](src/streamline.py)
 
 Prep and remove cruft from data files for [auspice](../auspice/) visualization.
 
+## FoldX
+
+To determine the change in stability caused by mutations, the protein design program, [FoldX](http://foldxsuite.crg.eu/) is used. It uses an empirical force field to calculate changes in \delta G based on a pdb structure of the HA protein.
+
+###  [Feed FoldX](feed_foldx.py)
+
+Gives mutation information printed by Tree Mutations to [`mutation_trunk.txt`](mutation_trunk.txt) to determine changes in stability. Must specify the name of the pdb structure file to use and then will align the structure to the root sequence given by [`mutation_trunk.txt`](mutation_trunk.txt). Then can calculate all changes in stability from this root sequence for all mutations given by [`mutation_trunk.txt`](mutation_trunk.txt).
+
+### Cluster
+
+Scripts to run on the FHCRC rhino cluster have been created
+
+#### [Run Pipeline](foldx_cluster_runpipeline.py)
+
+Calls ['split_fille.py](split_file.py) to split the list of mutations into a specified number of files. Then calls ['feed_foldx.py](feed_foldx.py) on structures 1HA0 and 2YP7 for each of the split files. 
+
+#### [Bash Script](foldx_cluster_bash.sh)
+
+This bash script should be run from the command line while on the cluster, can change how many files to split the list of mutations into. Calls ['foldx_cluster_runpipeline.py](foldx_cluster_runpipeline.py)
+
+####
 
 ## Develop
 

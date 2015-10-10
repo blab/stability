@@ -3,7 +3,7 @@ import os
 import math
 
 def split_file(file_name, num_split_files):
-    #file_name = "test_split_file.txt"
+    
     split_file = open(file_name, 'r')
 
     # determine number of lines in the file
@@ -21,7 +21,7 @@ def split_file(file_name, num_split_files):
     lines_in_new_file = 0
     root_line = split_file.readline()  # get the root line that needs to be put in each new file
     files_made = 1
-    current_file = open("test_split_file_" + str(files_made) + ".txt", 'w')
+    current_file = open("/current_runs_foldx/" + str(files_made) + "_" + file_name, 'w')
     current_file.write(root_line)
     for line in split_file:
         if files_made != num_split_files:
@@ -33,7 +33,7 @@ def split_file(file_name, num_split_files):
                     lines_in_new_file = 0
                     if files_made != num_split_files:  # haven't made the desired number of files yet
                         files_made += 1
-                        current_file = open("test_split_file_" + str(files_made) + ".txt", 'w')
+                        current_file = open("/current_runs_foldx/" + str(files_made) + "_" + file_name, 'w')
                         current_file.write(root_line)
 
         else:  # on the last file, write every line to this file
