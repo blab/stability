@@ -76,6 +76,15 @@ def check_siterange(mut):
 def include_chain_info(mutations):
     mutations_list = mutations.split(",")
     foldx_mutations = ""
+    if pdb_name.startswith("1HA0"):
+        chain1 = "A"
+        chain2 = "M"
+        chain3 = "Y"
+    elif pdb_name.startswith("2YP7"):
+        chain1 = "A"
+        chain2 = "P"
+        chain3 = "E"
+    '''
     if pdb_name.startswith("4WE4"):
         start1 = 9
         end1 = 329
@@ -98,6 +107,7 @@ def include_chain_info(mutations):
         chain4 = "D"
         chain5 = "E"
         chain6 = "F"
+    
     for mut in mutations_list:
         site = int(mut[1:len(mut) - 1])
         if start1 <= site <= end1:
@@ -109,7 +119,12 @@ def include_chain_info(mutations):
             site = str(site - end1)
             foldx_mutations += mut[0] + chain2 + site + mut[len(mut) - 1] + "," + mut[0] + chain4 + site + mut[len(mut) - 1] + "," + mut[0] + chain6 + site + mut[len(mut) - 1] + ","
     return foldx_mutations[:len(foldx_mutations) - 1]
-
+	'''
+    for mut in mutations_list:
+        site = mut[1:len(mut) - 1]
+        foldx_mutations += mut[0] + chain1 + site + mut[len(mut) - 1] + "," + mut[0] + chain2 + site + mut[len(mut) - 1] + "," + mut[0] + chain3 + site + mut[len(mut) - 1] + ","
+    return foldx_mutations[:len(foldx_mutations) - 1]
+	
 # creates a new file listing all mutations needed for current FoldX run, overwrites the current file
 def overwrite_mutation_file(mutations):
     if mutations != "":
@@ -138,9 +153,9 @@ def get_ddG(pdb_name):
     # probably want to delete this file so that if it's not found can then write some error
 
 # writes the resulting trunk, ddG and mutation information to a file called "ddG_mutations.txt"
-def write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations, child_tip):
+def write_final_doc(parent_trunk, parent_ddG, parent_mutations, parent_hash, child_trunk, child_ddG, child_mutations, child_hash, child_tip):
     finalFile = open(finalFileName, 'a')
-    finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\t" + child_tip + "\n")
+    finalFile.write(parent_trunk + "\t" + str(parent_ddG) + "\t" + parent_mutations + "\t" + parent_hash + "\t"+ child_trunk + "\t" + str(child_ddG) + "\t" + child_mutations + "\t" + child_hash + "\t" + child_tip + "\n")
     finalFile.close()
 
 # sometimes the mutations are not ordered the same in the file, so in order to compare them in the dictionary
@@ -169,20 +184,19 @@ def run_mutations(pdb_name, mutations_run_dictionary, mutations):
 def align(root_sequence, structure_sequence):
     print("Aligning the protein structure sequence to the root sequence")
     list_mutations = []
-    #print("Root")
-    #print(root_sequence)
-    #print("Structure")
-    #print(structure_sequence)
     for root_index in range(len(root_sequence)):
         structure_index = root_index
+        site = root_index + 9  # for both 1HA0 and 2YP7
+        '''
         if pdb_name.startswith("4WE4"):
             site = root_index + 9
         elif pdb_name.startswith("2HMG"):
             site = root_index + 1
-            '''
+        '''
+        '''
             if root_index > 328:
                 structure
-            '''
+        '''
         #print(root_sequence[index] + " : " + structure_sequence[index])
         if root_sequence[root_index] != structure_sequence[structure_index]:
             mutation = structure_sequence[structure_index] + str(site) + root_sequence[root_index]
@@ -200,10 +214,14 @@ def main(pdb_name, structure_sequence):
             # this makes the first mutations needed to make the root == structure so that all subsequent mutations are found
             if split_line[0] == "Root_seq":
                 print("*** Making mutations needed to make the root equal to the protein structure we are using.")
+                '''
                 if pdb_name.startswith("4WE4"):
                     child_root_sequence = split_line[1][8:501]
                 elif pdb_name.startswith("2HMG"):
                     child_root_sequence = split_line[1][0:503]
+                '''
+                child_root_sequence = split_line[1][8:502]  #for 2YP7 and 1HA0
+                child_root_hash = split_line[3]
                 print(structure_sequence)
                 print()
                 print(child_root_sequence)
@@ -211,35 +229,34 @@ def main(pdb_name, structure_sequence):
                 overwrite_mutation_file(mutations)
                 make_run_file(pdb_name, "_repaired")
                 os.system("./foldx3b6 -runfile mutate_runfile.txt")
+                finalFile = open(finalFileName, 'a')
+                finalFile.write("Root" + "\t" + child_root_hash + "\n")
+                finalFile.close()
             else:
                 foldx_round += 1
                 print("*** This is round " + str(foldx_round) + " for foldX mutations")
                 parent_trunk = split_line[0]
-                child_trunk = split_line[2]
+                child_trunk = split_line[3]
                 parent_mutations = split_line[1].strip("\n")
-                child_mutations = split_line[3].strip("\n")
+                child_mutations = split_line[4].strip("\n")
                 print("Running parent mutations: " + parent_trunk + " " + parent_mutations)
                 print("Running child mutations: " + child_trunk + " " + child_mutations)
                 parent_ddG = run_mutations(pdb_name, mutations_run_dictionary, parent_mutations)
                 child_ddG = run_mutations(pdb_name, mutations_run_dictionary, child_mutations)
                 print("*** Parent_DDG: " + str(parent_ddG))
                 print("*** Child_DDG: " + str(parent_ddG))
-                child_tip = split_line[4]
-                write_final_doc(parent_trunk, parent_ddG, parent_mutations, child_trunk, child_ddG, child_mutations, child_tip)
+                parent_hash = split_line[2]
+                child_hash = split_line[5]
+                child_tip = split_line[6]
+                write_final_doc(parent_trunk, parent_ddG, parent_mutations, parent_hash, child_trunk, child_ddG, child_mutations, child_hash, child_tip)
 
 # assumes that the PDB file has already been repaired
 print("Using FoldX to estimate ddG values for trunk vs non-trunk mutations from the tree generated by nextflu")
 pdb_name = sys.argv[1]
 part_of_file = sys.argv[2]
-run_on_cluster = sys.argv[3]
-
-if run_on_cluster == "Y":
-	cluster_extra_name = part_of_file + "_"
-else:
-	cluster_extra_name = ""
 
 # list of mutation and trunk information from the tree
-mutation_trunk_fileName = cluster_extra_name + "mutation_trunk.txt"
+mutation_trunk_fileName = part_of_file + "_mutation_trunk.txt"
 mutation_trunk_file = open(mutation_trunk_fileName, 'r')
 
 
@@ -261,7 +278,7 @@ elif pdb_name.startswith("4WE4_trimer"):
     structure_sequence1 = "STATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQ"
 # final output file where mutation, trunk and ddG information will be stored   
 
-finalFileName = pdb_name + "_" + cluster_extra "ddG_mutations.txt"
+finalFileName = part_of_file + "_" + pdb_name + "_" + "ddG_mutations.txt"
 finalFile = open(finalFileName, 'w')
 main(pdb_name, structure_sequence1)
 finalFile.close()

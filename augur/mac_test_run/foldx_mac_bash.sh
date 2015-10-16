@@ -1,0 +1,1 @@
+python foldx_mac_runpipeline.py 20

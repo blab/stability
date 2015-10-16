@@ -41,13 +41,13 @@ def main(number_of_files):
     print("Running...")
     env_show()
     sys.stdout.flush()
-    os.system("srun -n 1 -c 1 -t 1:00:00 ../../usr/bin/python split_file.py mutation_trunk.txt " + number_of_files)
+    os.system("srun -n 1 -c 1 -t 1:00:00 ../../usr/bin/python split_file.py 0_mutation_trunk.txt " + number_of_files)
     for num in range(number_of_files):
-        print("Running feed_foldx.py for 1HA0_trimer... output to 1HA0_trimer_ddG_mutations_file#.txt")
-        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 1HA0_trimer " + str(num) + " Y")
+        print("Running feed_foldx.py for 1HA0_trimer... output to " + str(num) + "_1HA0_trimer_ddG_mutations.txt")
+        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 1HA0_trimer " + str(num))
 
-        print("Running feed_foldx.py for 2YP7_trimer... output to 2YP7_trimer_ddG_mutations_file#.txt")
-        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 2YP7_trimer " + str(num) + " Y")
+        print("Running feed_foldx.py for 2YP7_trimer... output to " + str(num) + "_2YP7_trimer_ddG_mutations.txt")
+        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 2YP7_trimer " + str(num))
 	
 
  
