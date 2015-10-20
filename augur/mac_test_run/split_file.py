@@ -1,19 +1,29 @@
 import sys
 import os
-import math
+import shutil
 
 '''
 Opens the original file given. Splits the file into specified number of files. Keeps the 
 first line in the original file in all subsequent split files. 
 
 '''
+# moves all files needed to run foldx into directory
+def move_foldx_files(destination_path):
+    essential_files_directory = os.getcwd() + "/essential_foldx_files"
+    essential_files = os.listdir(essential_files_directory)
+    for file in essential_files:
+        file_name = os.path.join(essential_files_directory, file)
+        if os.path.isfile(file_name):
+            shutil.copy(file_name, destination_path)
 
+# makes split folder and includes all neccesary files in new folder
 def make_file(path_total_folder, file_name):
     folder_name = file_name[0] + "_foldx_split"
     current_path = path_total_folder
     check_path = current_path + "/" + folder_name
     if not os.path.exists(check_path):
         os.mkdir(check_path)
+        move_foldx_files(check_path)
     file = open(path_total_folder + "/" + folder_name + "/" + file_name, 'w')
     return file
 
@@ -25,8 +35,6 @@ def split_file(file_name, num_split_files):
             folder_number = int(folder_name[len(folder_name) - 1]) + 1
             folder_name = folder_name[:len(folder_name) - 1] + str(folder_number)
             total_folder = total_folder[:len(total_folder) - 1] + str(folder_number)
-
-            print("total_folder: " + total_folder)
     os.mkdir(total_folder)
 
 
