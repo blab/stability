@@ -2,12 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/1HA0_trimer_repaired.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/2YP7_trimer_repaired.pdb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/feed_foldx.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/foldx3b6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/rotabase.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mac_test_run/split_file.py" afterPath="$PROJECT_DIR$/augur/mac_test_run/split_file.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/1HA0_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/1_mutation_trunk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/2YP7_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/feed_foldx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/foldx3b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/rotabase.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/1HA0_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/2YP7_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/2_mutation_trunk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/feed_foldx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/foldx3b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/2_foldx_split/rotabase.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/1HA0_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/2YP7_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/3_mutation_trunk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/feed_foldx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/foldx3b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/3_foldx_split/rotabase.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/1HA0_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/2YP7_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/4_mutation_trunk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/feed_foldx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/foldx3b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/4_foldx_split/rotabase.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/1HA0_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/2YP7_trimer_repaired.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/5_mutation_trunk.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/feed_foldx.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/foldx3b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/5_foldx_split/rotabase.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mac_test_run/essential_foldx_files/feed_foldx.py" afterPath="$PROJECT_DIR$/augur/mac_test_run/essential_foldx_files/feed_foldx.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/foldx_cluster_runpipeline.py" afterPath="$PROJECT_DIR$/augur/foldx_cluster_runpipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py" afterPath="$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stability.iws" />
@@ -32,10 +59,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="split_file.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="split_file.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/mac_test_run/split_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17910448" vertical-offset="30" max-vertical-offset="1350">
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -47,8 +74,28 @@
       <file leaf-file-name="foldx_mac_runpipeline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feed_foldx.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/augur/mac_test_run/essential_foldx_files/feed_foldx.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3433" max-vertical-offset="4425">
+              <caret line="259" column="64" selection-start-line="259" selection-start-column="64" selection-end-line="259" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foldx_cluster_runpipeline.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/augur/foldx_cluster_runpipeline.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52238804" vertical-offset="0" max-vertical-offset="1005">
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -92,6 +139,10 @@
         <option value="$PROJECT_DIR$/augur/foldx_mac_runpipeline.py" />
         <option value="$PROJECT_DIR$/augur/split_file.py" />
         <option value="$PROJECT_DIR$/augur/mac_test_run/split_file.py" />
+        <option value="$PROJECT_DIR$/augur/mac_test_run/multiple_runs_0/1_foldx_split/feed_foldx.py" />
+        <option value="$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py" />
+        <option value="$PROJECT_DIR$/augur/mac_test_run/essential_foldx_files/feed_foldx.py" />
+        <option value="$PROJECT_DIR$/augur/foldx_cluster_runpipeline.py" />
       </list>
     </option>
   </component>
@@ -671,21 +722,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/mac_test_run/split_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17910448" vertical-offset="30" max-vertical-offset="1350">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1350">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/mac_test_run/essential_foldx_files/feed_foldx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3433" max-vertical-offset="4425">
+          <caret line="259" column="64" selection-start-line="259" selection-start-column="64" selection-end-line="259" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/mac_test_run/foldx_mac_runpipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/foldx_cluster_runpipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52238804" vertical-offset="0" max-vertical-offset="1005">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -6,4 +6,4 @@
 #SBATCH --mail-type=COMPLETED
 #SBATCH --mail-user=charltonsee@ymail.com
 
-python foldx_cluster_runpipeline.py 20
+python foldx_cluster_runpipeline.py 20 0∑

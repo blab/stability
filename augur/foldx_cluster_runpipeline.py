@@ -42,16 +42,18 @@ def main(number_of_files):
     env_show()
     sys.stdout.flush()
     os.system("srun -n 1 -c 1 -t 1:00:00 ../../usr/bin/python split_file.py 0_mutation_trunk.txt " + number_of_files)
-    for num in range(number_of_files):
+    directory = os.getcwd() + "/multiple_runs_" + run_number + "/" + str(num) + "_foldx_split/"
+    for num in range(int(number_of_files)):
+        num += 1
         print("Running feed_foldx.py for 1HA0_trimer... output to " + str(num) + "_1HA0_trimer_ddG_mutations.txt")
-        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 1HA0_trimer " + str(num))
+        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python " + directory + "feed_foldx.py 1HA0_trimer " + str(num) + " " + run_number)
 
         print("Running feed_foldx.py for 2YP7_trimer... output to " + str(num) + "_2YP7_trimer_ddG_mutations.txt")
-        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python feed_foldx.py 2YP7_trimer " + str(num))
-	
+        os.system("srun -n 1 -c 1 -t 72:00:00 ../../usr/bin/python " + directory + "feed_foldx.py 2YP7_trimer " + str(num) + " " + run_number)
 
  
  
 if __name__ == '__main__':
     number_of_files = sys.argv[1]
+    run_number = sys.argv[2]
     sys.exit(main(number_of_files))
