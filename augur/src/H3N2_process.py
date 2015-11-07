@@ -20,7 +20,7 @@ receptor_binding_sites = map(lambda x:x+sp-1, [145, 155, 156, 158, 159, 189, 193
 virus_config.update({
 	# data source and sequence parsing/cleaning/processing
 	'virus':'H3N2',
-	'alignment_file':'data/H3N2_IRD_sequence_clean.fasta',  # data/H3N2_gisaid_epiflu_sequence.fasta
+	'alignment_file':'data/H3N2_IRD_sequence_october_clean.fasta',  # data/H3N2_gisaid_epiflu_sequence.fasta
 	#data/H3N2_IRD_sequence_clean.fasta
 	'fasta_fields':{0:'strain', 1:'isolate_id', 3:'passage', 5:'date', 7:'lab', 8:"accession"},
 	'outgroup':'A/Beijing/32/1992',
