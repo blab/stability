@@ -43,13 +43,18 @@ class tree_mutations(object):
         # Print to "mutation_trunk.txt" trunk and mutation information.
         def node_foldx(self, node, current_total_mutations):
             if node.parent_node is None:  # root of the tree
-                print("Root : " + node.aa_seq)
-                print("Root Hash: " + str(node))
+                print("Ultimate Root : " + node.aa_seq)
+                print("Ultimate Root Hash: " + str(node))
+                print(len(node.child_nodes()))
                 for child in node.child_nodes():
-                    print("Child: " + child.aa_seq)
-                    print("Child: " + child.aa_muts)
-                    print("Child Hash: " + str(child))
-                    if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
+                    print("Mutations!!: " + child.aa_muts)
+                    print("Hash: " + str(child))
+                    print(len(child.child_nodes()))
+                    if len(child.child_nodes()) != 0:
+                    #if child.aa_muts != "":  # only want to print out root mutations if not the outgroup
+                        print("Root Child: " + child.aa_seq)
+                        print("Root Child: " + child.aa_muts)
+                        print("Root Child Hash: " + str(child))
                         root_child_seq = child.aa_seq
                         root_child_hash = str(child)
                         current_total_mutations = ""
