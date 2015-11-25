@@ -66,6 +66,12 @@ The nextflu tree will be visible at `http://localhost:4000/`.
 
 Change the parameters `-v 1 -y 10` to something sensible in the final analysis. This will give something easier to run during testing however.
 
+## Citation
+
+Please cite nextflu as:
+
+[Neher RA, Bedford T. 2015. nextflu: real-time tracking of seasonal influenza virus evolution in humans. Bioinformatics DOI: 10.1093/bioinformatics/btv381.](http://dx.doi.org/10.1093/bioinformatics/btv381)
+
 ## License and copyright
 
 This software is based on the nextflu pipeline.

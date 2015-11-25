@@ -1,52 +1,17 @@
 ---
 layout: default
+categories: 
+ - app
 ---
 
 <div class="row">
 	<div class="col-md-3">
-		<div class="logo-container">
-			<div class="bigtitle">
-				<span class="c2">n</span><span class="c3">e</span><span class="c4">x</span><span class="c5">t</span><span class="c6">f</span><span class="c7">l</span><span class="c8">u</span>
-			</div>
-			<div class="subtitle-box">
-				Real-time tracking of seasonal influenza virus evolution in humans
-			</div>
-			<div class="spacer"></div>
-		</div>
-		<div class="io-container">
-			<form class="form-inline form-small">
-				<div class="form-group">
-					<label class="control-label">Virus</label>
-					<select id="virus_select" class="form-control" onChange="document.location = this.value" value="GO">
-						{% for entry in site.data.viruses %}
-						<option value="/{{entry.virus}}/{{page.resolution}}/" 
-							{% if page.virus == entry.virus %} selected="selected" {% endif %}
-							>{{ entry.name }}</option>
-						{% endfor %}
-					</select>
-				</div>
-			</form>
-			<div class="spacer"></div>
-			<form class="form-inline form-small">
-				<div class="form-group">
-					<label class="control-label">Time</label>
-					<select id="resolution_select" class="form-control" onChange="document.location = this.value" value="GO">
-					{% for entry in site.data.viruses %}
-						{% if page.virus == entry.virus %} 
-							{% for res in entry.resolutions %}
-								<option value="/{{ entry.virus }}/{{ res }}"
-								{% if page.resolution == res %} selected="selected" {% endif %}
-								>{{ res }}</option>
-							{% endfor %}
-					{% endif %}
-					{% endfor %}
-					</select>
-				</div>
-			</form>	
+		<div class="subtitle-container note">
+			Real-time tracking of seasonal influenza <br> virus evolution in humans
 		</div>
 		<div class="bigspacer"></div>	
 		<div class="io-container title">
-			HA phylogeny
+			Phylogeny
 		</div>
 		<div class="spacer"></div>		
 		<div class="row">
@@ -98,17 +63,20 @@ layout: default
 				</form>
 				{% endfor %}
 
-				<div id="search"></div>
 				<div class="spacer"></div>
+				<div id="straininput"></div>
+				<div class="spacer"></div>
+				<textarea id="seqinput" class="form-control" placeholder="search sequences... (plain or fasta)"></textarea>
+				<div class="spacer"></div>
+				<button id="searchinputclear" class="btn btn-default">clear</button>
+				<div class="bigspacer"></div>
 				<div>
 					<button id="reset" class="btn btn-default">reset layout</button>
 				</div>
-				<div class="spacer"></div>
-			</div>					
+			</div>
 		</div>
 	</div>
 	<div class="col-md-9">
-		<div class="bigspacer"></div>
 		<div class="treeplot-container">
 			<svg id="treeplot"></svg>
 		</div>
@@ -116,8 +84,57 @@ layout: default
 </div>
 
 <div class="row">
+	<div class="col-md-3"></div>
+</div>
+
+
+<div class="row">
 	<div class="col-md-12">
 		<div class="bigspacer"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="io-container title">
+			Frequencies
+		</div>
+		<div class="spacer"></div>
+		<div class="row">			
+			<div class="col-xs-6 io-container">	
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+						<div class="col-xs-12">
+							<input id="gtspec" type="search" class="form-control" value="{{ page.freqdefault }}">
+						</div>
+					</div>
+				</form>	
+			</div>
+			<div class="col-xs-6 io-container">					
+				<div>
+					<button id="plotfreq" type=button class="btn btn-default">plot frequencies</button>
+				</div>
+			</div>
+		</div>
+		<div class="spacer"></div>
+		Input mutations as position+amino acid, i.e. <span class="highlight">159Y</span>, clades as clade name, 
+		i.e. <span class="highlight">3c2.a</span> and add locations as <span class="highlight">/AS</span>, 
+		<span class="highlight">/NA</span>, <span class="highlight">/EU</span>, <span class="highlight">/OC</span>, 
+		i.e. <span class="highlight">159Y/AS</span>. By default, positions are interpreted as residues in HA1. You can specify the subunit as <span class="highlight">HA2:18V</span>. Alternatively, simply click on variable positions in the graph below.
+		<div class="spacer"></div>
+	</div>
+	<div class="col-md-9">
+		<div class="freqplot-container">		
+			<div id="gtchart"></div>
+		</div>
+		<div class="entropy-container">		
+			<div id="entropy"></div>
+		</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="col-md-12">
 		<div class="bigspacer"></div>
 	</div>
 </div>
@@ -126,6 +143,7 @@ layout: default
 	var genericDomain = [0,0.111,0.222,0.333, 0.444, 0.555, 0.666, 0.777, 0.888, 1.0];
 	var path = 'data/';
 	var tip_labels = true;
+	var default_gene='HA1';
 </script>
 {{ content }}
 <script src="js/auspice.js"></script>

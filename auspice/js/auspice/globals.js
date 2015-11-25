@@ -14,7 +14,7 @@ if (document.getElementById("gtspec") != null){
 }
 
 function treePlotHeight(width) {
-	return 400 + 0.35*width;
+	return 400 + 0.30*width;
 }
 var containerWidth = parseInt(d3.select(".treeplot-container").style("width"), 10);
 var treeWidth = containerWidth;
@@ -37,7 +37,7 @@ var epiColorDomain = genericDomain;
 var nonEpiColorDomain = genericDomain;
 var rbsColorDomain = genericDomain;
 var dateColorDomain = genericDomain;
-var dfreqColorDomain = genericDomain.map(function(d){return Math.round(100*(-0.18+d*0.36))/100;});
+var dfreqColorDomain = genericDomain.map(function(d){return Math.round(100*(0.2+d*1.8))/100;});
 var time_step;
 
 
@@ -45,7 +45,7 @@ d3.json(path + file_prefix + "meta.json", function(error, json) {
     if (error) return console.warn(error);
     d3.select("#updated").text(json['updated']);
     commit_id = json['commit'];
-    short_id = commit_id.substring(0, 6);   
+    short_id = commit_id.substring(0, 6);
     d3.select("#commit")
         .append("a")
         .attr("href", "http://github.com/blab/nextflu/commit/" + commit_id)

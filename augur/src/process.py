@@ -31,21 +31,14 @@ virus_config = {
 	# frequency estimation parameters
 	'aggregate_regions': [  ("global", None), ("NA", ["NorthAmerica"]), ("EU", ["Europe"]), 
 							("AS", ["China", "SoutheastAsia", "JapanKorea"]), ("OC", ["Oceania"]) ],
-	'frequency_stiffness':5.0,
+	'frequency_stiffness':10.0,
 	'verbose':2, 
-	'tol':1e-4, #tolerance for frequency optimization
+	'tol':2e-4, #tolerance for frequency optimization
 	'pc':1e-3, #pseudocount for frequencies 
 	'extra_pivots': 12,  # number of pivot point for or after the last observations of a mutations
-	'inertia':0.7,		# fraction of frequency change carry over in the stiffness term
+	'inertia':0.5,		# fraction of frequency change carry over in the stiffness term
 	'n_iqd':3,     # standard deviations from clock
 }
-
-def shift_cds(shift, vc, epi_mask, rbs):
-	vc['cds'] = (vc['cds'][0]+shift,vc['cds'][1])
-	aashift = shift//3
-	vc['clade_designations'] = {cl:[(pos-aashift, aa) for pos, aa in gt]
-								for cl, gt in vc['clade_designations'].iteritems()}
-	return vc, epi_mask[aashift:], [pos-aashift for pos in rbs]
 
 class process(virus_frequencies):
 	"""generic template class for processing virus sequences into trees"""
@@ -69,6 +62,7 @@ class process(virus_frequencies):
 		self.virus_fname = 		self.path + self.prefix + self.resolution_prefix + 'virus.pkl'
 		self.frequency_fname = 	self.path + self.prefix + self.resolution_prefix + 'frequencies.pkl'
 		self.aa_seq_fname = 	self.path + self.prefix + self.resolution_prefix + 'aa_seq.pkl'
+		self.nuc_seq_fname = 	self.path + self.prefix + self.resolution_prefix + 'nuc_seq.pkl'		
 		if run_dir is None:
 			import random
 			self.run_dir = '_'.join(['temp', time.strftime('%Y%m%d-%H%M%S',time.gmtime()), str(random.randint(0,1000000))])
@@ -109,6 +103,9 @@ class process(virus_frequencies):
 		if hasattr(self, 'aa_aln'):
 			with open(self.aa_seq_fname, 'w') as outfile:
 				cPickle.dump(self.aa_aln, outfile)
+		if hasattr(self, 'nuc_aln'):
+			with open(self.nuc_seq_fname, 'w') as outfile:
+				cPickle.dump(self.nuc_aln, outfile)				
 
 	def load(self):
 		import cPickle
@@ -133,6 +130,9 @@ class process(virus_frequencies):
 		if os.path.isfile(self.aa_seq_fname):
 			with open(self.aa_seq_fname, 'r') as infile:
 				self.aa_aln = cPickle.load(infile)
+		if os.path.isfile(self.nuc_seq_fname):
+			with open(self.nuc_seq_fname, 'r') as infile:
+				self.nuc_aln = cPickle.load(infile)				
 
 	def export_to_auspice(self, tree_fields = [], tree_pop_list = [], annotations = [], seq='aa'):
 		from tree_util import dendropy_to_json, all_descendants
@@ -143,17 +143,17 @@ class process(virus_frequencies):
 		elems = {}
 		for node in self.tree:
 			if hasattr(node, "clade") and hasattr(node, "seq"):
-				if seq == 'nuc':
-					elems[node.clade] = {pos:state for pos, (state, ancstate) in 
+				elems[node.clade] = {}
+				elems[node.clade]['nuc'] = {pos:state for pos, (state, ancstate) in 
 								enumerate(izip(node.seq, self.tree.seed_node.seq)) if state!=ancstate}
-				else:
-					elems[node.clade] = {pos:state for pos, (state, ancstate) in 
-								enumerate(izip(node.aa_seq, self.tree.seed_node.aa_seq)) if state!=ancstate}
+				for anno, aa_seq in node.aa_seq.iteritems():
+					elems[node.clade][anno] = {pos:state for pos, (state, ancstate) in 
+								enumerate(izip(aa_seq, self.tree.seed_node.aa_seq[anno])) if state!=ancstate}
 
-		if seq == 'nuc':
-			elems['root'] = self.tree.seed_node.seq
-		else:
-			elems['root'] = self.tree.seed_node.aa_seq
+		elems['root'] = {}
+		elems['root']['nuc'] = self.tree.seed_node.seq
+		for anno, aa_seq in self.tree.seed_node.aa_seq.iteritems():
+			elems['root'][anno] = aa_seq
 		write_json(elems, self.auspice_sequences_fname, indent=None)
 
 		print "Writing tree"
@@ -174,25 +174,34 @@ class process(virus_frequencies):
 			clade_present = {}
 			clade_xval = {}
 			clade_yval = {}
+			self.frequencies['clades'] = {reg:{"pivots":list(self.tree.seed_node.pivots)} 
+											for reg in self.tree.seed_node.freq}
+
 			for clade, gt in self.clade_designations.iteritems():
 				if clade in annotations:
 					print "Annotating clade", clade
 					tmp_nodes = sorted((node for node in self.tree.postorder_node_iter()
-						if not node.is_leaf() and all([node.aa_seq[pos-1]==aa for pos, aa in gt])),
+						if not node.is_leaf() and all([node.aa_seq[gene][pos-1]==aa for gene, pos, aa in gt])),
 						key=lambda node: node.xvalue)
 					if len(tmp_nodes):
 						clade_present[clade] = True
 						base_node = tmp_nodes[0]
 						clade_xval[clade] = base_node.xvalue
 						clade_yval[clade] = base_node.yvalue
+						for region in base_node.freq:
+							try:
+								self.frequencies["clades"][region][clade.lower()] = [round(x,3) for x in base_node.freq[region]]
+								print "added frequencies",region, clade
+							except:
+								print base_node.freq[region]
 					else:
 						clade_present[clade] = False
 						print "clade",clade, gt, "not in tree"
 			# append clades, coordinates and genotype to meta
 			self.tree_json["clade_annotations"] = [(clade, clade_xval[clade],clade_yval[clade], 
-								"/".join([str(pos)+aa for pos, aa in gt]))
-							for clade, gt in self.clade_designations.iteritems() if clade in annotations and clade_present[clade] == True
-							]
+								"/".join([gene+':'+str(pos)+aa for gene, pos, aa in gt]))
+							for clade, gt in self.clade_designations.iteritems() 
+							if clade in annotations and clade_present[clade] == True]
 		write_json(self.tree_json, self.auspice_tree_fname, indent=None)
 		try:
 			read_json(self.auspice_tree_fname)
@@ -205,9 +214,14 @@ class process(virus_frequencies):
 			if not hasattr(self, 'aa_entropy') and not hasattr(self, 'nuc_entropy'):
 				self.determine_variable_positions()
 
-			if seq=='aa' and hasattr(self, 'aa_entropy'):
-				self.frequencies["entropy"] = [ [pos, S, muts] for pos,S,muts in 
-						izip(xrange(self.aa_entropy.shape[0]), self.aa_entropy,self.variable_aa_identities) ]
+			if hasattr(self, 'aa_entropy'):
+				self.frequencies["entropy"] = {}
+				self.frequencies["location"] = {}
+				for anno, alnS in self.aa_entropy.iteritems():
+					self.frequencies["location"][anno] = [int(self.cds[anno].location.start),\
+															int(self.cds[anno].location.start)]
+					self.frequencies["entropy"][anno] = [ [pos, S, muts] for pos,S,muts in 
+						izip(xrange(alnS.shape[0]), alnS,self.variable_aa_identities[anno]) ]
 			elif seq=='nuc' and hasattr(self, 'nuc_entropy'):
 				self.frequencies["entropy"] = [ [pos, S, muts] for pos,S,muts in 
 						izip(xrange(self.nuc_entropy.shape[0]), self.nuc_entropy,self.variable_nuc_identities) ]
@@ -372,9 +386,9 @@ class process(virus_frequencies):
 		calculates nucleoties_frequencies and aa_frequencies at each position of the alignment
 		also computes consensus sequences and position at which the major allele is at less than 1-min_mutation_frequency
 		results are stored as
-		self.nucleoties_frequencies
+		self.nuc_frequencies
 		self.aa_frequencies
-		self.variable_nucleotides
+		self.variable_nuc
 		self.variable_aa
 		'''
 		aln_array = np.array(self.nuc_aln)
@@ -389,28 +403,37 @@ class process(virus_frequencies):
 											for pos in xrange(self.nuc_frequencies.shape[1])]
 
 		if hasattr(self, 'aa_aln'):
-			aln_array = np.array(self.aa_aln)
-			self.aa_frequencies = np.zeros((len(self.aa_alphabet),aln_array.shape[1]))
-			for ai,aa in enumerate(self.aa_alphabet):
-				self.aa_frequencies[ai,:]=(aln_array==aa).mean(axis=0)
+			self.variable_aa = {}
+			self.consensus_aa = {}
+			self.aa_entropy = {}
+			self.aa_frequencies = {}
+			self.variable_aa_identities = {}
+			for anno, aln in self.aa_aln.iteritems():
+				aln_array = np.array(aln)
+				tmp_af = np.zeros((len(self.aa_alphabet),aln_array.shape[1]))
+				for ai,aa in enumerate(self.aa_alphabet):
+					tmp_af[ai,:]=(aln_array==aa).mean(axis=0)
 
-			self.variable_aa = np.where(np.max(self.aa_frequencies,axis=0)<1.0-self.min_mutation_frequency)[0]
-			self.consensus_aa = "".join(np.fromstring(self.aa_alphabet, 'S1')[np.argmax(self.aa_frequencies,axis=0)])
-			self.aa_entropy = -np.sum(self.aa_frequencies*np.log(np.maximum(1e-10,self.aa_frequencies)), axis=0)
-			self.variable_aa_identities = [ [self.aa_alphabet[ii] for ii in np.where(self.aa_frequencies[:,pos])[0]]
-											for pos in xrange(self.aa_frequencies.shape[1])]
+				self.variable_aa[anno] = np.where(np.max(tmp_af,axis=0)<1.0-self.min_mutation_frequency)[0]
+				self.consensus_aa[anno] = "".join(np.fromstring(self.aa_alphabet, 'S1')[np.argmax(tmp_af,axis=0)])
+				self.aa_entropy[anno] = -np.sum(tmp_af*np.log(np.maximum(1e-10,tmp_af)), axis=0)
+				self.variable_aa_identities[anno] = [ [self.aa_alphabet[ii] for ii in np.where(tmp_af[:,pos])[0]]
+												for pos in xrange(tmp_af.shape[1])]
+				self.aa_frequencies[anno] = tmp_af
 
 
 	def estimate_frequencies(self, tasks = ['mutations','genotypes', 'clades', 'tree']):
 		if 'mutations' in tasks:
-			self.all_mutation_frequencies(threshold = self.min_mutation_frequency) 
+			self.frequencies["mutations"]={reg:{} for reg, _ in self.aggregate_regions}
+			for gene in self.cds:
+				self.all_mutation_frequencies(threshold = self.min_mutation_frequency, gene=gene) 
 		if 'nuc_mutations' in tasks:
-			self.all_mutation_frequencies(threshold = self.min_mutation_frequency, nuc=True) 
+			self.all_mutation_frequencies(threshold = self.min_mutation_frequency, gene='nuc') 
 		if 'genotypes' in tasks:
 			self.all_genotypes_frequencies(threshold = self.min_genotype_frequency) 
 		if 'clades' in tasks:
 			self.all_clade_frequencies() 
 		if 'nuc_clades' in tasks:
-			self.all_clade_frequencies(nuc=True) 
+			self.all_clade_frequencies(gene='nuc') 
 		if 'tree' in tasks:
-			self.all_tree_frequencies() 
+			self.all_tree_frequencies(threshold = 20) 
