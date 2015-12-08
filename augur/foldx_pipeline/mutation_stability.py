@@ -1,23 +1,28 @@
-import collections
+
+
 
 class mutation_stability:
     '''
     check  mutation and format it so that it's compatible with foldx structure 1HA0 and 2YP7
     '''
-    def __init__(self, mut):
+    def __init__(self, mut, structure):
         self.mut = mut  # list of mutations
         self.mut_set = set(mut)  # set of mutations
+        self.mut_chain_info_set = set()
+        self.structure = structure  # either 1HA0 or 2YP7
+        #if self.structure != "1HA0" or self.structure != "2YP7":
+            # exception for wrong structure
+
+
     def __str__(self):
-        return (str(self.mut_set))
-        #return ", ".join(self.mut_set)
+        return ", ".join(self.mut_chain_info_set)
 
     def site_range_valid(self, mutation):
        '''
-       :task: protein structures (1HA0, 2YP7) are missing certain amino acid sites, method checks that mutation is in structure
-       :param mutation: mutation in standard foldx format
+       protein structures (1HA0, 2YP7) are missing certain amino acid sites, method checks that mutation is in structure
+       :param mutation: mutation in standard format
        :return: true if site is in structure, false if site range is not in structure
        '''
-       # compiled from 2YP7 and 1HA0 to run the same residues
        lowerRange = 9
        upperRange = 502
        missing_lower = 328
@@ -30,11 +35,30 @@ class mutation_stability:
        else:
             return False
 
+    def include_chain_info(self, mutation):
+        '''
+        includes chain information for each mutation passed to function. HA is a trimer so need to specify chain for
+        foldx
+        :param mutation: mutation in standard format
+        '''
+
+        set_with_chain_mutations = set()
+        if self.structure == "1HA0":
+            chains = ["A", "M", "Y"]
+        elif self.structure == "2YP7":
+            chains = ["A", "P", "E"]
+        site = mutation[1:len(mutation) - 1]
+        aa1 = mutation[0]
+        aa2 = mutation[len(mutation)-1]
+        for chain in chains:
+            self.mut_chain_info_set.add(aa1+chain+site+aa2)
+
     def check_valid_mutation(self):
-        invalid_mutations = set()
+        '''
+        checks each mutation in mut_set that it is a valid mutation for the structures 1HA0, 2YP7. Calls
+        include_chain_info, which adds each mutation with chain info to self.mut_chain_info_set.
+        '''
         for mutation in self.mut_set:
             site_valid = self.site_range_valid(mutation)
-            if not site_valid:
-                invalid_mutations.add(mutation)
-                #self.mut_set.remove(mutation)
-        self.mut_set.difference_update(invalid_mutations)
+            if site_valid:
+                self.include_chain_info(mutation)
