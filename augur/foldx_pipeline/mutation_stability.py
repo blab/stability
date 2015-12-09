@@ -10,8 +10,9 @@ class mutation_stability:
         self.mut_set = set(mut)  # set of mutations
         self.mut_chain_info_set = set()
         self.structure = structure  # either 1HA0 or 2YP7
-        #if self.structure != "1HA0" or self.structure != "2YP7":
-            # exception for wrong structure
+
+        if self.structure not in ["1HA0", "2YP7"]:
+            raise ValueError("This program only works for pdb structures 1HA0 or 2YP7")
 
 
     def __str__(self):
