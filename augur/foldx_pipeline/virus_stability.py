@@ -21,8 +21,10 @@ class virus_stability:
         self.mut1 = ""
         self.mut2 = ""
 
-        self.ddg_outgroup = None
-        self.ddg_parent = None
+        self.ddg_outgroup1 = None
+        self.ddg_outgroup2 = None
+        self.ddg_parent1 = None
+        self.ddg_parent2 = None
 
         # get outgroup amino_acid sequence
         try:
@@ -78,7 +80,6 @@ class virus_stability:
         mutationFile.write(mutations + ";")
         mutationFile.close()
 
-    # makes a mutation run file for the specified pdb file.
     def make_run_file(self, structure):
         '''
         makes the run file needed for foldx to run.
@@ -88,6 +89,24 @@ class virus_stability:
         runfileName = "mutate_runfile.txt"
         runfile = open(runfileName, 'w')
         runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "mutation_runfile_list.txt"))
+
+
+    def read_ddG_output(self, structure):
+        '''
+        opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
+        :param structure: specify the structure that was used by foldx
+        '''
+        ddGFileName = "Average_mutant1"
+        ddGFile = open(ddGFileName, 'r')
+        for line in ddGFile:
+            if line.startswith(structure):
+                ddGline = line.split()
+                ddG = ddGline[2]
+        ddGFile.close()
+        if structure == "1HA0":
+            self.ddg_outgroup1 = ddG
+        elif structure == "2YP7":
+            self.ddg_outgroup2 = ddG
 
 '''
     def check_length_sequence(self):
@@ -102,4 +121,7 @@ class virus_stability:
 
     def check_same_virus(self, other):
         # just compare the sequences
+
+    def check_structure
+        # check that structure is either 1HA0 or 2YP7
 '''
