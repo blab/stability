@@ -63,3 +63,7 @@ class mutation_stability:
             site_valid = self.site_range_valid(mutation)
             if site_valid:
                 self.include_chain_info(mutation)
+
+    def get_formatted_mutations(self):
+        self.check_valid_mutation(self)
+        return ','.join(self.mut_chain_info_set)
