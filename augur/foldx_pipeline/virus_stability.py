@@ -1,7 +1,7 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.Alphabet import generic_dna
-
+from mutation_stability import mutation_stability
 
 
 
@@ -13,9 +13,11 @@ class virus_stability:
 
         self.accession = accension
         self.hash_code = hash_code
-        self.seq = seq
         self.trunk = trunk
         self.tip = tip
+        self.seq = seq
+        self.mutations_from_outgroup = set()
+
 
         self.ddg_outgroup = None
         self.ddg_parent = None
@@ -34,36 +36,30 @@ class virus_stability:
         self.outgroup_seq = str(protein)
 
     def __str__(self):
-
-        print("accession: " + self.accession)
-        print("hash: " + self.hash_code)
-        print("seq: " + self.seq)
-        print("trunk: " + self.trunk)
-        print("tip: " + self.tip)
+        return ("|hash: %s |accession: %s |trunk: %s |tip: %s\n\t|sequence: %s") %(self.hash_code, self.accession, self.trunk, self.tip, self.seq)
 
     def align_to_outgroup(self):
-        # align outgroup and self.seq, return mutations from outgroup -> seq
-        print("Aligning the protein structure sequence to the root sequence")
+        '''
+        :mutates: self.mutations_from_outgroup
+        aligns outgroup and self.seq, returns mutations from outgroup -> self.seq. Modifies self.mutations_from_outgroup
+        :return: comma-seperated string of mutations from outgroup
+        '''
+        #
         mutations_set = set()
-        for root_index in range(len(root_sequence)):
-            structure_index = root_index
-            site = root_index + 9  # for both 1HA0 and 2YP7
-            '''
-            if pdb_name.startswith("4WE4"):
-                site = root_index + 9
-            elif pdb_name.startswith("2HMG"):
-                site = root_index + 1
-            '''
-            '''
-                if root_index > 328:
-                    structure
-            '''
-            #print(root_sequence[index] + " : " + structure_sequence[index])
-            if root_sequence[root_index] != structure_sequence[structure_index]:
-                mutation = structure_sequence[structure_index] + str(site) + root_sequence[root_index]
-                list_mutations.append(mutation)
-        report_mutations = ','.join(list_mutations)
-        return report_mutations
+        outgroup_align_seq = self.outgroup_seq[24:]
+        for outgroup_index in range(len(self.outgroup_seq)):
+            seq_index = outgroup_index
+            site = outgroup_index + 9  # for both 1HA0 and 2YP7
+            if self.outgroup_seq[outgroup_index] != self.seq[seq_index]:
+                mutation = self.outgroup_seq[outgroup_index] + str(site) + self.seq[seq_index]
+                mutations_set.add(mutation)
+        self.mutations_from_outgroup = mutations_set
+        return ','.join(mutations_set)
+
+'''
+    def check_length_sequence(self):
+        # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
+        # should always be the same
 
     def calculate_ddg_outgroup(self):
         # read the ddG from the output file of most recent foldx run
@@ -72,5 +68,5 @@ class virus_stability:
         self.ddg_parent= self.ddg_outgroup - parent.ddg_outgroup
 
     def check_same_virus(self, other):
-
-
+        # just compare the sequences
+'''
