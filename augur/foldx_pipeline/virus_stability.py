@@ -18,8 +18,8 @@ class virus_stability:
         self.seq = seq
         self.mutations_from_outgroup = set()  #does not include chain info
 
-        self.mut1 = []
-        self.mut2 = []
+        self.mut1 = ""
+        self.mut2 = ""
 
         self.ddg_outgroup = None
         self.ddg_parent = None
@@ -62,6 +62,33 @@ class virus_stability:
         list_of_mutations = self.align_to_outgroup()
         self.mut1 = mutation_stability(list_of_mutations, "1HA0")
         self.mut2 = mutation_stability(list_of_mutations, "2YP7")
+
+    def overwrite_mutation_file(self, structure):
+        '''
+        creates or overwrites "mutation_runfile_list.txt" which includes foldx formated, comma-seperated list of mutations for current virus
+        :param structure: specify structure to be used in order to use right list of mutations
+        '''
+
+        if structure == "1HA0":
+            mutations = self.mut1
+        elif structure == "2YP7":
+            mutations = self.mut2
+        mutationFileName = "mutation_runfile_list.txt"
+        mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
+        mutationFile.write(mutations + ";")
+        mutationFile.close()
+
+    # makes a mutation run file for the specified pdb file.
+    def make_run_file(self, structure):
+        '''
+        makes the run file needed for foldx to run.
+        :param structure: specify the structure to be used by foldx
+        '''
+        pdb_file_name = structure + "_trimer_repaired_1.pdb"
+        runfileName = "mutate_runfile.txt"
+        runfile = open(runfileName, 'w')
+        runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "mutation_runfile_list.txt"))
+
 '''
     def check_length_sequence(self):
         # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
