@@ -16,14 +16,13 @@ class virus_stability:
         self.trunk = trunk
         self.tip = tip
         self.seq = seq
-        self.mutations_from_outgroup = set()
+        self.mutations_from_outgroup = set()  #does not include chain info
 
+        self.mut1 = []
+        self.mut2 = []
 
         self.ddg_outgroup = None
         self.ddg_parent = None
-
-        self.structure_1HA0_seq = "STATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
-        self.structure_2YP7_seq = "STATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRKSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQIFLYAQASGRITVSTKRSQQTVIPNIGSRPRVRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTQGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQI"
 
         # get outgroup amino_acid sequence
         try:
@@ -56,6 +55,13 @@ class virus_stability:
         self.mutations_from_outgroup = mutations_set
         return ','.join(mutations_set)
 
+    def find_mutations(self):
+        '''
+        intializes self.mut1 and self.mut2 for mutations that are valid for each of the structures 1HA0 and 2YP7
+        '''
+        list_of_mutations = self.align_to_outgroup()
+        self.mut1 = mutation_stability(list_of_mutations, "1HA0")
+        self.mut2 = mutation_stability(list_of_mutations, "2YP7")
 '''
     def check_length_sequence(self):
         # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
