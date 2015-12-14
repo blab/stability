@@ -2,6 +2,7 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.Alphabet import generic_dna
 from mutation_stability import mutation_stability
+import os
 
 
 
@@ -18,6 +19,7 @@ class virus_stability:
         self.seq = seq
         self.mutations_from_outgroup = set()  #does not include chain info
 
+        self.structures = ["1HA0", "2YP7"]
         self.mut1 = ""
         self.mut2 = ""
 
@@ -62,8 +64,10 @@ class virus_stability:
         intializes self.mut1 and self.mut2 for mutations that are valid for each of the structures 1HA0 and 2YP7
         '''
         list_of_mutations = self.align_to_outgroup()
-        self.mut1 = mutation_stability(list_of_mutations, "1HA0")
-        self.mut2 = mutation_stability(list_of_mutations, "2YP7")
+        mutations1 = mutation_stability(list_of_mutations, "1HA0")
+        mutations2 = mutation_stability(list_of_mutations, "2YP7")
+        self.mut1 = mutations1.get_formatted_mutations()
+        self.mut2 = mutations2.get_formatted_mutations()
 
     def overwrite_mutation_file(self, structure):
         '''
@@ -108,20 +112,31 @@ class virus_stability:
         elif structure == "2YP7":
             self.ddg_outgroup2 = ddG
 
+
+    def calculate_ddg_outgroup(self, structure):
+        '''
+        calls appropriate functions to calculate the ddG using foldx for the specified structure
+        '''
+        self.check_valid_structure(structure)
+        self.make_run_file(structure)
+        self.overwrite_mutation_file(structure)
+        os.system("./foldx3b6 -runfile mutate_runfile.txt")
+        self.read_ddG_output(structure)
+
+    def check_valid_structure(self, structure):
+        '''
+        :raises Exception if the structure given is not in the allowed structures for this pipeline
+        '''
+        if structure not in self.structures:
+            raise Exception("This pipeline does not work for that structure, only works for 1HA0 or 2YP7")
 '''
     def check_length_sequence(self):
         # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
         # should always be the same
-
-    def calculate_ddg_outgroup(self):
-        # read the ddG from the output file of most recent foldx run
 
     def calculate_ddg_parent(self, parent):
         self.ddg_parent= self.ddg_outgroup - parent.ddg_outgroup
 
     def check_same_virus(self, other):
         # just compare the sequences
-
-    def check_structure
-        # check that structure is either 1HA0 or 2YP7
 '''
