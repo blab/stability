@@ -10,23 +10,25 @@ import os
 class virus_stability:
 
 
-    def __init__(self, hash_code, accension, trunk, tip, seq):
+    def __init__(self, hash_code, accession, trunk, tip, seq):
 
-        self.accession = accension
+        self.accession = accession
         self.hash_code = hash_code
         self.trunk = trunk
         self.tip = tip
         self.seq = seq
+
         self.mutations_from_outgroup = set()  #does not include chain info
 
         self.structures = ["1HA0", "2YP7"]
+
         self.mut1 = ""
         self.mut2 = ""
-
         self.ddg_outgroup1 = None
         self.ddg_outgroup2 = None
         self.ddg_parent1 = None
         self.ddg_parent2 = None
+        self.parent_accession = ""
 
         # get outgroup amino_acid sequence
         try:
@@ -115,7 +117,7 @@ class virus_stability:
 
     def calculate_ddg_outgroup(self, structure):
         '''
-        calls appropriate functions to calculate the ddG using foldx for the specified structure
+        calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
         self.check_valid_structure(structure)
         self.make_run_file(structure)
@@ -129,14 +131,20 @@ class virus_stability:
         '''
         if structure not in self.structures:
             raise Exception("This pipeline does not work for that structure, only works for 1HA0 or 2YP7")
+
+    def calculate_ddg_parent(self, parent):
+        '''
+        calculate the change in stability from the parent to the current virus
+        '''
+        self.ddg_parent1= self.ddg_outgroup1 - parent.ddg_outgroup1
+        self.ddg_parent2= self.ddg_outgroup2 - parent.ddg_outgroup2
+        self.parent_accession = parent.accession
+
+    def output_file_format(self):
+        # ["hash code", "accession", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "parent accession", "aa_sequence"]
+        return [self.hash_code, self.accession, self.trunk, self.tip, self.ddg_outgroup1, self.ddg_outgroup2, self.ddg_parent1, self.ddg_parent2, self.parent_accession, self.seq]
 '''
     def check_length_sequence(self):
         # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
         # should always be the same
-
-    def calculate_ddg_parent(self, parent):
-        self.ddg_parent= self.ddg_outgroup - parent.ddg_outgroup
-
-    def check_same_virus(self, other):
-        # just compare the sequences
 '''
