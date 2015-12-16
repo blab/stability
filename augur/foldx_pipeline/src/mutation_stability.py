@@ -65,5 +65,5 @@ class mutation_stability:
                 self.include_chain_info(mutation)
 
     def get_formatted_mutations(self):
-        self.check_valid_mutation(self)
-        return ','.join(self.mut_chain_info_set)
+        self.check_valid_mutation()
+        return ';'.join(self.mut_chain_info_set)
