@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/foldx_pipeline/src/mutation_stability.py" afterPath="$PROJECT_DIR$/augur/foldx_pipeline/src/mutation_stability.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py" afterPath="$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/foldx_pipeline/src/virus_stability.py" afterPath="$PROJECT_DIR$/augur/foldx_pipeline/src/virus_stability.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stability.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +40,7 @@
       <file leaf-file-name="run_stability.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/run_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="1590">
+            <state vertical-scroll-proportion="0.0" vertical-offset="878" max-vertical-offset="1590">
               <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
               <folding />
             </state>
@@ -51,8 +50,8 @@
       <file leaf-file-name="virus_stability.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/virus_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44241574" vertical-offset="0" max-vertical-offset="2940">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.21067415" vertical-offset="330" max-vertical-offset="2910">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -63,9 +62,11 @@
       <file leaf-file-name="mutate_to_outgroup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,8 +161,8 @@
         <option value="$PROJECT_DIR$/augur/foldx_pipeline/0_mutation_file.txt" />
         <option value="$PROJECT_DIR$/augur/foldx_pipeline/stability_split.py" />
         <option value="$PROJECT_DIR$/augur/foldx_pipeline/mutate_to_outgroup.py" />
-        <option value="$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py" />
         <option value="$PROJECT_DIR$/augur/foldx_pipeline/src/mutation_stability.py" />
+        <option value="$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py" />
         <option value="$PROJECT_DIR$/augur/foldx_pipeline/src/virus_stability.py" />
       </list>
     </option>
@@ -968,14 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/run_stability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="1590">
-          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/mutation_stability.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="1125">
@@ -986,16 +979,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/mutate_to_outgroup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/run_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="1590">
+          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/foldx_pipeline/src/virus_stability.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44241574" vertical-offset="0" max-vertical-offset="2940">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.21067415" vertical-offset="330" max-vertical-offset="2910">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

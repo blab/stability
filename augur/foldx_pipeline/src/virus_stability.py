@@ -12,8 +12,6 @@ class virus_stability:
 
     def __init__(self, accession, seq, hash_code=None, trunk=None, tip=None):
 
-        self.directory = "foldx_pipeline/src/"
-
         self.accession = accession
         self.hash_code = hash_code
         self.trunk = trunk
@@ -34,10 +32,10 @@ class virus_stability:
 
         # get outgroup amino_acid sequence
         try:
-            temp_outgroup = SeqIO.read('source-data/H3N2_outgroup.gb', 'genbank')
-            os.chdir(self.directory)
+            print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
+            temp_outgroup = SeqIO.read('H3N2_outgroup.gb', 'genbank')
         except:
-            print("could not find source-data/H3N2_outgroup.gb which contained the outgroup file")
+            print("could not find H3N2_outgroup.gb which contained the outgroup file")
         dna_seq = str(temp_outgroup.seq).upper()
         coding_dna = Seq(dna_seq, generic_dna)
         protein = coding_dna.translate()
