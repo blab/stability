@@ -2,6 +2,8 @@ import os, re, time
 import dendropy
 from seq_util import *
 from date_util import *
+from virus_stability import virus_stability
+
 
 class tree_mutations(object):
     def __init__(self, **kwargs):
@@ -12,8 +14,13 @@ class tree_mutations(object):
         self.universal_attributes = ['trunk', 'aa_seq']
         self.sample_attributes = ['date', 'strain']
 
-    # check if the current node has any children/is a tip
+        self.hash_to_virus = {}  # dictionary from accession to virus object
+        self.virus_and_parent = []  # set of lists; containing each virus and it's parent
+
     def tip_attribute(self, node):
+        '''
+        checks if the current node has is a tip. True if it has no children, false otherwise
+        '''
         children = 0
         for child in node.child_nodes():
             children += 1
@@ -23,6 +30,10 @@ class tree_mutations(object):
             return False
 
     def get_node_info(self, node):
+        '''
+        extracts attribute information from the node
+        :returns a virus_stability object with attribute information
+        '''
         attr_node = {}
         for attr in self.universal_attributes:
             try:
@@ -36,7 +47,12 @@ class tree_mutations(object):
                 attr_node[attr] = (getattr(node, attr))
             else:
                 attr_node[attr] = None
-        return node_info(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'])
+        try:  # since aa_seq is split between SigPep, HA1 and HA2, need to combine them
+            v_seperated_seq = attr_node['aa_seq']
+            attr_node['aa_seq'] = v_seperated_seq['SigPep'] + v_seperated_seq['HA1'] + v_seperated_seq['HA2']
+        except:
+            print("Couldn't combine a samples amino acid sequence chains")
+        return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'])
 
 
 
@@ -48,23 +64,13 @@ class tree_mutations(object):
         '''
         for parent in self.tree.postorder_node_iter():
             for node in parent.child_nodes():
-                node_information = self.get_node_info(node)
-                parent_node_information = self.get_node_info(parent)
-                self.mutations_file.write(str(node_information) + " | " + str(parent_node_information) +"\n")
-
-
-class node_info(object):
-
-    def __init__(self, v_hash, v_strain, v_trunk, v_tip, v_date, v_seperated_seq):
-        #v_hash, v_strain, v_trunk, v_tip, v_seq = virus_info.split("\t")
-        self.v_hash = v_hash
-        self.v_strain = v_strain
-        self.v_trunk = v_trunk
-        self.v_tip = v_tip
-        self.v_date = v_date
-        self.v_seperated_seq = v_seperated_seq
-        self.v_seq = self.v_seperated_seq['SigPep'] + self.v_seperated_seq['HA1'] + self.v_seperated_seq['HA2']
-        self.attributes = [str(self.v_hash), str(self.v_strain), (str(self.v_trunk)), (str(self.v_tip)), str(self.v_date), str(self.v_seq)]
-
-    def __str__(self):
-        return "\t".join(self.attributes)
+                if str(node) in self.hash_to_virus.keys():  # already created virus_stability object
+                    node_virus = self.hash_to_virus[str(node)]
+                else:  # create new virus_stability object
+                    node_virus = self.get_node_info(node)
+                if str(parent) in self.hash_to_virus.keys():
+                    parent_virus = self.hash_to_virus[str(parent)]
+                else:
+                    parent_virus = self.get_node_info(parent)
+                self.virus_and_parent.append([node_virus, parent_virus])
+                self.mutations_file.write(str(node_virus) + " | " + str(parent_virus) +"\n")  # won't need this once dump implemented

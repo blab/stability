@@ -17,83 +17,157 @@
 
 	<body>
 
-		<div class="container">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">	
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>				
+					<a class="navbar-brand" href="/">
+						<div class="navtitle">
+							<span class="c2">n</span><span class="c3">e</span><span class="c4">x</span><span class="c5">t</span><span class="c6">f</span><span class="c7">l</span><span class="c8">u</span>
+						</div>
+					</a>			
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav navbar-left nav-pills">
+						<li role="presentation"><p>/</p></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								
+								H3N2
+								
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Virus</li>
+								
+									
+									<li class="disabled">
+										<a>H3N2</a>
+									
+									</li>
+								
+									
+									<li>
+										<a href="/H1N1pdm/3y">H1N1pdm</a>
+									
+									</li>
+								
+									
+									<li>
+										<a href="/Vic/3y">Vic</a>
+									
+									</li>
+								
+									
+									<li>
+										<a href="/Yam/3y">Yam</a>
+									
+									</li>
+								
+							</ul>
+						</li>
+												
+						<li role="presentation"><p>/</p></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								
+								3y
+								
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Resolution</li>
+								
+									
+										
+											
+											<li>
+												<a href="/H3N2/1y">1y</a>
+											
+											</li>
+										
+											
+											<li class="disabled">
+												<a>3y</a>
+											
+											</li>
+										
+											
+											<li>
+												<a href="/H3N2/6y">6y</a>
+											
+											</li>
+										
+											
+											<li>
+												<a href="/H3N2/12y">12y</a>
+											
+											</li>
+										
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
+																
+					</ul>
+					<ul class="nav navbar-nav navbar-right nav-tabs">
+						
+						<li role="presentation">
+																
+							<a href="/methods/">
+								Methods
+							</a>
+						</li>
+						
+						<li role="presentation">
+													
+							<a href="/help/">
+								Help
+							</a>
+						</li>
+						
+						<li class="dropdown" role="presentation">
+													
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								Reports
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								
+								
+								<li role="presentation">
+									<a href="/reports/sep-2015/">Sep 2015</a>
+									
+								</li>
+								
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
+		<div class="container">
+		
 		<div class="row">
 	<div class="col-md-3">
-		<div class="logo-container">
-			<div class="bigtitle">
-				<span class="c2">n</span><span class="c3">e</span><span class="c4">x</span><span class="c5">t</span><span class="c6">f</span><span class="c7">l</span><span class="c8">u</span>
-			</div>
-			<div class="subtitle-box">
-				Real-time tracking of seasonal influenza virus evolution in humans
-			</div>
-			<div class="spacer"></div>
-		</div>
-		<div class="io-container">
-			<form class="form-inline form-small">
-				<div class="form-group">
-					<label class="control-label">Virus</label>
-					<select id="virus_select" class="form-control" onChange="document.location = this.value" value="GO">
-						
-						<option value="/H3N2/3y/" 
-							 selected="selected" 
-							>A/H3N2</option>
-						
-						<option value="/H1N1pdm/3y/" 
-							
-							>A/H1N1pdm</option>
-						
-						<option value="/Vic/3y/" 
-							
-							>B/Vic</option>
-						
-						<option value="/Yam/3y/" 
-							
-							>B/Yam</option>
-						
-					</select>
-				</div>
-			</form>
-			<div class="spacer"></div>
-			<form class="form-inline form-small">
-				<div class="form-group">
-					<label class="control-label">Time</label>
-					<select id="resolution_select" class="form-control" onChange="document.location = this.value" value="GO">
-					
-						 
-							
-								<option value="/H3N2/1y"
-								
-								>1y</option>
-							
-								<option value="/H3N2/3y"
-								 selected="selected" 
-								>3y</option>
-							
-								<option value="/H3N2/6y"
-								
-								>6y</option>
-							
-								<option value="/H3N2/12y"
-								
-								>12y</option>
-							
-					
-					
-						
-					
-						
-					
-						
-					
-					</select>
-				</div>
-			</form>	
+		<div class="subtitle-container note">
+			Real-time tracking of seasonal influenza <br> virus evolution in humans
 		</div>
 		<div class="bigspacer"></div>	
 		<div class="io-container title">
-			HA phylogeny
+			Phylogeny
 		</div>
 		<div class="spacer"></div>		
 		<div class="row">
@@ -127,6 +201,10 @@
 									
 								
 									
+									<option value=dfreq>frequency change</option>
+									
+								
+									
 									<option value=lbi>local branching index</option>
 									
 								
@@ -136,10 +214,6 @@
 								
 									
 									<option value=date>sampling date</option>
-									
-								
-									
-									<option value=dfreq>frequency change</option>
 									
 								
 									
@@ -193,17 +267,20 @@
 				</form>
 				
 
-				<div id="search"></div>
 				<div class="spacer"></div>
+				<div id="straininput"></div>
+				<div class="spacer"></div>
+				<textarea id="seqinput" class="form-control" placeholder="search sequences... (plain or fasta)"></textarea>
+				<div class="spacer"></div>
+				<button id="searchinputclear" class="btn btn-default">clear</button>
+				<div class="bigspacer"></div>
 				<div>
 					<button id="reset" class="btn btn-default">reset layout</button>
 				</div>
-				<div class="spacer"></div>
-			</div>					
+			</div>
 		</div>
 	</div>
 	<div class="col-md-9">
-		<div class="bigspacer"></div>
 		<div class="treeplot-container">
 			<svg id="treeplot"></svg>
 		</div>
@@ -211,8 +288,57 @@
 </div>
 
 <div class="row">
+	<div class="col-md-3"></div>
+</div>
+
+
+<div class="row">
 	<div class="col-md-12">
 		<div class="bigspacer"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="io-container title">
+			Frequencies
+		</div>
+		<div class="spacer"></div>
+		<div class="row">			
+			<div class="col-xs-6 io-container">	
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+						<div class="col-xs-12">
+							<input id="gtspec" type="search" class="form-control" value="3c2.a, 3c3.a">
+						</div>
+					</div>
+				</form>	
+			</div>
+			<div class="col-xs-6 io-container">					
+				<div>
+					<button id="plotfreq" type=button class="btn btn-default">plot frequencies</button>
+				</div>
+			</div>
+		</div>
+		<div class="spacer"></div>
+		Input mutations as position+amino acid, i.e. <span class="highlight">159Y</span>, clades as clade name, 
+		i.e. <span class="highlight">3c2.a</span> and add locations as <span class="highlight">/AS</span>, 
+		<span class="highlight">/NA</span>, <span class="highlight">/EU</span>, <span class="highlight">/OC</span>, 
+		i.e. <span class="highlight">159Y/AS</span>. By default, positions are interpreted as residues in HA1. You can specify the subunit as <span class="highlight">HA2:18V</span>. Alternatively, simply click on variable positions in the graph below.
+		<div class="spacer"></div>
+	</div>
+	<div class="col-md-9">
+		<div class="freqplot-container">		
+			<div id="gtchart"></div>
+		</div>
+		<div class="entropy-container">		
+			<div id="entropy"></div>
+		</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="col-md-12">
 		<div class="bigspacer"></div>
 	</div>
 </div>
@@ -221,6 +347,7 @@
 	var genericDomain = [0,0.111,0.222,0.333, 0.444, 0.555, 0.666, 0.777, 0.888, 1.0];
 	var path = 'data/';
 	var tip_labels = true;
+	var default_gene='HA1';
 </script>
 <script>
 var file_prefix = "";
@@ -238,12 +365,14 @@ vaccineChoice['A/Perth/16/2009'] = "2009-09-25";
 vaccineChoice['A/Victoria/361/2011'] = "2012-02-21";
 vaccineChoice['A/Texas/50/2012'] = "2013-09-25";
 vaccineChoice['A/Switzerland/9715293/2013'] = "2014-09-25";
+vaccineChoice['A/HongKong/4801/2014'] = "2015-09-24";
 var vaccineStrains = Object.keys(vaccineChoice);
 
 var restrictTo = {"region":"all"};
 
-var genome_annotation = {'HA1':[[1,1,1], [1,160,329]],
-						 'HA2':[[1.2,1.2,1.2], [329,450,580]]}
+var genome_annotation = {'SP':[[1.2,1.2,1.2], [1,20,49]],
+                         'HA1':[[1,1,1], [49,460,49+987]],
+						 'HA2':[[1.2,1.2,1.2], [49+987,1200,1701]]}
 
 </script>
 

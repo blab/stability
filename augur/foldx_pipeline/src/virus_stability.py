@@ -10,25 +10,22 @@ import os
 class virus_stability(object):
 
 
-    def __init__(self, accession, seq, hash_code=None, trunk=None, tip=None):
-
-        self.accession = accession
-        self.hash_code = hash_code
+    def __init__(self, hash, strain, trunk, tip, date, seq):
+        self.hash_code = hash
+        self.strain = strain
         self.trunk = trunk
         self.tip = tip
+        self.date = date
         self.seq = seq
 
         self.mutations_from_outgroup = set()  #does not include chain info
 
-        self.structures = ["1HA0", "2YP7"]
+        self.pdb_structures = ["1HA0", "2YP7"]
+        self.formatted_mut = {}
 
-        self.mut1 = ""
-        self.mut2 = ""
-        self.ddg_outgroup1 = None
-        self.ddg_outgroup2 = None
-        self.ddg_parent1 = None
-        self.ddg_parent2 = None
-        self.parent_accession = ""
+        self.ddg_outgroup = {}
+        self.ddg_parent= {}
+        self.parent_strain = ""
 
         # get outgroup amino_acid sequence
         try:
@@ -42,7 +39,8 @@ class virus_stability(object):
         self.outgroup_seq = str(protein)
 
     def __str__(self):
-        return ("|hash: %s |accession: %s |trunk: %s |tip: %s\n\t|sequence: %s") %(self.hash_code, self.accession, self.trunk, self.tip, self.seq)
+        attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
+        return "\t".join(attributes)
 
 # need to fix this after get sequences from nextflu
     def align_to_outgroup(self):
@@ -81,26 +79,23 @@ class virus_stability(object):
 
     def find_mutations(self,structure):
         '''
-        intializes self.mut1 and self.mut2 for mutations that are valid for each of the structures 1HA0 and 2YP7
+        Finds and stores mutations that are valid for each of the structures specified
         '''
         list_of_mutations = list(self.mutations_from_outgroup)
-        if structure == "1HA0":
-            mutations1 = mutation_stability(list_of_mutations, "1HA0")
-            self.mut1 = mutations1.get_formatted_mutations()
-        elif structure == "2YP7":
-            mutations2 = mutation_stability(list_of_mutations, "2YP7")
-            self.mut2 = mutations2.get_formatted_mutations()
+        mut_stability = mutation_stability(list_of_mutations, structure)
+        self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
 
     def overwrite_mutation_file(self, structure):
         '''
         creates or overwrites "mutation_runfile_list.txt" which includes foldx formated, comma-seperated list of mutations for current virus
         :param structure: specify structure to be used in order to use right list of mutations
         '''
+        try:
+            mutations = self.formatted_mut[structure]
+        except:
+            print("mutations were not formatted for this structure")
+            raise
 
-        if structure == "1HA0":
-            mutations = self.mut1
-        elif structure == "2YP7":
-            mutations = self.mut2
         mutationFileName = "individual_list.txt"
         mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
         mutationFile.write(mutations + ";")
@@ -124,16 +119,16 @@ class virus_stability(object):
         '''
         ddGFileName = "Average_mutant1"
         ddGFile = open(ddGFileName, 'r')
-        for line in ddGFile:
-            if line.startswith(structure):
-                ddGline = line.split()
-                ddG = ddGline[2]
+        try:
+            for line in ddGFile:
+                if line.startswith(structure):
+                    ddGline = line.split()
+                    ddG = ddGline[2]
+        except:
+            print("couldn't find ddG output")
+            raise
         ddGFile.close()
-        if structure == "1HA0":
-            self.ddg_outgroup1 = ddG
-        elif structure == "2YP7":
-            self.ddg_outgroup2 = ddG
-
+        self.ddg_outgroup[structure] = ddG
 
     def calculate_ddg_outgroup(self, structure):
         '''
@@ -151,20 +146,20 @@ class virus_stability(object):
         '''
         :raises Exception if the structure given is not in the allowed structures for this pipeline
         '''
-        if structure not in self.structures:
+        if structure not in self.pdb_structures:
             raise Exception("This pipeline does not work for that structure, only works for 1HA0 or 2YP7")
 
     def calculate_ddg_parent(self, parent):
         '''
         calculate the change in stability from the parent to the current virus
         '''
-        self.ddg_parent1= self.ddg_outgroup1 - parent.ddg_outgroup1
-        self.ddg_parent2= self.ddg_outgroup2 - parent.ddg_outgroup2
-        self.parent_accession = parent.accession
+        for pdb in self.pdb_structures:
+            self.ddg_parent[pdb] = self.ddg_outgroup[pdb] - parent.ddg_outgroup[pdb]
+        self.parent_strain = parent.strain
 
     def output_file_format(self):
-        # ["hash code", "accession", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "parent accession", "aa_sequence"]
-        return [self.hash_code, self.accession, self.trunk, self.tip, self.ddg_outgroup1, self.ddg_outgroup2, self.ddg_parent1, self.ddg_parent2, self.parent_accession, self.seq]
+        # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "parent strain", "aa_sequence"]
+        return [self.hash_code, self.strain, self.trunk, self.tip, self.ddg_outgroup1, self.ddg_outgroup2, self.ddg_parent1, self.ddg_parent2, self.parent_strain, self.seq]
 
     def mutate_pdb_to_outgroup(self, structure):
         print("- Mutating the " + structure + " structure to the outgroup sequence")
