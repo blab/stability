@@ -16,7 +16,7 @@ class tree_stability(object):
 
 
     def __init__(self, **kwargs):
-        self.pdb_structures = ["1HA0", "2YP7"] # can add functionality to parser later
+        #self.pdb_structures = ["1HA0", "2YP7"] # can add functionality to parser later
         fout_headings_begin = ["hash_code", "accession", "trunk_(T/F)", "tip_(T/F)"]
         fout_headings_end = ["parent accession", "aa_sequence"]
         fout_ddg_headings = []

@@ -8,9 +8,12 @@ from virus_stability import virus_stability
 class tree_mutations(object):
     def __init__(self, **kwargs):
 
+        self.directory = "foldx-output/"
         self.mutations_fname = "0_mutation_file.txt"
-        self.mutations_file = open(self.mutations_fname, 'w')
-
+        try:
+            self.mutations_file = open(self.directory + self.mutations_fname, 'w')
+        except:
+            print("couldn't create mutations file")
         self.universal_attributes = ['trunk', 'aa_seq']
         self.sample_attributes = ['date', 'strain']
 

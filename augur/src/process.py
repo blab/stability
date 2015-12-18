@@ -62,7 +62,9 @@ class process(virus_frequencies):
 		self.virus_fname = 		self.path + self.prefix + self.resolution_prefix + 'virus.pkl'
 		self.frequency_fname = 	self.path + self.prefix + self.resolution_prefix + 'frequencies.pkl'
 		self.aa_seq_fname = 	self.path + self.prefix + self.resolution_prefix + 'aa_seq.pkl'
-		self.nuc_seq_fname = 	self.path + self.prefix + self.resolution_prefix + 'nuc_seq.pkl'		
+		self.nuc_seq_fname = 	self.path + self.prefix + self.resolution_prefix + 'nuc_seq.pkl'
+		self.hash_virus_fname = self.path + self.prefix + self.resolution_prefix + 'hash_to_virus.pkl'
+		self.virus_pnt_fname =  self.path + self.prefix + self.resolution_prefix + 'virus_and_parent.pkl'
 		if run_dir is None:
 			import random
 			self.run_dir = '_'.join(['temp', time.strftime('%Y%m%d-%H%M%S',time.gmtime()), str(random.randint(0,1000000))])
@@ -105,7 +107,13 @@ class process(virus_frequencies):
 				cPickle.dump(self.aa_aln, outfile)
 		if hasattr(self, 'nuc_aln'):
 			with open(self.nuc_seq_fname, 'w') as outfile:
-				cPickle.dump(self.nuc_aln, outfile)				
+				cPickle.dump(self.nuc_aln, outfile)
+		if hasattr(self, 'hash_to_virus'):
+			with open(self.hash_virus_fname, 'w') as outfile:
+				cPickle.dump(self.hash_to_virus, outfile)
+		if hasattr(self, 'virus_and_parent'):
+			with open(self.nuc_seq_fname, 'w') as outfile:
+				cPickle.dump(self.virus_and_parent, outfile)				
 
 	def load(self):
 		import cPickle
@@ -132,7 +140,13 @@ class process(virus_frequencies):
 				self.aa_aln = cPickle.load(infile)
 		if os.path.isfile(self.nuc_seq_fname):
 			with open(self.nuc_seq_fname, 'r') as infile:
-				self.nuc_aln = cPickle.load(infile)				
+				self.nuc_aln = cPickle.load(infile)
+		if os.path.isfile(self.hash_virus_fname):
+			with open(self.hash_virus_fname, 'r') as infile:
+				self.hash_to_virus = cPickle.load(infile)	
+		if os.path.isfile(self.virus_pnt_fname):
+			with open(self.virus_pnt_fname, 'r') as infile:
+				self.virus_and_parent = cPickle.load(infile)					
 
 	def export_to_auspice(self, tree_fields = [], tree_pop_list = [], annotations = [], seq='aa'):
 		from tree_util import dendropy_to_json, all_descendants

@@ -263,10 +263,10 @@ class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine, H3N2_mutations
 		H3N2_clean.__init__(self,**kwargs)
 		H3N2_refine.__init__(self,**kwargs)
 		H3N2_mutations.__init__(self,**kwargs)
-        H3N2_stability.__init__(self,**kwargs)
-		self.verbose = verbose
+		H3N2_stability.__init__(self,**kwargs)
+        self.verbose = verbose
 
-	def run(self, steps, viruses_per_month=50, raxml_time_limit = 1.0):
+	def run(self, steps, viruses_per_month=50, raxml_time_limit = 1.0, pdb_structures = ['1HA0', '2YP7']):
 		if 'filter' in steps:
 			print "--- Virus filtering at " + time.strftime("%H:%M:%S") + " ---"
 			self.filter()
@@ -312,6 +312,7 @@ class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine, H3N2_mutations
 			self.dump()
         if 'stability' in steps:
 			print "--- Stability at " + time.strftime("%H:%M:%S") + " ---"
+			self.pdb_structures = pdb_structures
 			self.stability()
 			self.dump()
         if 'export' in steps:

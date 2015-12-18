@@ -18,6 +18,9 @@ class virus_stability(object):
         self.date = date
         self.seq = seq
 
+        self.directory = "foldx-output/"
+
+
         self.mutations_from_outgroup = set()  #does not include chain info
 
         self.pdb_structures = ["1HA0", "2YP7"]
@@ -97,7 +100,11 @@ class virus_stability(object):
             raise
 
         mutationFileName = "individual_list.txt"
-        mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
+        try:
+            mutationFile = open(self.directory + mutationFileName, 'w')  # overwrites the current file for FoldX
+        except:
+            print("Couldn't create mutation file for foldx in specified directory foldx-output/")
+            raise
         mutationFile.write(mutations + ";")
         mutationFile.close()
 
@@ -108,7 +115,12 @@ class virus_stability(object):
         '''
         pdb_file_name = structure + extension
         runfileName = "mutate_runfile.txt"
-        runfile = open(runfileName, 'w')
+        try:
+            runfile = open(self.directory + runfileName, 'w')
+        except:
+            print("Couldn't create run-file in specified directory foldx-output/")
+            print("current directory is " + os.getcwd())
+            raise
         runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "individual_list.txt"))
 
 
@@ -118,7 +130,10 @@ class virus_stability(object):
         :param structure: specify the structure that was used by foldx
         '''
         ddGFileName = "Average_mutant1"
-        ddGFile = open(ddGFileName, 'r')
+        try:
+            ddGFile = open(self.directory + ddGFileName, 'r')
+        except:
+            print("Couldn't open ddG output file " + ddGFileName)
         try:
             for line in ddGFile:
                 if line.startswith(structure):
@@ -139,7 +154,7 @@ class virus_stability(object):
         self.find_mutations(structure)
         self.make_run_file(structure, "_trimer_repaired_1.pdb")
         self.overwrite_mutation_file(structure)
-        os.system("./foldx3b6 -runfile mutate_runfile.txt")
+        os.system(self.directory + "./foldx3b6 -runfile mutate_runfile.txt")
         self.read_ddG_output(structure)
 
     def check_valid_structure(self, structure):
