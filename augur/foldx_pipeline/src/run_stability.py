@@ -31,7 +31,12 @@ class run_stability:
 
         for line in self.mutation_file:
             print(line.split("|"))
-            v_info, pv_info = line.split("|")
+            try:
+                v_info, pv_info = line.split(" | ")
+            except:
+                print("Could not split the current mutation file line between virus and parent virus")
+                print(line)
+                raise
             virus = self.check_virus_exists(v_info.strip())
             parent_virus = self.check_virus_exists(pv_info.strip())
             self.virus_and_parent.append([virus, parent_virus])

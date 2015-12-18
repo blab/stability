@@ -7,7 +7,7 @@ import os
 
 
 
-class virus_stability:
+class virus_stability(object):
 
 
     def __init__(self, accession, seq, hash_code=None, trunk=None, tip=None):

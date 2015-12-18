@@ -1,7 +1,7 @@
 
 
 
-class mutation_stability:
+class mutation_stability(object):
     '''
     check  mutation and format it so that it's compatible with foldx structure 1HA0 and 2YP7
     '''
