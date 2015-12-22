@@ -36,6 +36,7 @@ class virus_stability(object):
             temp_outgroup = SeqIO.read('H3N2_outgroup.gb', 'genbank')
         except:
             print("could not find H3N2_outgroup.gb which contained the outgroup file")
+            raise
         dna_seq = str(temp_outgroup.seq).upper()
         coding_dna = Seq(dna_seq, generic_dna)
         protein = coding_dna.translate()

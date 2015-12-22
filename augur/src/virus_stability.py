@@ -6,7 +6,6 @@ import os
 
 
 
-
 class virus_stability(object):
 
 
@@ -19,6 +18,10 @@ class virus_stability(object):
         self.seq = seq
 
         self.mutations_from_outgroup = set()  #does not include chain info
+        self.sorted_mutation_string = ""
+
+        self.mutations_from_parent = set()
+        self.sorted_parent_mutation_string = ""
 
         self.pdb_structures = ["1HA0", "2YP7"]
         self.formatted_mut = {}
@@ -29,10 +32,11 @@ class virus_stability(object):
 
         # get outgroup amino_acid sequence
         try:
-            print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
-            temp_outgroup = SeqIO.read('H3N2_outgroup.gb', 'genbank')
+            #print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
+            temp_outgroup = SeqIO.read('source-data/H3N2_outgroup.gb', 'genbank')
         except:
             print("could not find H3N2_outgroup.gb which contained the outgroup file")
+            raise
         dna_seq = str(temp_outgroup.seq).upper()
         coding_dna = Seq(dna_seq, generic_dna)
         protein = coding_dna.translate()
@@ -52,12 +56,14 @@ class virus_stability(object):
         #
         mutations_set = set()
         outgroup_align_seq = self.outgroup_seq[24:]
-        for index in range(len(outgroup_align_seq)):
+        virus_align_seq = self.seq[24:]
+        for index in range(len(virus_align_seq)):
             site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
-            if outgroup_align_seq[index] != self.seq[index]:
-                mutation = outgroup_align_seq[index] + str(site) + self.seq[index]
+            if outgroup_align_seq[index] != virus_align_seq[index]:
+                mutation = outgroup_align_seq[index] + str(site) + virus_align_seq[index]
                 mutations_set.add(mutation)
         self.mutations_from_outgroup = mutations_set
+        self.sorted_mutation_string = " ".join(sorted(list(self.mutations_from_outgroup)))
         return ','.join(mutations_set)
 
     def align_outgroup_to_sequence(self):
@@ -77,13 +83,20 @@ class virus_stability(object):
         self.mutations_from_outgroup = mutations_set
         return ','.join(mutations_set)
 
-    def find_mutations(self,structure):
+    def find_mutations(self):
         '''
         Finds and stores mutations that are valid for each of the structures specified
         '''
-        list_of_mutations = list(self.mutations_from_outgroup)
-        mut_stability = mutation_stability(list_of_mutations, structure)
-        self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
+        for structure in self.pdb_structures:
+            list_of_mutations = list(self.mutations_from_outgroup)
+            mut_stability = mutation_stability(list_of_mutations, structure)
+            self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
+
+    def get_parent_mutations(self, parent):
+
+        self.mutations_from_parent = self.mutations_from_outgroup - parent.mutations_from_outgroup
+        self.sorted_parent_mutation_string = " ".join(sorted(list(self.mutations_from_parent)))
+        
 
     def overwrite_mutation_file(self, structure):
         '''
@@ -130,17 +143,24 @@ class virus_stability(object):
         ddGFile.close()
         self.ddg_outgroup[structure] = ddG
 
-    def calculate_ddg_outgroup(self, structure):
+    def calculate_ddg_outgroup(self):
         '''
         calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
-        self.check_valid_structure(structure)
-        self.align_to_outgroup()
-        self.find_mutations(structure)
-        self.make_run_file(structure, "_trimer_repaired_1.pdb")
-        self.overwrite_mutation_file(structure)
-        os.system("./foldx3b6 -runfile mutate_runfile.txt")
-        self.read_ddG_output(structure)
+        for structure in self.pdb_structures:
+            self.check_valid_structure(structure)
+            self.align_to_outgroup()
+            self.find_mutations()
+            os.chdir("foldx-output/")
+            self.make_run_file(structure, "_trimer_repaired_1.pdb")
+            self.overwrite_mutation_file(structure)
+            if os.path.exists('foldx3b6'):
+                os.system("./foldx3b6 -runfile mutate_runfile.txt")
+            else:
+                print("could not call foldx")
+                raise FileNotFoundError
+            self.read_ddG_output(structure)
+            os.chdir("../")
 
     def check_valid_structure(self, structure):
         '''
@@ -154,12 +174,17 @@ class virus_stability(object):
         calculate the change in stability from the parent to the current virus
         '''
         for pdb in self.pdb_structures:
-            self.ddg_parent[pdb] = self.ddg_outgroup[pdb] - parent.ddg_outgroup[pdb]
+            try:
+                self.ddg_parent[pdb] = self.ddg_outgroup[pdb] - parent.ddg_outgroup[pdb]
+            except:
+                print("could not calculate ddg from parent for this pair")
+                print(self.strain + " | " + parent.strain)
+                raise Exception("Could not calculate ddG from parent")
         self.parent_strain = parent.strain
 
     def output_file_format(self):
-        # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "parent strain", "aa_sequence"]
-        return [self.hash_code, self.strain, self.trunk, self.tip, self.ddg_outgroup1, self.ddg_outgroup2, self.ddg_parent1, self.ddg_parent2, self.parent_strain, self.seq]
+        # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "mutation from outgroup", "mutation from parent" "parent strain", "aa_sequence"]
+        return [self.hash_code, self.strain, self.trunk, self.tip, self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.ddg_parent["1HA0"], self.ddg_parent["2YP7"], self.sorted_mutation_string, self.mutations_from_parent, self.parent_strain, self.seq]
 
     def mutate_pdb_to_outgroup(self, structure):
         print("- Mutating the " + structure + " structure to the outgroup sequence")
@@ -174,6 +199,7 @@ class virus_stability(object):
         self.overwrite_mutation_file(structure)
         print("--Running foldx!")
         os.system("./foldx3b6 -runfile mutate_runfile.txt")
+
 
 
 '''

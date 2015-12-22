@@ -71,6 +71,7 @@ class tree_mutations(object):
                     node_virus = self.hash_to_virus[str(node)]
                 else:  # create new virus_stability object
                     node_virus = self.get_node_info(node)
+                    self.hash_to_virus[str(node)] = node_virus
                 if str(parent) in self.hash_to_virus.keys():
                     parent_virus = self.hash_to_virus[str(parent)]
                 else:

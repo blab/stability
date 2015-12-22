@@ -113,7 +113,10 @@ class process(virus_frequencies):
 				cPickle.dump(self.hash_to_virus, outfile)
 		if hasattr(self, 'virus_and_parent'):
 			with open(self.nuc_seq_fname, 'w') as outfile:
-				cPickle.dump(self.virus_and_parent, outfile)				
+				cPickle.dump(self.virus_and_parent, outfile)
+		else:
+			print "Doesn't have virus_and_parent"
+			print(dir(self))		
 
 	def load(self):
 		import cPickle
