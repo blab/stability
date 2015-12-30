@@ -9,13 +9,16 @@ import os
 class virus_stability(object):
 
 
-    def __init__(self, hash, strain, trunk, tip, date, seq):
+    def __init__(self, hash, strain, trunk, tip, date, seq, foldx_directory, outgroup_directory):
         self.hash_code = hash
         self.strain = strain
         self.trunk = trunk
         self.tip = tip
         self.date = date
         self.seq = seq
+        self.foldx_directory = foldx_directory
+        self.find_outgroup(outgroup_directory)
+
 
         self.mutations_from_outgroup = set()  #does not include chain info
         self.sorted_mutation_string = ""
@@ -30,10 +33,19 @@ class virus_stability(object):
         self.ddg_parent= {}
         self.parent_strain = ""
 
+
+
+    def __str__(self):
+        # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", date, "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "mutation from parent" "parent strain", "aa_sequence"]
+        return [self.hash_code, self.strain, self.trunk, self.tip, self.date, self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.ddg_parent["1HA0"], self.ddg_parent["2YP7"], self.mutations_from_parent, self.parent_strain, self.seq]
+        #attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
+        #return "\t".join(attributes)
+
+    def find_outgroup(self, directory):
         # get outgroup amino_acid sequence
         try:
             #print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
-            temp_outgroup = SeqIO.read('source-data/H3N2_outgroup.gb', 'genbank')
+            temp_outgroup = SeqIO.read(directory + 'H3N2_outgroup.gb', 'genbank')
         except:
             print("could not find H3N2_outgroup.gb which contained the outgroup file")
             raise
@@ -42,11 +54,6 @@ class virus_stability(object):
         protein = coding_dna.translate()
         self.outgroup_seq = str(protein)
 
-    def __str__(self):
-        attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
-        return "\t".join(attributes)
-
-# need to fix this after get sequences from nextflu
     def align_to_outgroup(self):
         '''
         :mutates: self.mutations_from_outgroup
@@ -96,7 +103,7 @@ class virus_stability(object):
 
         self.mutations_from_parent = self.mutations_from_outgroup - parent.mutations_from_outgroup
         self.sorted_parent_mutation_string = " ".join(sorted(list(self.mutations_from_parent)))
-        
+
 
     def overwrite_mutation_file(self, structure):
         '''
@@ -143,15 +150,19 @@ class virus_stability(object):
         ddGFile.close()
         self.ddg_outgroup[structure] = ddG
 
-    def calculate_ddg_outgroup(self):
+    def calculate_ddg_outgroup(self, calculated_stabilities):
         '''
         calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
+        stabilities = calculated_stabilities[self.seq]
+        self.ddg_outgroup['1HA0'] = stabilities[0]
+        self.ddg_outgroup['2YP7'] = stabilities[1]
+        '''
         for structure in self.pdb_structures:
-            self.check_valid_structure(structure)
+
             self.align_to_outgroup()
             self.find_mutations()
-            os.chdir("foldx-output/")
+            os.chdir(self.foldx_directory)
             self.make_run_file(structure, "_trimer_repaired_1.pdb")
             self.overwrite_mutation_file(structure)
             if os.path.exists('foldx3b6'):
@@ -161,6 +172,7 @@ class virus_stability(object):
                 raise FileNotFoundError
             self.read_ddG_output(structure)
             os.chdir("../")
+        '''
 
     def check_valid_structure(self, structure):
         '''
@@ -180,11 +192,8 @@ class virus_stability(object):
                 print("could not calculate ddg from parent for this pair")
                 print(self.strain + " | " + parent.strain)
                 raise Exception("Could not calculate ddG from parent")
+        self.get_parent_mutations(parent)
         self.parent_strain = parent.strain
-
-    def output_file_format(self):
-        # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "mutation from outgroup", "mutation from parent" "parent strain", "aa_sequence"]
-        return [self.hash_code, self.strain, self.trunk, self.tip, self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.ddg_parent["1HA0"], self.ddg_parent["2YP7"], self.sorted_mutation_string, self.mutations_from_parent, self.parent_strain, self.seq]
 
     def mutate_pdb_to_outgroup(self, structure):
         print("- Mutating the " + structure + " structure to the outgroup sequence")
