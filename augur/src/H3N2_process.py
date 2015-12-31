@@ -258,7 +258,7 @@ class H3N2_stability(tree_stability):
         tree_stability.__init__(self, **kwargs)
 
     def stability(self):
-        self.calculate_stability_cluster()
+        self.calculate_stability()
 
 
 class H3N2_process(process, H3N2_filter, H3N2_clean, H3N2_refine, H3N2_mutations, H3N2_stability):

@@ -24,7 +24,6 @@ class virus_stability(object):
         self.sorted_mutation_string = ""
 
         self.mutations_from_parent = set()
-        self.sorted_parent_mutation_string = ""
 
         self.pdb_structures = ["1HA0", "2YP7"]
         self.formatted_mut = {}
@@ -100,10 +99,12 @@ class virus_stability(object):
             self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
 
     def get_parent_mutations(self, parent):
-
+        '''
+        determine what mutations were needed to get from the parent to the current virus
+        :param parent:
+        :return:
+        '''
         self.mutations_from_parent = self.mutations_from_outgroup - parent.mutations_from_outgroup
-        self.sorted_parent_mutation_string = " ".join(sorted(list(self.mutations_from_parent)))
-
 
     def overwrite_mutation_file(self, structure):
         '''
@@ -154,25 +155,8 @@ class virus_stability(object):
         '''
         calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
-        stabilities = calculated_stabilities[self.seq]
-        self.ddg_outgroup['1HA0'] = stabilities[0]
-        self.ddg_outgroup['2YP7'] = stabilities[1]
-        '''
-        for structure in self.pdb_structures:
-
-            self.align_to_outgroup()
-            self.find_mutations()
-            os.chdir(self.foldx_directory)
-            self.make_run_file(structure, "_trimer_repaired_1.pdb")
-            self.overwrite_mutation_file(structure)
-            if os.path.exists('foldx3b6'):
-                os.system("./foldx3b6 -runfile mutate_runfile.txt")
-            else:
-                print("could not call foldx")
-                raise FileNotFoundError
-            self.read_ddG_output(structure)
-            os.chdir("../")
-        '''
+        self.ddg_outgroup['1HA0'] = calculated_stabilities[0]
+        self.ddg_outgroup['2YP7'] = calculated_stabilities[1]
 
     def check_valid_structure(self, structure):
         '''

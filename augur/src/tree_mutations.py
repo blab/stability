@@ -22,6 +22,12 @@ class tree_mutations(object):
         self.hash_to_virus = {}  # dictionary from accession to virus object
         self.virus_and_parent = []  # set of lists; containing each virus and it's parent
 
+        self.local_storage_name = "ddg_output_database.txt"
+        self.sequences_calculated = set()
+        self.new_sequences = []
+        new_seq_fname = "stability-data/new_seq_file.txt"
+        self.new_seq_file = open(new_seq_fname, 'w')
+
     def tip_attribute(self, node):
         '''
         checks if the current node has is a tip. True if it has no children, false otherwise
@@ -60,6 +66,32 @@ class tree_mutations(object):
             raise
         return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.directory, "source-data/")
 
+    def read_current_database(self):
+        '''
+        read the current local database to see which sequences already have had their stability calculated
+        '''
+        if os.path.isfile(self.directory + self.local_storage_name):
+            read_local_storage_file = open(self.directory + self.local_storage_name, 'r')
+            for line in read_local_storage_file:
+                ddg_1HA0, ddg_2YP7, sequence = line.split("\t")
+                self.sequences_calculated.add(sequence)
+        else:
+            print("No local ddG storage, creating new file")
+            read_local_storage_file = open(self.directory + self.local_storage_name, 'w')
+        read_local_storage_file.close()
+
+    def determine_new_sequences(self):
+        '''
+        Determine which viruses have sequences that have not yet had stability calculated for them.
+        Then print all those sequences to stability-data/new_seq_file.txt
+        '''
+        print("Determining which sequences need to have stability calculated before continuing")
+        for virus in self.hash_to_virus.values():
+            if virus.seq not in self.sequences_calculated:
+                self.new_sequences.append(virus.seq)
+        for seq in self.new_sequences:
+            self.new_seq_file.write(seq + "\n")
+        print("There were " + str(len(self.new_sequences)) + " new sequences, please calculate their stabilities on the cluster before continuing")
 
 
     def catalog_mutations(self):
@@ -81,3 +113,5 @@ class tree_mutations(object):
                     parent_virus = self.get_node_info(parent)
                 self.virus_and_parent.append([node_virus, parent_virus])
                 #self.mutations_file.write(str(node_virus) + " | " + str(parent_virus) +"\n")  # won't need this once dump implemented
+        self.read_current_database()
+        self.determine_new_sequences()
