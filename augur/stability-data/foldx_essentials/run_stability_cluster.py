@@ -11,14 +11,9 @@ class run_stability():
             raise
         self.sequence_to_ddG = {}  # dictionary from accession to virus object
         self.virus_list = []
+        self.split_number = split_number
 
-        self.output_file_name = split_number + "_sequences_ddg.txt"
-        self.output_file_format_headings = ["sequence", "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)"]
-        try:
-            self.output_file = open(self.output_file_name, 'w')
-        except:
-            print("can't create output file in current directory")
-            raise
+
 
     def __str__(self):
         return("Current mutation file is " + str(self.sequence_file))
@@ -30,7 +25,7 @@ class run_stability():
         '''
 
         for line in self.sequence_file:
-            self.virus_list.append(virus_stability_cluster(line.strip()))
+            self.virus_list.append(virus_stability_cluster(line.strip(), self.split_number))
 
     def viruses_outgroup_ddG(self):
         '''
@@ -40,24 +35,22 @@ class run_stability():
         for virus in self.virus_list:
             virus.calculate_ddg_outgroup()
 
-    def write_to_txt(self):
-        '''
-        writes information for each virus to _ddG_mutations.txt with header on 1st line and tab de-limited
-        '''
-        for virus in self.virus_list:
-            self.output_file.write(virus + "\n")
-
     def calculate_ddg_for_sequences(self):
         self.read_sequence_file()
         self.viruses_outgroup_ddG()
-        self.write_to_txt()
 
 class virus_stability_cluster(virus_stability):
-    def __init__(self, sequence):
+    def __init__(self, sequence, split_number):
         virus_stability.__init__(self, None, None, None, None, None, sequence, "", "")
+        self.output_file_name = split_number + "_sequences_ddg.txt"
+        try:
+            self.output_file = open(self.output_file_name, 'w')
+        except:
+            print("can't create output file in current directory")
+            raise
 
     def __str__(self):
-        return "\t".join([self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.seq])
+        return "\t".join([self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.seq]) + "\n"
 
     def calculate_ddg_outgroup(self):
         '''
@@ -74,6 +67,7 @@ class virus_stability_cluster(virus_stability):
                 print("could not call foldx")
                 raise FileNotFoundError
             self.read_ddG_output(structure)
+        self.output_file.write(self.__str__())
 
 def main(index):
     os.chdir(index + "_foldx_split")

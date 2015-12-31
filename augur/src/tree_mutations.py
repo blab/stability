@@ -8,14 +8,6 @@ from virus_stability import virus_stability
 class tree_mutations(object):
     def __init__(self, **kwargs):
 
-        self.directory = "foldx-output/"
-        '''
-        self.mutations_fname = "0_mutation_file.txt"
-        try:
-            self.mutations_file = open(self.directory + self.mutations_fname, 'w')
-        except:
-            print("couldn't create mutations file")
-        '''
         self.universal_attributes = ['trunk', 'aa_seq']
         self.sample_attributes = ['date', 'strain']
 
@@ -25,7 +17,8 @@ class tree_mutations(object):
         self.local_storage_name = "ddg_output_database.txt"
         self.sequences_calculated = set()
         self.new_sequences = []
-        new_seq_fname = "stability-data/new_seq_file.txt"
+        self.stability_output = "stability-data/"
+        new_seq_fname = self.stability_output + "new_seq_file.txt"
         self.new_seq_file = open(new_seq_fname, 'w')
 
     def tip_attribute(self, node):
@@ -64,20 +57,20 @@ class tree_mutations(object):
         except:
             print("Couldn't combine a samples amino acid sequence chains")
             raise
-        return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.directory, "source-data/")
+        return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.stability_output, "source-data/")
 
     def read_current_database(self):
         '''
         read the current local database to see which sequences already have had their stability calculated
         '''
-        if os.path.isfile(self.directory + self.local_storage_name):
-            read_local_storage_file = open(self.directory + self.local_storage_name, 'r')
+        if os.path.isfile(self.stability_output + self.local_storage_name):
+            read_local_storage_file = open(self.stability_output + self.local_storage_name, 'r')
             for line in read_local_storage_file:
                 ddg_1HA0, ddg_2YP7, sequence = line.split("\t")
                 self.sequences_calculated.add(sequence)
         else:
             print("No local ddG storage, creating new file")
-            read_local_storage_file = open(self.directory + self.local_storage_name, 'w')
+            read_local_storage_file = open(self.stability_output + self.local_storage_name, 'w')
         read_local_storage_file.close()
 
     def determine_new_sequences(self):

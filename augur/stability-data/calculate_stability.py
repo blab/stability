@@ -26,7 +26,8 @@ class calculate_stability(object):
             print(os.getcwd())
             raise
         for seq in sequence_file:
-            self.new_sequences_list.append(seq.strip())
+            if len(seq.strip()) > 0:
+                self.new_sequences_list.append(seq.strip())
         self.split_new_seq_list = self.split_list(self.new_sequences_list, self.num_splits)
 
     def split_list(self, initial, n):
@@ -68,7 +69,7 @@ class calculate_stability(object):
         :param index: the split to work with
         :return:
         '''
-        bash_file.write("srun -n 1 -c 1 -t 24:00:00 -o output_" + str(index) + ".txt python " + str(index) + "_foldx_split/run_stability_cluster.py " + str(index) + " & \n")
+        bash_file.write("srun -n 1 -c 1 -t 120:00:00 -o output_" + str(index) + ".txt python " + str(index) + "_foldx_split/run_stability_cluster.py " + str(index) + " & \n")
         #bash_file.write("python " + str(index) + "_foldx_split/run_stability_cluster.py " + str(index) + " & \n")
 
     def move_foldx_files(self, folder):
