@@ -3,6 +3,7 @@ import dendropy
 from seq_util import *
 from date_util import *
 from virus_stability import virus_stability
+import boto3
 
 
 class tree_mutations(object):
@@ -16,10 +17,14 @@ class tree_mutations(object):
 
         self.local_storage_name = "ddg_output_database.txt"
         self.sequences_calculated = set()
+        self.ddg_calculated = {}
         self.new_sequences = []
         self.stability_output = "stability-data/"
         new_seq_fname = self.stability_output + "new_seq_file.txt"
         self.new_seq_file = open(new_seq_fname, 'w')
+
+        dynamodb = boto3.resource('dynamodb')
+        self.table=dynamodb.Table('stability')
 
     def tip_attribute(self, node):
         '''
@@ -61,17 +66,35 @@ class tree_mutations(object):
 
     def read_current_database(self):
         '''
+        read the dynamodb 'stability' database
         read the current local database to see which sequences already have had their stability calculated
         '''
+
+
+
+
         if os.path.isfile(self.stability_output + self.local_storage_name):
             read_local_storage_file = open(self.stability_output + self.local_storage_name, 'r')
             for line in read_local_storage_file:
                 ddg_1HA0, ddg_2YP7, sequence = line.split("\t")
-                self.sequences_calculated.add(sequence)
+                if sequence not in self.sequences_calculated:
+                    self.sequences_calculated.add(sequence)
         else:
             print("No local ddG storage, creating new file")
             read_local_storage_file = open(self.stability_output + self.local_storage_name, 'w')
         read_local_storage_file.close()
+
+    def check_dynamodb(self, sequence):
+        '''
+        checks the stability table to see if the sequence already has had stability calculated for it
+        :return returns true if in database, false if not in database
+        '''
+        response = self.table.get_item(
+            ProjectionExpression='ddg',
+            Key={'sequence':sequence}
+        )
+        return 'Item' in response.keys()
+
 
     def determine_new_sequences(self):
         '''
@@ -80,10 +103,11 @@ class tree_mutations(object):
         '''
         print("Determining which sequences need to have stability calculated before continuing")
         for virus in self.hash_to_virus.values():
-            if virus.seq not in self.sequences_calculated:
+            if not self.check_dynamodb(virus.seq):
                 self.new_sequences.append(virus.seq)
         for seq in self.new_sequences:
             self.new_seq_file.write(seq + "\n")
+        print(str(len(self.hash_to_virus.values())-len(self.new_sequences)) + " sequences were found in the database")
         print("There were " + str(len(self.new_sequences)) + " new sequences, please calculate their stabilities on the cluster before continuing")
 
 

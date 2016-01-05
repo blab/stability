@@ -1,5 +1,6 @@
 import os, sys
 from virus_stability import virus_stability
+import boto3
 
 class run_stability():
 
@@ -12,6 +13,14 @@ class run_stability():
         self.sequence_to_ddG = {}  # dictionary from accession to virus object
         self.virus_list = []
         self.split_number = split_number
+
+
+        self.output_file_name = split_number + "_sequences_ddg.txt"
+        try:
+            self.output_file = open(self.output_file_name, 'w')
+        except:
+            print("can't create output file in current directory")
+            raise
 
 
 
@@ -44,9 +53,15 @@ class virus_stability_cluster(virus_stability):
         virus_stability.__init__(self, None, None, None, None, None, sequence, "", "")
         self.output_file_name = split_number + "_sequences_ddg.txt"
         try:
-            self.output_file = open(self.output_file_name, 'w')
+            self.output_file = open(self.output_file_name, 'a')
         except:
-            print("can't create output file in current directory")
+            print("can't open output file in current directory")
+            raise
+        try:
+            dynamodb = boto3.resource('dynamodb')
+            self.table=dynamodb.Table('stability')
+        except:
+            print("Couldn't connect to dynamodb or the stability table")
             raise
 
     def __str__(self):
@@ -67,6 +82,21 @@ class virus_stability_cluster(virus_stability):
                 print("could not call foldx")
                 raise FileNotFoundError
             self.read_ddG_output(structure)
+        self.upload_to_database()
+
+    def upload_to_database(self):
+        '''
+        upload to dynamodb 'stability' table, also write to local file
+        :return:
+        '''
+        print("uploading calculation to dynamodb...")
+        self.table.put_item(
+           Item={
+               'sequence': self.seq,
+               'ddg': [self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"]],
+            }
+        )
+        print("upload successful")
         self.output_file.write(self.__str__())
 
 def main(index):

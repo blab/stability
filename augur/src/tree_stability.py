@@ -13,11 +13,11 @@ class tree_stability(object):
     def __init__(self, **kwargs):
         self.pdb_structures = ["1HA0", "2YP7"] # can add functionality to parser later
         self.local_storage_name = "ddg_output_database.txt"
-        self.ddg_calculated = {}
+
         self.directory = "foldx-output/"
         self.stability_output = "stability-data/"
 
-        self.output_file_name = "0_ddG_mutations.txt"
+        self.output_file_name = "ddg_output_database.txt"
         try:
             self.output_file = open(self.stability_output + self.output_file_name, 'w')
         except:
@@ -59,12 +59,17 @@ class tree_stability(object):
             virus.get_parent_mutations(parent)
 
     def read_current_database(self):
+        '''
+        read the updated current database and add to self.ddg_calculated if it's not there
+        :return:
+        '''
         if os.path.isfile(self.stability_output):
             read_local_storage_file = open(self.stability_output + self.local_storage_name, 'r')
             for line in read_local_storage_file:
                 try:
                     ddg_1HA0, ddg_2YP7, sequence = line.split("\t")
-                    self.ddg_calculated[sequence] = [ddg_1HA0, ddg_2YP7]
+                    if sequence not in self.ddg_calculated.keys():
+                        self.ddg_calculated[sequence] = [ddg_1HA0, ddg_2YP7]
                 except:
                     print("couldn't read this line")
                     print(line)
@@ -90,7 +95,8 @@ class tree_stability(object):
                 raise FileNotFoundError
             for line in new_file:
                 ddg_1HA0, ddg_2YP7, sequence = line.split("\t")
-                self.ddg_calculated[sequence] = [ddg_1HA0, ddg_2YP7]
+                if sequence not in self.ddg_calculated.keys():
+                    self.ddg_calculated[sequence] = [ddg_1HA0, ddg_2YP7]
 
 
     def write_current_database(self):
