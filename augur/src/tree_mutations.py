@@ -17,7 +17,6 @@ class tree_mutations(object):
 
         self.local_storage_name = "ddg_output_database.txt"
         self.sequences_calculated = set()
-        self.ddg_calculated = {}
         self.new_sequences = []
         self.stability_output = "stability-data/"
         new_seq_fname = self.stability_output + "new_seq_file.txt"
@@ -98,12 +97,12 @@ class tree_mutations(object):
 
     def determine_new_sequences(self):
         '''
-        Determine which viruses have sequences that have not yet had stability calculated for them.
+        Determine which unique sequences that have not yet had stability calculated for them.
         Then print all those sequences to stability-data/new_seq_file.txt
         '''
         print("Determining which sequences need to have stability calculated before continuing")
         for virus in self.hash_to_virus.values():
-            if not self.check_dynamodb(virus.seq):
+            if virus.seq not in self.new_sequences and not self.check_dynamodb(virus.seq):
                 self.new_sequences.append(virus.seq)
         for seq in self.new_sequences:
             self.new_seq_file.write(seq + "\n")

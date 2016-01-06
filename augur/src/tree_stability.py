@@ -13,7 +13,7 @@ class tree_stability(object):
     def __init__(self, **kwargs):
         self.pdb_structures = ["1HA0", "2YP7"] # can add functionality to parser later
         self.local_storage_name = "ddg_output_database.txt"
-
+        self.ddg_calculated = {}
         self.directory = "foldx-output/"
         self.stability_output = "stability-data/"
 
@@ -27,12 +27,13 @@ class tree_stability(object):
 
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")
-        self.read_current_database()
-        self.read_new_calc_ddg()
+        #self.read_current_database()
+        #self.read_new_calc_ddg()
         self.viruses_outgroup_ddG()
         self.viruses_parent_ddG()
         self.print_viruses()
-        self.write_current_database()
+        self.assign_node_ddG()
+        #self.write_current_database()
 
     def print_viruses(self):
         for virus in self.hash_to_virus.values():
@@ -46,7 +47,24 @@ class tree_stability(object):
         the ddG from the outgroup to the current virus for each structure
         '''
         for virus in self.hash_to_virus.values():
-            virus.calculate_ddg_outgroup(self.ddg_calculated[virus.sequence])
+            ddg_list = self.get_dynamodb_stability(virus.seq)
+            virus.calculate_ddg_outgroup(ddg_list)
+
+    def get_dynamodb_stability(self, sequence):
+        '''
+        checks the stability table to see if the sequence already has had stability calculated for it
+        :return returns a list containing the stability output for that sequence, if it can't find the stability, raises an exception
+        '''
+        response = self.table.get_item(
+            ProjectionExpression='ddg',
+            Key={'sequence':sequence}
+        )
+        try:
+            ddg_list = response['Item']['ddg']
+            return ddg_list
+        except:
+            print("couldn't get ddg from the table for this sequence")
+            raise
 
     def viruses_parent_ddG(self):
         '''
@@ -57,6 +75,17 @@ class tree_stability(object):
             parent = pair[1]
             virus.calculate_ddg_parent(parent)
             virus.get_parent_mutations(parent)
+
+    def assign_node_ddG(self):
+        print("assigning ddg attribute to nodes")
+        for node in self.tree.postorder_node_iter():
+            hash = str(node)
+            virus = self.hash_to_virus[hash]
+            average_ddg = (virus.ddg_outgroup['1HA0'] + virus.ddg_outgroup['2YP7']) / 2
+            try:
+                setattr(node, 'ep', average_ddg)
+            except:
+                print("couldn't assign ddg attribute to current node")
 
     def read_current_database(self):
         '''
@@ -104,7 +133,11 @@ class tree_stability(object):
         write to local storage file sequence and ddg
         :return:
         '''
-        local_storage_file = open(self.stability_output + self.local_storage_name, 'w')
+        try:
+            local_storage_file = open(self.stability_output + self.local_storage_name, 'a')
+        except:
+            local_storage_file = open(self.stability_output + self.local_storage_name, 'w')
+            print("made a new database storage file")
         for seq in self.ddg_calculated.keys():
             self.store_calculation(local_storage_file, self.ddg_calculated[seq], seq)
         local_storage_file.close()

@@ -155,8 +155,12 @@ class virus_stability(object):
         '''
         calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
-        self.ddg_outgroup['1HA0'] = calculated_stabilities[0]
-        self.ddg_outgroup['2YP7'] = calculated_stabilities[1]
+        if len(calculated_stabilities) > 2:
+            print("more than 2 stability calculations given")
+            print(calculated_stabilities)
+            raise Exception
+        self.ddg_outgroup['1HA0'] = float(calculated_stabilities[0])
+        self.ddg_outgroup['2YP7'] = float(calculated_stabilities[1])
 
     def check_valid_structure(self, structure):
         '''
