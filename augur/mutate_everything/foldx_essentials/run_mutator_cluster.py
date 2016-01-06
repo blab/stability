@@ -53,7 +53,7 @@ class virus_stability_cluster(virus_stability):
 
 
     def __str__(self):
-        return "\t".join([self.ddg_outgroup[self.structure], self.mutations_from_outgroup]) + "\n"
+        return "\t".join([self.ddg_outgroup[self.structure], "".join(self.mutations_from_outgroup)]) + "\n"
 
     def find_outgroup(self, directory):
         pass
@@ -64,21 +64,24 @@ class virus_stability_cluster(virus_stability):
         '''
         self.align_to_outgroup()
         self.find_mutations()
-        self.make_run_file(self.structure, "_trimer_repaired.pdb")
-        self.overwrite_mutation_file(self.structure)
-        if os.path.exists('foldx3b6'):
-            os.system("./foldx3b6 -runfile mutate_runfile.txt")
+        if len(self.formatted_mut[structure]) > 0:
+            self.make_run_file(self.structure, "_trimer_repaired.pdb")
+            self.overwrite_mutation_file(self.structure)
+            if os.path.exists('foldx3b6'):
+                os.system("./foldx3b6 -runfile mutate_runfile.txt")
+            else:
+                print("could not call foldx")
+                raise FileNotFoundError
+            self.read_ddG_output(self.structure)
+            try:
+                self.output_file = open(self.output_file_name, 'w')
+            except:
+                print("can't create output file in current directory")
+                raise
+            self.output_file.write(self.__str__())
+            self.output_file.close()
         else:
-            print("could not call foldx")
-            raise FileNotFoundError
-        self.read_ddG_output(self.structure)
-        try:
-            self.output_file = open(self.output_file_name, 'w')
-        except:
-            print("can't create output file in current directory")
-            raise
-        self.output_file.write(self.__str__())
-        self.output_file.close()
+            print("skipping this sequence, no valid mutations")
 
 def main(index, structure):
     os.chdir(index + "_foldx_split")
