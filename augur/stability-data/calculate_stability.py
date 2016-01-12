@@ -5,7 +5,7 @@ class calculate_stability(object):
     def __init__(self):
         self.new_sequences_list = []
         self.split_new_seq_list = []
-        self.num_splits = 20
+        self.num_splits = 16
         self.bash_file_name = "bash_file.sh"
 
     def run(self):

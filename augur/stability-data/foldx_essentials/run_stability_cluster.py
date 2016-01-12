@@ -14,16 +14,6 @@ class run_stability():
         self.virus_list = []
         self.split_number = split_number
 
-
-        self.output_file_name = split_number + "_sequences_ddg.txt"
-        try:
-            self.output_file = open(self.output_file_name, 'w')
-        except:
-            print("can't create output file in current directory")
-            raise
-
-
-
     def __str__(self):
         return("Current mutation file is " + str(self.sequence_file))
 
@@ -74,15 +64,19 @@ class virus_stability_cluster(virus_stability):
         for structure in self.pdb_structures:
             self.align_to_outgroup()
             self.find_mutations()
-            self.make_run_file(structure, "_trimer_repaired_1.pdb")
-            self.overwrite_mutation_file(structure)
-            if os.path.exists('foldx3b6'):
-                os.system("./foldx3b6 -runfile mutate_runfile.txt")
-            else:
-                print("could not call foldx")
-                raise FileNotFoundError
-            self.read_ddG_output(structure)
-        self.upload_to_database()
+            if len(self.mutations_from_outgroup) > 0:
+                self.make_run_file(structure, "_trimer_repaired_1.pdb")
+                self.overwrite_mutation_file(structure)
+                if os.path.exists('foldx3b6'):
+                    os.system("./foldx3b6 -runfile mutate_runfile.txt")
+                else:
+                    print("could not call foldx")
+                    raise FileNotFoundError
+                self.read_ddG_output(structure)
+        if len(self.mutations_from_outgroup) > 0:
+            self.upload_to_database()
+        else:
+            print("skipping this sequence, no valid mutations")
 
     def upload_to_database(self):
         '''

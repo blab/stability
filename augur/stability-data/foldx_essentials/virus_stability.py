@@ -208,11 +208,3 @@ class virus_stability(object):
         self.overwrite_mutation_file(structure)
         print("--Running foldx!")
         os.system("./foldx3b6 -runfile mutate_runfile.txt")
-
-
-
-'''
-    def check_length_sequence(self):
-        # check that the length sequence is always the same. Since by the time it comes out of tree_mutations,
-        # should always be the same
-'''
