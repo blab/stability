@@ -41,37 +41,21 @@ Reroot the tree based on outgroup strain, collapse nodes with zero-length branch
 
 #### [Tree Mutations](src/tree_mutations.py)
 
-Iterates through the tree in preorder traversal, reporting the mutations that were needed to get from the root to each node in the tree. Uses Beijing 1992 sequence as outgroup. Prints information to [`mutation_trunk.txt`](mutation_trunk.txt). On the first line prints information about the first child of the root that is not the outgroup.
-	
-	Root Sequence \t Root Hash
+Iterates through the tree and creates [virus_stability objects](src/virus_stability.py). Determines which sequences have not yet had a stability value stored in the dynamodb stability table. Prints these new sequences to [file](stability-data/new_seq_file.txt) Uses Beijing 1992 sequence as outgroup. 
 
-In a preorder traversal prints the following information about each node and child pair
-	
-	Node Trunk \t Node Mutations \t Node Hash \t Child Trunk \t Child Mutations \t Child Hash \t Child Tip
-	
+#### [Tree Stability](src/tree_stability.py)
+
+Goes back through all virus objects, looks up their calculated ddg from outgroup. (virus_stability.py) determines all their other meta data. Prints all this information to /stability-data/ddg_output.txt. Assigns ddg to the 'ep' attribute of all nodes. 
+
+ddg_output.txt tab separated data format is...
+
+```
+return [self.hash_code, self.strain, self.trunk, self.tip, self.date, self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.ddg_parent["1HA0"], self.ddg_parent["2YP7"], self.mutations_from_parent, self.parent_strain, self.seq]
+```
+Attribute is equal to none if a node doesn't have it.	
 ### [Streamline](src/streamline.py)
 
 Prep and remove cruft from data files for [auspice](../auspice/) visualization.
-
-## FoldX
-
-To determine the change in stability caused by mutations, the protein design program, [FoldX](http://foldxsuite.crg.eu/) is used. It uses an empirical force field to calculate changes in \delta G based on a pdb structure of the HA protein.
-
-###  [Feed FoldX](feed_foldx.py)
-
-Gives mutation information printed by Tree Mutations to [`mutation_trunk.txt`](mutation_trunk.txt) to determine changes in stability. Must specify the name of the pdb structure file to use and then will align the structure to the root sequence given by [`mutation_trunk.txt`](mutation_trunk.txt). Then can calculate all changes in stability from this root sequence for all mutations given by [`mutation_trunk.txt`](mutation_trunk.txt).
-
-### Cluster
-
-Scripts to run on the FHCRC rhino cluster have been created
-
-#### [Run Pipeline](foldx_cluster_runpipeline.py)
-
-Calls ['split_fille.py](split_file.py) to split the list of mutations into a specified number of files. Then calls ['feed_foldx.py](feed_foldx.py) on structures 1HA0 and 2YP7 for each of the split files. 
-
-#### [Bash Script](foldx_cluster_bash.sh)
-
-This bash script should be run from the command line while on the cluster, can change how many files to split the list of mutations into. Calls ['foldx_cluster_runpipeline.py](foldx_cluster_runpipeline.py)
 
 ####
 

@@ -7,6 +7,12 @@ import boto3
 
 
 class tree_mutations(object):
+	'''
+	Run through and add each node to dictionary from hash code to virus object, and list of current virus and parent virus pairs.
+    Also determine which sequences have not yet had stability calculated for them relative to Beijing outgroup. 
+    Print those new sequences to /stability-data/new_seq_file.txt
+    '''
+	
     def __init__(self, **kwargs):
 
         self.universal_attributes = ['trunk', 'aa_seq']
@@ -112,8 +118,9 @@ class tree_mutations(object):
 
     def catalog_mutations(self):
         '''
-        run through and print the mutations needed to get to each node in the tree
-        print to the document mutation_trunk.txt
+        Run through and add each node to dictionary from hash code to virus object, and list of current virus and parent virus pairs.
+        Also determine which sequences have not yet had stability calculated for them relative to Beijing outgroup. 
+        Print those new sequences to /stability-data/new_seq_file.txt
 
         '''
         for parent in self.tree.postorder_node_iter():

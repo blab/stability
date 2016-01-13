@@ -2,48 +2,41 @@
 
 ## Pipeline
 
-### Run nextflu pipeline and FoldX
+### Run H3N2_process to get new sequences
 
-From 'augur/' directory run nextflu pipeline to filter, align, build a tree, do ancestral state reconstruction, annotate trunk branches and list mutations. Also feeds mutations to FoldX to get the resulting ddG from the mutations listed. 
-
-```
-python run_foldxPipeline.py 4WE4 1 30
-```
-
-#### Parameters
-
-First parameter "4WE4" specifies the protein structure to be used by foldx to calculate ddGs. Second "1" and third "30" parameters specify viruses sampled per month and years respectively. 
-
-#### Changes to Code when changing protein structure
-
-Before running the full pipeline, need to make sure that the nextflu pipeline is configured correctly for the HA protein structure that will be used. 
-
-##### Outgroup
-In [`H3N2_process.py`](src/H3N2_process.py) need to make the outgroup equal to the protein structure that will be used. Have added outgroups for 4WE4, 4WE5, 4WE6 and 4WE9. Just uncomment the one you're going to use and comment out the others. 
-
-##### Amino Acid Sites
-
-In [`tree_mutations.py`](src/tree_mutations.py) need to specify what range of amino acid sites the used protein structure covers since the structure doesn't automatically cover all sites. In calculating ddGs we have to ignore mutations that are not within the range. Have added ranges for 4WE4, 4WE5, 4WE6, 4WE9, uncomment out whichever one you're using. Change lowerRange and upperRange.
-
-##### Pdb file repaired and formatted
-Pipeline assumes that the pdb file to be used is properly repaired and formatted for foldX. Can use  [`repair_format_structure.py`](repair_format_structure.py) to repair and format the structure. From the 'augur/' directory run the following command, give the function the code for a pdb structure (ex. 4WE4)
+From 'augur/' directory run augur pipeline to filter, align, build a tree, do ancestral state reconstruction, annotate trunk branches and list sequences that have not yet had ddG calculated for them. It checks the stability table in dynamodb to see if there has been a stability value calculated. New sequences are put in new_eq_file.txt in /stability-data. 
 
 ```
-python repair_format_structure.py 4WE4
+python src/H3N2_proccess.py --stop mutations
 ```
 
-### Generate list of mutations
+### Calculate ddG for new sequences
 
-From `augur/` directory run nextflu pipeline to filter, align, build a tree and do ancestral state reconstruction on this tree:
-
-```
-python src/H3N2_process.py -v 1 -y 10 --stop refine
-```
-
-Run `tree_refine` to annotate tree with trunk vs side branch etc and list mutations:
+Copy the /stability-data/ directory onto the cluster. Change the batch file and foldx file to be executable. Define AWS keys to access the stability table in dynamodb. 
 
 ```
-python src/H3N2_process.py --start mutations --stop mutations
+chmod 755 stability_sbatch_call.sh
+cd foldx_essentials/
+chmod 755 foldx3b6
+cd ..
+export AWS_ACCESS_KEY_ID=''
+export AWS_SECRET_ACCESS_KEY=''
+export AWS_DEFAULT_REGION='us-west-2'
+```
+
+Then call the sbatch file
+
+```
+sbatch ./stability_sbatch_call.sh
+```
+Wait till its completed.
+
+### Complete H3N2_process
+
+After calculating a stability value for all sequences in the current run, starting from the stability step, finish the rest of the augur pipeline. You should now be able to visualize the tree from the auspice directory. Currently change in stability values from the outgroup are put in epitope values place. 
+
+```
+python src/H3N2_proccess.py --start stability
 ```
 
 ### Visual data check
