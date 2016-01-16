@@ -45,7 +45,7 @@ class virus_stability_cluster(virus_stability):
         virus_stability.__init__(self, None, None, None, None, None, sequence, "", "")
         self.output_file_name = split_number + "_" + structure + "_sequences_ddg.txt"
         try:
-            self.output_file = open(self.output_file_name, 'w')
+            self.output_file = open(self.output_file_name, 'a')
         except:
             print("can't create output file in current directory")
             raise
