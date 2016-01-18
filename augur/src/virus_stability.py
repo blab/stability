@@ -21,11 +21,10 @@ class virus_stability(object):
 
 
         self.mutations_from_outgroup = set()  #does not include chain info
-        self.sorted_mutation_string = ""
 
         self.mutations_from_parent = set()
 
-        self.pdb_structures = ["1HA0", "2YP7"]
+        self.pdb_structures = ['1HA0', '2YP7']
         self.formatted_mut = {}
 
         self.ddg_outgroup = {}
@@ -36,7 +35,23 @@ class virus_stability(object):
 
     def __str__(self):
         # ["hash code", "strain", "trunk (T/F)", "tip (T/F)", date, "ddG to outgroup (1HA0)", "ddG to outgroup (2YP7)", "ddG to parent (1HA0)", "ddG to parent (2YP7)", "mutation from parent" "parent strain", "aa_sequence"]
-        return [self.hash_code, self.strain, self.trunk, self.tip, self.date, self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.ddg_parent["1HA0"], self.ddg_parent["2YP7"], self.mutations_from_parent, self.parent_strain, self.seq]
+        if len(self.ddg_outgroup.keys()) == 0:
+            print("Readjusting parent ddg!!!")
+            self.ddg_outgroup['1HA0'] = None
+            self.ddg_outgroup['2YP7'] = None
+        if len(self.ddg_parent.keys()) == 0:
+            print("Readjusting parent ddg!!!")
+            self.ddg_parent['1HA0'] = None
+            self.ddg_parent['2YP7'] = None
+        '''
+        print(self.ddg_outgroup.keys())
+        print(self.ddg_outgroup['1HA0'])
+        print(self.ddg_outgroup['2YP7'])
+        print(self.ddg_parent.keys())
+        print(self.ddg_parent['1HA0'])
+        print(self.ddg_parent['2YP7'])
+        '''
+        return "\t".join([self.hash_code, str(self.strain), str(self.trunk), str(self.tip), str(self.date), str(self.ddg_outgroup['1HA0']), str(self.ddg_outgroup['2YP7']), str(self.ddg_parent['1HA0']), str(self.ddg_parent['2YP7']), str(" ".join(list(self.mutations_from_parent))), str(self.parent_strain), self.seq, "\n"])
         #attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
         #return "\t".join(attributes)
 
@@ -69,7 +84,6 @@ class virus_stability(object):
                 mutation = outgroup_align_seq[index] + str(site) + virus_align_seq[index]
                 mutations_set.add(mutation)
         self.mutations_from_outgroup = mutations_set
-        self.sorted_mutation_string = " ".join(sorted(list(self.mutations_from_outgroup)))
         return ','.join(mutations_set)
 
     def align_outgroup_to_sequence(self):
@@ -98,13 +112,13 @@ class virus_stability(object):
             mut_stability = mutation_stability(list_of_mutations, structure)
             self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
 
-    def get_parent_mutations(self, parent):
+    def get_parent_mutations(self, outgroup_mutations, parent_mutations):
         '''
         determine what mutations were needed to get from the parent to the current virus
         :param parent:
         :return:
         '''
-        self.mutations_from_parent = self.mutations_from_outgroup - parent.mutations_from_outgroup
+        self.mutations_from_parent = outgroup_mutations - parent_mutations
 
     def overwrite_mutation_file(self, structure):
         '''
@@ -159,8 +173,11 @@ class virus_stability(object):
             print("more than 2 stability calculations given")
             print(calculated_stabilities)
             raise Exception
+        print("Calculated Stabilities: " + str(calculated_stabilities))
         self.ddg_outgroup['1HA0'] = float(calculated_stabilities[0])
+        print("Outgroup ddg 1HA0: " + str(self.ddg_outgroup['1HA0']))
         self.ddg_outgroup['2YP7'] = float(calculated_stabilities[1])
+        print("Outgroup ddg 2YP7: " + str(self.ddg_outgroup['2YP7']))
 
     def check_valid_structure(self, structure):
         '''
@@ -169,19 +186,24 @@ class virus_stability(object):
         if structure not in self.pdb_structures:
             raise Exception("This pipeline does not work for that structure, only works for 1HA0 or 2YP7")
 
-    def calculate_ddg_parent(self, parent):
+    def calculate_ddg_parent(self, virus_ddg, parent_ddg):
         '''
         calculate the change in stability from the parent to the current virus
+        '''
+        self.ddg_parent['1HA0'] = float(virus_ddg[0]) - float(parent_ddg[0])
+        self.ddg_parent['2YP7'] = float(virus_ddg[1]) - float(parent_ddg[1])
         '''
         for pdb in self.pdb_structures:
             try:
                 self.ddg_parent[pdb] = self.ddg_outgroup[pdb] - parent.ddg_outgroup[pdb]
+                print("ddg from parent for " + pdb + ": " + str(self.ddg_parent[pdb]))
             except:
                 print("could not calculate ddg from parent for this pair")
-                print(self.strain + " | " + parent.strain)
+                print(str(self.strain) + " | " + str(parent.strain))
+                print(self.ddg_outgroup[pdb])
+                print(parent.ddg_outgroup[pdb])
                 raise Exception("Could not calculate ddG from parent")
-        self.get_parent_mutations(parent)
-        self.parent_strain = parent.strain
+        '''
 
     def mutate_pdb_to_outgroup(self, structure):
         print("- Mutating the " + structure + " structure to the outgroup sequence")
