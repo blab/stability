@@ -19,5 +19,6 @@ plot(date, ddg_outgroup_average, main="Change in stability from the outgroup ove
 plot(date, ddg_parent_1HA0, main="Change in stability from the parent node over time for 1968 structure")
 plot(date, ddg_parent_2YP7, main="Change in stability from the parent node over time for 2011 structure")
 plot(date, ddg_parent_average, main="Change in stability from the parent node over time for average of two structures")
-
+plot(ddg_outgroup_1HA0,ddg_outgroup_2YP7, main="ddG from outgroup for 1968(1HA0) and 2011(2YP7) structure\n-0.629 correlation")
+cor(ddg_outgroup_1HA0,ddg_outgroup_2YP7)
 par(old.par)

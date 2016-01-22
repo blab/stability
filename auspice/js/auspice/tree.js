@@ -222,7 +222,7 @@ d3.json(path + file_prefix + "tree.json", function(error, root) {
 		.attr("class", "tip")
 		.attr("id", function(d) { return (d.strain).replace(/\//g, ""); })
 		.attr("r", tipRadius)
-		.style("visibility", tipVisibility)
+//		.style("visibility", tipVisibility)
 		.style("fill", tipFillColor)
 		.style("stroke", tipStrokeColor)
 		.on('mouseover', function(d) {
