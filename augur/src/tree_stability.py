@@ -76,6 +76,7 @@ class tree_stability(object):
             virus.align_to_outgroup()
             virus.calculate_ddg_outgroup(ddg_list)
             print(virus.ddg_outgroup.keys())
+            virus.determine_relative_time()
 
     def viruses_parent_ddG(self):
         '''

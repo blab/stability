@@ -21,6 +21,8 @@ class virus_stability(object):
 
 
         self.mutations_from_outgroup = set()  #does not include chain info
+        self.mutations_from_1968 = set()
+        self.mutations_time = 0
 
         self.mutations_from_parent = set()
 
@@ -51,7 +53,7 @@ class virus_stability(object):
         print(self.ddg_parent['1HA0'])
         print(self.ddg_parent['2YP7'])
         '''
-        return "\t".join([self.hash_code, str(self.strain), str(self.trunk), str(self.tip), str(self.date), str(self.ddg_outgroup['1HA0']), str(self.ddg_outgroup['2YP7']), str(self.ddg_parent['1HA0']), str(self.ddg_parent['2YP7']), str(" ".join(list(self.mutations_from_parent))), str(self.parent_strain), self.seq, "\n"])
+        return "\t".join([self.hash_code, str(self.strain), str(self.trunk), str(self.tip), str(self.date), str(self.ddg_outgroup['1HA0']), str(self.ddg_outgroup['2YP7']), str(self.ddg_parent['1HA0']), str(self.ddg_parent['2YP7']), str(" ".join(list(self.mutations_from_parent))), str(" ".join(list(self.mutations_from_1968))), str(self.mutations_time), str(self.parent_strain), self.seq, "\n"])
         #attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
         #return "\t".join(attributes)
 
@@ -204,6 +206,22 @@ class virus_stability(object):
                 print(parent.ddg_outgroup[pdb])
                 raise Exception("Could not calculate ddG from parent")
         '''
+    def determine_relative_time(self):
+        '''
+        Need to determine number of mutations from 1968 sequence as a proxy for time
+        '''
+        mutations_set = set()
+        sequence_1968 = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
+        old_align_seq = sequence_1968[24:]
+        virus_align_seq = self.seq[24:]
+        for index in range(len(old_align_seq)):
+            site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
+            if old_align_seq[index] != virus_align_seq[index]:
+                mutation = old_align_seq[index] + str(site) + virus_align_seq[index]
+                mutations_set.add(mutation)
+        self.mutations_from_1968 = mutations_set
+        self.mutations_time = len(mutations_set)
+        return ','.join(mutations_set)
 
     def mutate_pdb_to_outgroup(self, structure):
         print("- Mutating the " + structure + " structure to the outgroup sequence")
