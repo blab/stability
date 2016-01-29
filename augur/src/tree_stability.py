@@ -17,7 +17,7 @@ class tree_stability(object):
         self.output_file_name = "ddg_output.txt"
         self.ddg_database_file_name = "ddg_database.txt"
 
-        self.local_database_exists = True
+        self.local_database_exists = False
 
         try:
             self.output_file = open(self.stability_output + self.output_file_name, 'w')
@@ -29,7 +29,7 @@ class tree_stability(object):
         self.sequence_to_stability = {}
 
         dynamodb = boto3.resource('dynamodb')
-        self.table=dynamodb.Table('stability')
+        self.table=dynamodb.Table('stability_1968')
 
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")

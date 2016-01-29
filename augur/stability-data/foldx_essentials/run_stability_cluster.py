@@ -33,6 +33,8 @@ class run_stability():
         '''
         for virus in self.virus_list:
             virus.calculate_ddg_outgroup()
+            virus.upload_to_database()
+            virus.output_file.write(virus.__str__())
 
     def calculate_ddg_for_sequences(self):
         self.read_sequence_file()
@@ -49,7 +51,7 @@ class virus_stability_cluster(virus_stability):
             raise
         try:
             dynamodb = boto3.resource('dynamodb')
-            self.table=dynamodb.Table('stability')
+            self.table=dynamodb.Table('stability_1968')
         except:
             print("Couldn't connect to dynamodb or the stability table")
             raise
@@ -65,33 +67,33 @@ class virus_stability_cluster(virus_stability):
             self.align_to_outgroup()
             self.find_mutations()
             if len(self.mutations_from_outgroup) > 0:
-                self.make_run_file(structure, "_trimer_repaired_1.pdb")
                 self.overwrite_mutation_file(structure)
-                if os.path.exists('foldx3b6'):
-                    os.system("./foldx3b6 -runfile mutate_runfile.txt")
+                if os.path.exists('foldx'):
+                    os.system("./foldx --command=BuildModel --pdb=" + structure + "_trimer_repaired_1968.pdb --mutant-file=individual_list.txt")
                 else:
                     print("could not call foldx")
                     raise FileNotFoundError
                 self.read_ddG_output(structure)
-        if len(self.mutations_from_outgroup) > 0:
-            self.upload_to_database()
-        else:
-            print("skipping this sequence, no valid mutations")
+
 
     def upload_to_database(self):
         '''
         upload to dynamodb 'stability' table, also write to local file
         :return:
         '''
-        print("uploading calculation to dynamodb...")
-        self.table.put_item(
-           Item={
-               'sequence': self.seq,
-               'ddg': [self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"]],
-            }
-        )
-        print("upload successful")
-        self.output_file.write(self.__str__())
+
+        if len(self.mutations_from_outgroup) > 0:
+            print("uploading calculation to dynamodb...")
+            self.table.update_item(
+               Item={
+                   'sequence': self.seq,
+                   'ddg_1968': [self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"]],
+                }
+            )
+            print("upload successful")
+
+        else:
+            print("skipping this sequence, no valid mutations")
 
 def main(index):
     os.chdir(index + "_foldx_split")

@@ -26,7 +26,7 @@ class tree_mutations(object):
         self.new_seq_file = open(new_seq_fname, 'w')
 
         dynamodb = boto3.resource('dynamodb')
-        self.table=dynamodb.Table('stability')
+        self.table=dynamodb.Table('stability_1968')
 
     def tip_attribute(self, node):
         '''
@@ -66,14 +66,14 @@ class tree_mutations(object):
             raise
         return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.stability_output, "source-data/")
 
-    def check_dynamodb(self, sequence):
+    def check_dynamodb(self, seq):
         '''
         checks the stability table to see if the sequence already has had stability calculated for it
         :return returns true if in database, false if not in database
         '''
         response = self.table.get_item(
-            ProjectionExpression='ddg',
-            Key={'sequence':sequence}
+            ProjectionExpression='ddg_1968',
+            Key={'sequence': seq}
         )
         return 'Item' in response.keys()
 
@@ -87,7 +87,7 @@ class tree_mutations(object):
         for virus in self.hash_to_virus.values():
             if virus.seq not in self.new_sequences and not self.check_dynamodb(virus.seq):
                 self.new_sequences.append(virus.seq)
-                print("New Sequence: " + virus.seq)
+                #print("New Sequence: " + virus.seq)
 
         for seq in self.new_sequences:
             self.new_seq_file.write(seq + "\n")
@@ -116,4 +116,4 @@ class tree_mutations(object):
                     self.hash_to_virus[str(parent)] = parent_virus
                 self.virus_and_parent.append([node_virus, parent_virus])
                 #self.mutations_file.write(str(node_virus) + " | " + str(parent_virus) +"\n")  # won't need this once dump implemented
-        #self.determine_new_sequences()
+        self.determine_new_sequences()

@@ -59,6 +59,7 @@ class virus_stability(object):
 
     def find_outgroup(self, directory):
         # get outgroup amino_acid sequence
+        '''
         try:
             #print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
             temp_outgroup = SeqIO.read(directory + 'H3N2_outgroup.gb', 'genbank')
@@ -68,7 +69,8 @@ class virus_stability(object):
         dna_seq = str(temp_outgroup.seq).upper()
         coding_dna = Seq(dna_seq, generic_dna)
         protein = coding_dna.translate()
-        self.outgroup_seq = str(protein)
+        '''
+        self.outgroup_seq = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
 
     def align_to_outgroup(self):
         '''
@@ -80,7 +82,10 @@ class virus_stability(object):
         mutations_set = set()
         outgroup_align_seq = self.outgroup_seq[24:]
         virus_align_seq = self.seq[24:]
-        for index in range(len(virus_align_seq)):
+        if (len(outgroup_align_seq)>virus_align_seq):
+            print("Outgroup Sequence longer than the virus sequence")
+            raise Exception
+        for index in range(len(outgroup_align_seq)):
             site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
             if outgroup_align_seq[index] != virus_align_seq[index]:
                 mutation = outgroup_align_seq[index] + str(site) + virus_align_seq[index]
@@ -97,10 +102,16 @@ class virus_stability(object):
         #
         mutations_set = set()
         outgroup_align_seq = self.outgroup_seq[24:]
-        for index in range(len(self.seq)):
+        align_seq = self.seq[24:]
+        if (len(outgroup_align_seq)>self.seq):
+            print("Outgroup Sequence longer than the virus sequence")
+            raise Exception
+        for index in range(len(outgroup_align_seq)):
             site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
-            if outgroup_align_seq[index] != self.seq[index]:
-                mutation = self.seq[index] + str(site) + outgroup_align_seq[index]
+
+            if outgroup_align_seq[index] != align_seq[index]:
+                mutation = align_seq[index] + str(site) + outgroup_align_seq[index]
+                print(mutation)
                 mutations_set.add(mutation)
         self.mutations_from_outgroup = mutations_set
         return ','.join(mutations_set)
@@ -138,23 +149,12 @@ class virus_stability(object):
         mutationFile.write(mutations + ";")
         mutationFile.close()
 
-    def make_run_file(self, structure, extension):
-        '''
-        makes the run file needed for foldx to run.
-        :param structure: specify the structure to be used by foldx
-        '''
-        pdb_file_name = structure + extension
-        runfileName = "mutate_runfile.txt"
-        runfile = open(runfileName, 'w')
-        runfile.write('<TITLE>FOLDX_runscript;\n<JOBSTART>#;\n<PDBS>%s;\n<BATCH>#;\n<COMMANDS>FOLDX_commandfile;\n<BuildModel>mutant1,%s;\n<END>#;\n<OPTIONS>FOLDX_optionfile;\n<END>#;\n<JOBEND>#;\n<ENDFILE>#;' % (pdb_file_name, "individual_list.txt"))
-
-
     def read_ddG_output(self, structure):
         '''
         opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
         :param structure: specify the structure that was used by foldx
         '''
-        ddGFileName = "Average_mutant1"
+        ddGFileName = "Average_" + structure + "_trimer_repaired_1968.fxout"
         ddGFile = open(ddGFileName, 'r')
         try:
             for line in ddGFile:
@@ -166,6 +166,7 @@ class virus_stability(object):
             raise
         ddGFile.close()
         self.ddg_outgroup[structure] = ddG
+        os.remove(ddGFileName)
 
     def calculate_ddg_outgroup(self, calculated_stabilities):
         '''
@@ -222,21 +223,6 @@ class virus_stability(object):
         self.mutations_from_1968 = mutations_set
         self.mutations_time = len(mutations_set)
         return ','.join(mutations_set)
-
-    def mutate_pdb_to_outgroup(self, structure):
-        print("- Mutating the " + structure + " structure to the outgroup sequence")
-        print("--Checking valid structure given")
-        self.check_valid_structure(structure)
-        print("--Aligning the structure to the outgroup")
-        self.align_outgroup_to_sequence()
-        print("--Checking that mutations are valid for foldx and the structure")
-        self.find_mutations(structure)
-        print("--Making runfile and mutation file for foldx run")
-        self.make_run_file(structure, "_trimer_repaired.pdb")
-        self.overwrite_mutation_file(structure)
-        print("--Running foldx!")
-        os.system("./foldx3b6 -runfile mutate_runfile.txt")
-
 
 
 '''

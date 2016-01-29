@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/1HA0_trimer_repaired_1.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/2YP7_trimer_repaired_1.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/foldx3b6" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/ddg_output.txt" afterPath="$PROJECT_DIR$/augur/stability-data/ddg_output.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/new_seq_file.txt" afterPath="$PROJECT_DIR$/augur/stability-data/new_seq_file.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/rotabase.txt" afterPath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/rotabase.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py" afterPath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_mutations.py" afterPath="$PROJECT_DIR$/augur/src/tree_mutations.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_stability.py" afterPath="$PROJECT_DIR$/augur/src/tree_stability.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/virus_stability.py" afterPath="$PROJECT_DIR$/augur/src/virus_stability.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py" afterPath="$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stability.iws" />
@@ -32,8 +40,8 @@
       <file leaf-file-name="tree_mutations.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-              <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1785">
+              <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -42,28 +50,62 @@
       <file leaf-file-name="tree_stability.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="2730">
-              <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2730">
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="virus_stability.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="H3N2_process.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3237" max-vertical-offset="5430">
+              <caret line="252" column="16" selection-start-line="252" selection-start-column="16" selection-end-line="252" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mutate_structure.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/augur/structure_repair/mutate_structure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="795">
+              <caret line="31" column="127" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="127" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="virus_stability.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/virus_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47511312" vertical-offset="450" max-vertical-offset="3720">
-              <caret line="55" column="342" selection-start-line="55" selection-start-column="342" selection-end-line="55" selection-end-column="342" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="3510">
+              <caret line="156" column="69" selection-start-line="156" selection-start-column="69" selection-end-line="156" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mutator_stability.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/augur/mutate_everything_1HA0/mutator_stability.py">
+      <file leaf-file-name="virus_stability.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1725">
-              <caret line="11" column="557" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="557" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1982" max-vertical-offset="3570">
+              <caret line="156" column="76" selection-start-line="156" selection-start-column="76" selection-end-line="156" selection-end-column="76" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_stability_cluster.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6903766" vertical-offset="375" max-vertical-offset="1650">
+              <caret line="71" column="142" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="142" />
               <folding />
             </state>
           </provider>
@@ -77,9 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/augur/plot_trunk.py" />
-        <option value="$PROJECT_DIR$/augur/compare_histogram.py" />
-        <option value="$PROJECT_DIR$/../../Cluster/total_mutation/analyze_foldx.py" />
         <option value="$PROJECT_DIR$/../../Cluster/total_mutation/plot_trunk.py" />
         <option value="$PROJECT_DIR$/test_split_file.txt" />
         <option value="$PROJECT_DIR$/split_file.py" />
@@ -119,22 +158,25 @@
         <option value="$PROJECT_DIR$/augur/mutate_everything/run_mutator_cluster.py" />
         <option value="$PROJECT_DIR$/augur/mutate_everything/foldx_essentials/virus_stability.py" />
         <option value="$PROJECT_DIR$/augur/mutate_everything/mutator_stability.py" />
-        <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py" />
-        <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py" />
         <option value="$PROJECT_DIR$/augur/mutate_everything/foldx_essentials/run_mutator_cluster.py" />
         <option value="$PROJECT_DIR$/augur/mutate_everything_1HA0/foldx_essentials/run_mutator_cluster.py" />
         <option value="$PROJECT_DIR$/augur/mutate_everything_2YP7/foldx_essentials/run_mutator_cluster.py" />
         <option value="$PROJECT_DIR$/augur/src/process.py" />
+        <option value="$PROJECT_DIR$/augur/src/mutate_structure.py" />
+        <option value="$PROJECT_DIR$/augur/structure_repair/mutate_structure.py" />
+        <option value="$PROJECT_DIR$/augur/structure_repair/virus_stability.py" />
         <option value="$PROJECT_DIR$/augur/src/tree_mutations.py" />
+        <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py" />
         <option value="$PROJECT_DIR$/augur/src/tree_stability.py" />
         <option value="$PROJECT_DIR$/augur/src/virus_stability.py" />
+        <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="773" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -228,42 +270,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="foldx_essentials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stability" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stability" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stability" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stability" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mutate_everything_1HA0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -547,15 +553,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27734375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913843" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -597,21 +603,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2100">
-          <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/virus_filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="3960">
-          <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/data/clean_IRD_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
@@ -852,9 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.602333" vertical-offset="1667" max-vertical-offset="3360">
           <caret line="149" column="23" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,15 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2145" max-vertical-offset="6930">
           <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="3165">
-          <caret line="98" column="41" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -899,15 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1047" max-vertical-offset="1710">
           <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1620">
-          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,17 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
           <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154" vertical-offset="2715" max-vertical-offset="5595">
-          <caret line="198" column="13" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -933,38 +892,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1317" max-vertical-offset="2850">
           <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/mutate_everything_1HA0/mutator_stability.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1725">
-          <caret line="11" column="557" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="557" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1725">
+          <caret line="13" column="557" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="557" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/structure_repair/mutate_structure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="31" column="127" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="127" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/structure_repair/virus_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2627" max-vertical-offset="3570">
+          <caret line="151" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3237" max-vertical-offset="5430">
+          <caret line="252" column="16" selection-start-line="252" selection-start-column="16" selection-end-line="252" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/tree_stability.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="2730">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2730">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="829" max-vertical-offset="1785">
+          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/virus_stability.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47511312" vertical-offset="450" max-vertical-offset="3720">
-          <caret line="55" column="342" selection-start-line="55" selection-start-column="342" selection-end-line="55" selection-end-column="342" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="3510">
+          <caret line="156" column="69" selection-start-line="156" selection-start-column="69" selection-end-line="156" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1982" max-vertical-offset="3570">
+          <caret line="156" column="76" selection-start-line="156" selection-start-column="76" selection-end-line="156" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6903766" vertical-offset="375" max-vertical-offset="1650">
+          <caret line="71" column="142" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="142" />
           <folding />
         </state>
       </provider>
