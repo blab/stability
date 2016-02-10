@@ -84,14 +84,13 @@ class virus_stability_cluster(virus_stability):
 
         if len(self.mutations_from_outgroup) > 0:
             print("uploading calculation to dynamodb...")
-            self.table.update_item(
+            self.table.put_item(
                Item={
                    'sequence': self.seq,
                    'ddg_1968': [self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"]],
                 }
             )
             print("upload successful")
-
         else:
             print("skipping this sequence, no valid mutations")
 

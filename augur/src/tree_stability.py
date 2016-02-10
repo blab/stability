@@ -17,7 +17,7 @@ class tree_stability(object):
         self.output_file_name = "ddg_output.txt"
         self.ddg_database_file_name = "ddg_database.txt"
 
-        self.local_database_exists = False
+        self.local_database_exists = True
 
         try:
             self.output_file = open(self.stability_output + self.output_file_name, 'w')
@@ -120,11 +120,11 @@ class tree_stability(object):
 
     def get_dynamodb_stability(self, sequence):
         response = self.table.get_item(
-            ProjectionExpression='ddg',
+            ProjectionExpression='ddg_1968',
             Key={'sequence':sequence}
         )
         try:
-            ddg_list = response['Item']['ddg']
+            ddg_list = response['Item']['ddg_1968']
             self.sequence_to_stability[sequence] = ddg_list
             print(ddg_list)
             return ddg_list
