@@ -1,6 +1,7 @@
 import os, sys
 from virus_stability import virus_stability
-import boto3
+import rethinkdb as r
+import hashlib
 
 class run_stability():
 
@@ -11,20 +12,19 @@ class run_stability():
             print("That sequence file does not exist in the current directory")
             raise
         self.sequence_to_ddG = {}  # dictionary from accession to virus object
+        self.viruses = {}
         self.virus_list = []
         self.split_number = split_number
-
-    def __str__(self):
-        return("Current mutation file is " + str(self.sequence_file))
-
 
     def read_sequence_file(self):
         '''
         reads through the sequence file and stores in self.sequence.list
         '''
-
         for line in self.sequence_file:
-            self.virus_list.append(virus_stability_cluster(line.strip(), self.split_number))
+            split_line = line.split("\t")
+            structures = split_line[0].split(",")
+            sequence = split_line[1]
+            self.virus_list.append(virus_stability_cluster(sequence, structures, self.split_number))
 
     def viruses_outgroup_ddG(self):
         '''
@@ -32,7 +32,7 @@ class run_stability():
         the ddG from the outgroup to the current virus for each structure
         '''
         for virus in self.virus_list:
-            virus.calculate_ddg_outgroup()
+            virus.calculate_ddg()
             virus.upload_to_database()
             virus.output_file.write(virus.__str__())
 
@@ -41,7 +41,7 @@ class run_stability():
         self.viruses_outgroup_ddG()
 
 class virus_stability_cluster(virus_stability):
-    def __init__(self, sequence, split_number):
+    def __init__(self, sequence, split_number, structures):
         virus_stability.__init__(self, None, None, None, None, None, sequence, "", "")
         self.output_file_name = split_number + "_sequences_ddg.txt"
         try:
@@ -49,32 +49,61 @@ class virus_stability_cluster(virus_stability):
         except:
             print("can't open output file in current directory")
             raise
+        self.pdb_structures = structures
+
+        self.database = 'test'
+        self.table = 'stability'
+        self.connect_rethink()
+
+    def connect_rethink(self):
+        '''
+        Connect to rethink database,
+        Check for existing table, otherwise create it
+        '''
         try:
-            dynamodb = boto3.resource('dynamodb')
-            self.table=dynamodb.Table('stability_1968')
+            r.connect(host="ec2-52-90-204-136.compute-1.amazonaws.com", port=28015, db=self.database, auth_key=self.auth_key).repl()
+            print("Connected to the \"" + self.database + "\" database")
         except:
-            print("Couldn't connect to dynamodb or the stability table")
-            raise
+            print("Failed to connect to the database, " + self.database)
+            raise Exception
 
     def __str__(self):
-        return "\t".join([self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"], self.seq]) + "\n"
+        return "\t".join([self.ddg_outgroup, self.seq]) + "\n"
 
-    def calculate_ddg_outgroup(self):
+    def calculate_ddg(self):
         '''
         calls appropriate functions to calculate  ddG using foldx for the specified structure and ddG gets assigned to self.ddG_outgroup
         '''
         for structure in self.pdb_structures:
-            self.align_to_outgroup()
-            self.find_mutations()
-            if len(self.mutations_from_outgroup) > 0:
+            self.find_mutations(structure)
+            if len(self.formatted_mut[structure]) > 0:
                 self.overwrite_mutation_file(structure)
                 if os.path.exists('foldx'):
-                    os.system("./foldx --command=BuildModel --pdb=" + structure + "_trimer_repaired_1968.pdb --mutant-file=individual_list.txt")
+                    #os.system("./foldx --command=BuildModel --pdb=" + structure + "_trimer_repaired_" + self.outgroup + ".pdb --mutant-file=individual_list.txt")
+                    os.system("./foldx --command=BuildModel --pdb=" + structure + "_trimer_repaired.pdb --mutant-file=individual_list.txt")
                 else:
                     print("could not call foldx")
                     raise FileNotFoundError
                 self.read_ddG_output(structure)
 
+    def read_ddG_output(self, structure):
+        '''
+        opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
+        :param structure: specify the structure that was used by foldx
+        '''
+        ddGFileName = "Average_" + structure + "_trimer_repaired.fxout"
+        ddGFile = open(ddGFileName, 'r')
+        try:
+            for line in ddGFile:
+                if line.startswith(structure):
+                    ddGline = line.split()
+                    ddG = ddGline[2]
+        except:
+            print("couldn't find ddG output")
+            raise
+        ddGFile.close()
+        self.ddg_outgroup[structure] = ddG
+        os.remove(ddGFileName)
 
     def upload_to_database(self):
         '''
@@ -82,17 +111,26 @@ class virus_stability_cluster(virus_stability):
         :return:
         '''
 
-        if len(self.mutations_from_outgroup) > 0:
-            print("uploading calculation to dynamodb...")
-            self.table.put_item(
-               Item={
-                   'sequence': self.seq,
-                   'ddg_1968': [self.ddg_outgroup["1HA0"], self.ddg_outgroup["2YP7"]],
-                }
-            )
-            print("upload successful")
-        else:
-            print("skipping this sequence, no valid mutations")
+        hash_function = hashlib.md5()
+        hash_function.update(self.seq)
+        hash_sequence = hash_function.hexdigest()
+        self.ddg_outgroup['md5_sequence'] = hash_sequence
+
+        for structure in self.pdb_structures:
+            if len(self.structure_muts[structure]) > 0:
+                print("uploading calculation to rethinkdb...")
+                document = r.db(self.database).table(self.table).get(hash_sequence).run()
+                # Sequence doesn't exist in table yet so add it
+                if document is None:
+                    print("Inserting new sequence document")
+                    r.db(self.database).table(self.table).insert(self.ddg_outgroup).run()
+                # Sequence exists in table so just add stability information
+                else:
+                    print("Updating existing sequence document")
+                    r.db(self.database).table(self.table).get(hash_sequence).update({structure: self.ddg_outgroup[structure]}).run()
+                print("upload successful")
+            else:
+                print("skipping this sequence, no valid mutations")
 
 def main(index):
     os.chdir(index + "_foldx_split")

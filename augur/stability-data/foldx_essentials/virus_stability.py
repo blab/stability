@@ -26,12 +26,18 @@ class virus_stability(object):
 
         self.mutations_from_parent = set()
 
-        self.pdb_structures = ['1HA0', '2YP7']
+        self.pdb_structures = []
         self.formatted_mut = {}
 
         self.ddg_outgroup = {}
         self.ddg_parent= {}
         self.parent_strain = ""
+
+        self.structure_seqs = {}
+        self.structure_seqs['2YP7'] = ""
+        self.structure_seqs['2YP2'] = ""
+
+        self.structure_muts = {}
 
 
 
@@ -45,21 +51,12 @@ class virus_stability(object):
             print("Readjusting parent ddg!!!")
             self.ddg_parent['1HA0'] = None
             self.ddg_parent['2YP7'] = None
-        '''
-        print(self.ddg_outgroup.keys())
-        print(self.ddg_outgroup['1HA0'])
-        print(self.ddg_outgroup['2YP7'])
-        print(self.ddg_parent.keys())
-        print(self.ddg_parent['1HA0'])
-        print(self.ddg_parent['2YP7'])
-        '''
         return "\t".join([self.hash_code, str(self.strain), str(self.trunk), str(self.tip), str(self.date), str(self.ddg_outgroup['1HA0']), str(self.ddg_outgroup['2YP7']), str(self.ddg_parent['1HA0']), str(self.ddg_parent['2YP7']), str(" ".join(list(self.mutations_from_parent))), str(" ".join(list(self.mutations_from_1968))), str(self.mutations_time), str(self.parent_strain), self.seq, "\n"])
-        #attributes = [str(self.hash_code), str(self.strain), (str(self.trunk)), (str(self.tip)), str(self.date), str(self.seq)]
-        #return "\t".join(attributes)
 
+    '''
     def find_outgroup(self, directory):
         # get outgroup amino_acid sequence
-        '''
+
         try:
             #print("Using H3N2_outgroup.gb for the outgroup, assumed to be Beijing 1992 strain")
             temp_outgroup = SeqIO.read(directory + 'H3N2_outgroup.gb', 'genbank')
@@ -69,16 +66,15 @@ class virus_stability(object):
         dna_seq = str(temp_outgroup.seq).upper()
         coding_dna = Seq(dna_seq, generic_dna)
         protein = coding_dna.translate()
-        '''
         self.outgroup_seq = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
 
+    '''
+    '''
     def align_to_outgroup(self):
-        '''
         :mutates: self.mutations_from_outgroup
         aligns outgroup and self.seq, returns mutations from outgroup -> self.seq. Modifies self.mutations_from_outgroup
         :return: comma-seperated string of mutations from outgroup
-        '''
-        #
+
         mutations_set = set()
         outgroup_align_seq = self.outgroup_seq[24:]
         virus_align_seq = self.seq[24:]
@@ -92,14 +88,13 @@ class virus_stability(object):
                 mutations_set.add(mutation)
         self.mutations_from_outgroup = mutations_set
         return ','.join(mutations_set)
-
+    '''
+    '''
     def align_outgroup_to_sequence(self):
-        '''
+
         :mutates: self.mutations_from_outgroup
         aligns self.seq and outgroup, returns mutations from sequence -> outgroup
         :return: comma-seperated string of mutations from structure
-        '''
-        #
         mutations_set = set()
         outgroup_align_seq = self.outgroup_seq[24:]
         align_seq = self.seq[24:]
@@ -115,15 +110,36 @@ class virus_stability(object):
                 mutations_set.add(mutation)
         self.mutations_from_outgroup = mutations_set
         return ','.join(mutations_set)
-
-    def find_mutations(self):
+    '''
+    def find_mutations(self, structure):
         '''
         Finds and stores mutations that are valid for each of the structures specified
         '''
-        for structure in self.pdb_structures:
-            list_of_mutations = list(self.mutations_from_outgroup)
-            mut_stability = mutation_stability(list_of_mutations, structure)
-            self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
+
+        self.align_to_structure(structure)
+        #list_of_mutations = list(self.mutations_from_outgroup)
+        list_of_mutations = self.structure_muts[structure]
+        mut_stability = mutation_stability(list_of_mutations, structure)
+        self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
+
+    def align_to_structure(self, structure):
+        '''
+        aligns to structure sequence to virus sequence
+        :return: mutations from structure to self.seq
+        '''
+
+        mutations_set = set()
+        outgroup_align_seq = self.structure_seqs[structure][24:]
+        virus_align_seq = self.seq[24:]
+        if (len(outgroup_align_seq)>virus_align_seq):
+            print("Outgroup Sequence longer than the virus sequence")
+            raise Exception
+        for index in range(len(outgroup_align_seq)):
+            site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
+            if outgroup_align_seq[index] != virus_align_seq[index]:
+                mutation = outgroup_align_seq[index] + str(site) + virus_align_seq[index]
+                mutations_set.add(mutation)
+        self.structure_muts[structure] = list(mutations_set)
 
     def get_parent_mutations(self, outgroup_mutations, parent_mutations):
         '''

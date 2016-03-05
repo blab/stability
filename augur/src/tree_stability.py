@@ -28,9 +28,6 @@ class tree_stability(object):
             raise
         self.sequence_to_stability = {}
 
-        dynamodb = boto3.resource('dynamodb')
-        self.table=dynamodb.Table('stability_1968')
-
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")
         if not self.local_database_exists:
