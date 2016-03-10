@@ -10,7 +10,7 @@ class mutation_stability(object):
         self.mut_chain_info =[]
         self.structure = structure  # either 1HA0 or 2YP7
 
-        if self.structure not in ["1HA0", "2YP7", "2YP7"]:
+        if self.structure not in ["1HA0", "2YP7", "2YP2"]:
             raise ValueError("This program only works for pdb structures 1HA0, 2YP7, 2YP2")
 
 
@@ -60,5 +60,5 @@ class mutation_stability(object):
         '''
         self.valid_mut_list = filter(lambda mut: self.site_range_valid(mut), self.mut)
         for mutation in self.valid_mut_list:
-            self.mut_chain_info.append(self.include_chain_info(mutation))
+            self.mut_chain_info.extend(self.include_chain_info(mutation))
         return ';'.join(self.mut_chain_info)

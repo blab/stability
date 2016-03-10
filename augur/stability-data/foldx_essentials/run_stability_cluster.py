@@ -24,7 +24,7 @@ class run_stability():
             split_line = line.split("\t")
             structures = split_line[0].split(",")
             sequence = split_line[1]
-            self.virus_list.append(virus_stability_cluster(sequence, structures, self.split_number))
+            self.virus_list.append(virus_stability_cluster(sequence, self.split_number, structures))
 
     def viruses_outgroup_ddG(self):
         '''
@@ -50,9 +50,15 @@ class virus_stability_cluster(virus_stability):
             print("can't open output file in current directory")
             raise
         self.pdb_structures = structures
+        self.ddg_outgroup = {}
 
         self.database = 'test'
         self.table = 'stability'
+        if 'RETHINK_AUTH_KEY' in os.environ:
+            self.auth_key = os.environ['RETHINK_AUTH_KEY']
+        if self.auth_key is None:
+            raise Exception("Missing auth_key")
+
         self.connect_rethink()
 
     def connect_rethink(self):
@@ -64,11 +70,10 @@ class virus_stability_cluster(virus_stability):
             r.connect(host="ec2-52-90-204-136.compute-1.amazonaws.com", port=28015, db=self.database, auth_key=self.auth_key).repl()
             print("Connected to the \"" + self.database + "\" database")
         except:
-            print("Failed to connect to the database, " + self.database)
-            raise Exception
+            raise Exception("Failed to connect to the database" + self.database)
 
     def __str__(self):
-        return "\t".join([self.ddg_outgroup, self.seq]) + "\n"
+        return "\t".join([str(self.ddg_outgroup), self.seq]) + "\n"
 
     def calculate_ddg(self):
         '''

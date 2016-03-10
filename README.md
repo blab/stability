@@ -17,11 +17,9 @@ Copy the /stability-data/ directory onto the cluster. Change the batch file and 
 ```
 chmod 755 stability_sbatch_call.sh
 cd foldx_essentials/
-chmod 755 foldx3b6
+chmod 755 foldx
 cd ..
-export AWS_ACCESS_KEY_ID=''
-export AWS_SECRET_ACCESS_KEY=''
-export AWS_DEFAULT_REGION='us-west-2'
+source environment_rethink.sh
 ```
 
 Then call the sbatch file

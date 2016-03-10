@@ -133,7 +133,6 @@ class tree_mutations(object):
             self.new_seq_file.write(",".join(self.new_sequences[seq]) + "\t" + seq + "\n")
         print("There were " + str(len(self.new_sequences)) + " new sequences, please calculate their stabilities on the cluster before continuing")
 
-
     def catalog_mutations(self):
         '''
         Run through and add each node to dictionary from hash code to virus object, and list of current virus and parent virus pairs.
