@@ -42,7 +42,7 @@ class run_stability():
 
 class virus_stability_cluster(virus_stability):
     def __init__(self, sequence, split_number, structures):
-        virus_stability.__init__(self, None, None, None, None, None, sequence, "", "")
+        virus_stability.__init__(self, None, None, None, None, None, sequence, "")
         self.output_file_name = split_number + "_sequences_ddg.txt"
         try:
             self.output_file = open(self.output_file_name, 'a')

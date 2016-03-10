@@ -9,7 +9,7 @@ import os
 class virus_stability(object):
 
 
-    def __init__(self, hash, strain, trunk, tip, date, seq, foldx_directory, outgroup_directory):
+    def __init__(self, hash, strain, trunk, tip, date, seq, foldx_directory):
         self.hash_code = hash
         self.strain = strain
         self.trunk = trunk
@@ -17,8 +17,6 @@ class virus_stability(object):
         self.date = date
         self.seq = seq
         self.foldx_directory = foldx_directory
-        #self.find_outgroup(outgroup_directory)
-
 
         self.mutations_from_outgroup = set()  #does not include chain info
         self.mutations_from_1968 = set()
@@ -34,6 +32,7 @@ class virus_stability(object):
         self.parent_strain = ""
 
         self.structure_seqs = {}
+        self.structure_seqs['1HA0'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
         self.structure_seqs['2YP7'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRKSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQIFLYAQASGRITVSTKRSQQTVIPNIGSRPRVRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
         self.structure_seqs['2YP2'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRRSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQISLYAQASGRITVSTKRSQQTVIPNIGSRPRVRDIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
 
@@ -129,15 +128,15 @@ class virus_stability(object):
         '''
 
         mutations_set = set()
-        outgroup_align_seq = self.structure_seqs[structure][24:]
+        structure_align_seq = self.structure_seqs[structure][24:]
         virus_align_seq = self.seq[24:]
-        if (len(outgroup_align_seq)>virus_align_seq):
+        if (len(structure_align_seq)>virus_align_seq):
             print("Outgroup Sequence longer than the virus sequence")
             raise Exception
-        for index in range(len(outgroup_align_seq)):
+        for index in range(len(structure_align_seq)):
             site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
-            if outgroup_align_seq[index] != virus_align_seq[index]:
-                mutation = outgroup_align_seq[index] + str(site) + virus_align_seq[index]
+            if structure_align_seq[index] != virus_align_seq[index]:
+                mutation = structure_align_seq[index] + str(site) + virus_align_seq[index]
                 mutations_set.add(mutation)
         self.structure_muts[structure] = list(mutations_set)
 
