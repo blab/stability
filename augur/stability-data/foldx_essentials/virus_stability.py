@@ -169,7 +169,7 @@ class virus_stability(object):
         opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
         :param structure: specify the structure that was used by foldx
         '''
-        ddGFileName = "Average_" + structure + "_trimer_repaired_1968.fxout"
+        ddGFileName = "Average_" + structure + "_trimer_repaired.fxout"
         ddGFile = open(ddGFileName, 'r')
         try:
             for line in ddGFile:

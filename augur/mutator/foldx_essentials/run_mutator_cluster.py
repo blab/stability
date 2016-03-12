@@ -78,6 +78,7 @@ class virus_stability_cluster(virus_stability):
 
 def main(index, structure):
     os.chdir(index + "_foldx_split")
+    os.system("chmod 755 foldx")
     new_stability_run = run_mutator(index, structure)
     new_stability_run.calculate_ddg_for_sequences()
     os.chdir("../")

@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH -n 1
-#SBATCH -c 16
+#SBATCH -c 4
 #SBATCH --exclusive
 #SBATCH --output=batch_output.txt
 #SBATCH --mail-type=FAIL
