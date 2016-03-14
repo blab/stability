@@ -47,7 +47,7 @@ class virus_stability_cluster(virus_stability):
         self.structure = structure
 
     def __str__(self):
-        return "\t".join([self.ddg_outgroup[self.structure], "".join(self.mutations_from_outgroup)]) + "\n"
+        return "\t".join([self.ddg_outgroup[self.structure], "".join(self.structure_muts[structure])]) + "\n"
 
     def calculate_ddg(self):
         '''
