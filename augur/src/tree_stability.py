@@ -1,4 +1,4 @@
-import os, re, time, shutil, boto3
+import os, re, time, shutil
 import dendropy
 from seq_util import *
 from date_util import *
@@ -26,6 +26,11 @@ class tree_stability(object):
         self.table='stability'
         self.connect_rethink()
 
+        self.structure_seqs = {}
+        self.structure_seqs['1HA0'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
+        self.structure_seqs['2YP7'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRKSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQIFLYAQASGRITVSTKRSQQTVIPNIGSRPRVRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
+        self.structure_seqs['2YP2'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRRSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQISLYAQASGRITVSTKRSQQTVIPNIGSRPRVRDIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
+
     def connect_rethink(self):
         '''
         Connect to rethink database,
@@ -40,6 +45,7 @@ class tree_stability(object):
 
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")
+        self.sum_ddg()
         self.viruses_ddG()
         self.print_viruses()
         self.assign_node_ddG()
@@ -64,30 +70,7 @@ class tree_stability(object):
         print(sequence)
         print(hash_sequence)
         print(document)
-        '''
-        if sequence in self.sequence_to_stability.keys():
-            ddg_list = self.sequence_to_stability[sequence]
-            return ddg_list
-        else:
-            ddg_list = self.get_dynamodb_stability(sequence)
-            print("couldn't get ddg from the table for this sequence")
-            print(sequence)
-            return [0, 0]
-        '''
-    '''
-    def viruses_ddG(self):
-        num = 0
-        for pair in self.virus_and_parent:
-            num += 1
-            print("virus " + str(num) + " of " + str(len(self.virus_and_parent)) + " viruses")
-            virus = pair[0]
-            parent = pair[1]
-            print("Virus: ")
-            virus.calculate_ddg_outgroup(self.get_stability(virus.seq))
-            print("Parent: ")
-            parent.calculate_ddg_outgroup(self.get_stability(parent.seq))
-            virus.calculate_ddg_parent(parent)
-    '''
+
     def viruses_ddG(self):
         '''
         go through each virus object and determine the list of foldx formatted mutations for each structure. Also calculate
@@ -108,12 +91,68 @@ class tree_stability(object):
             virus.determine_relative_time()
             '''
 
-    def sum_ddg(self, virus):
+    def sum_ddg(self):
         '''
         sum up individual ddg mutation effects compared to each structure
         '''
+        print("Determining stability change by summing individual mutation effects on each structure")
+        self.open_mutator()
+        for virus in self.hash_to_virus.values():
+            for structure in self.structures:
+                virus[structure] = self.align_to_structure(virus, structure)
+                ddg = 0
+                for mut in virus[structure]['mutations']:
+                    ddg += self.mutator_ddg[structure][mut]
+                virus[structure]['sum_ddg'] = ddg
+            print(virus)
 
+    def open_mutator(self):
+        self.mutator_ddg = {}
+        for structure in self.structures:
+            file = open("source-data/" + structure + "_mutator_ddg.txt", 'r')
+            mut_ddg = {}
+            for line in file:
+                info = line.split()
+                mut_ddg[info[1]] = float(info[0])
+            self.mutator_ddg[structure]=mut_ddg
 
+    def align_to_structure(self, virus, structure):
+        '''
+        aligns to structure sequence to virus sequence
+        :return: mutations from structure to self.seq
+        '''
+        mutations = []
+        structure_align_seq = self.structure_seqs[structure][24:]
+        virus_align_seq = virus['seq'][24:]
+        if (len(structure_align_seq)>virus_align_seq):
+            print("Outgroup Sequence longer than the virus sequence")
+            raise Exception
+        for index in range(len(structure_align_seq)):
+            site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
+            if structure_align_seq[index] != virus_align_seq[index]:
+                mutation = structure_align_seq[index] + str(site) + virus_align_seq[index]
+                mutations.append(mutation)
+        mutations = filter(lambda mut: self.site_range_valid(mut), mutations)
+        return {'mutations': mutations}
+        #self.structure_muts[structure] = list(mutations_set)
+
+    def site_range_valid(self, mutation):
+       '''
+       protein structures (1HA0, 2YP7) are missing certain amino acid sites, method checks that mutation is in structure
+       :param mutation: mutation in standard format
+       :return: true if site is in structure, false if site range is not in structure
+       '''
+       lowerRange = 9
+       upperRange = 502
+       missing_lower = 328
+       missing_upper = 333
+       site = int(mutation[1:len(mutation) - 1])
+       if missing_lower <= site <= missing_upper:  # in missing middle section
+            return False
+       elif lowerRange <= site <= upperRange: # in range of protein structure besides middle section
+            return True
+       else:
+            return False
 
     '''
     def viruses_parent_ddG(self):
@@ -142,24 +181,6 @@ class tree_stability(object):
             virus.get_parent_mutations(virus.mutations_from_outgroup, parent.mutations_from_outgroup)
     '''
 
-
-    '''
-    def get_dynamodb_stability(self, sequence):
-        response = self.table.get_item(
-            ProjectionExpression='ddg_1968',
-            Key={'sequence':sequence}
-        )
-        try:
-            ddg_list = response['Item']['ddg_1968']
-            self.sequence_to_stability[sequence] = ddg_list
-            print(ddg_list)
-            return ddg_list
-        except:
-            print("couldn't get ddg from the table for this sequence")
-            print(sequence)
-            return [0, 0]
-            pass
-    '''
     def assign_node_ddG(self):
         print("assigning ddg attribute to nodes")
         for node in self.tree.postorder_node_iter():
@@ -170,39 +191,3 @@ class tree_stability(object):
                 setattr(node, 'ep', average_ddg)
             except:
                 print("couldn't assign ddg attribute to current node")
-    '''
-    def read_local_database(self):
-        if os.path.exists(self.stability_output+self.ddg_database_file_name):
-            print("found local database")
-            self.ddg_database_file = open(self.stability_output + self.ddg_database_file_name, 'r')
-            print(self.stability_output + self.ddg_database_file_name)
-            for line in self.ddg_database_file:
-                split_line = line.split("\t")
-                if len(split_line) == 3:
-                    try:
-                        sequence = split_line[2].strip()
-                        self.sequence_to_stability[sequence] = [split_line[0].strip(), split_line[1].strip()]
-                    except:
-                        raise
-            self.sequence_to_stability['MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITNDQIEVTNATELVQSSSTGRICDSPHRILDGKNCTLIDALLGDPHCDGFQNKEWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFINEDFNWTGVAQDGGSYACKRGSVNSFFSRLNWLHKSEYKYPALNVTMPNNGKFDKLYIWGVHHPSTDRDQTSLYVRASGRVTVSTKRSQQTVTPNIGSRPWVRGQSSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRNGKSSIMRSDAPIGTCSSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRLIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVVLLGFIMWACQKGNIRCNICI'] = ['0.0', '0.0']
-            print("Number of sequences in dictionary")
-            print(len(self.sequence_to_stability.keys()))
-        else:
-            print("couldn't find local database")
-            print(self.stability_output+self.ddg_database_file_name)
-            raise Exception
-
-    def load_local_database(self):
-        num = 0
-        for virus in self.hash_to_virus.values():
-            num += 1
-            print("virus " + str(num) + " of " + str(len(self.hash_to_virus.keys())) + " viruses")
-            self.get_dynamodb_stability(virus.seq)
-        self.print_database()
-
-    def print_database(self):
-        print("Printing out the database")
-        for sequence in self.sequence_to_stability:
-            ddg_list = self.sequence_to_stability[sequence]
-            self.ddg_database_file.write(ddg_list[0] + "\t" + ddg_list[1] + "\t" + sequence + "\n")
-    '''

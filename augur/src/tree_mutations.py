@@ -74,6 +74,7 @@ class tree_mutations(object):
         :returns a virus_stability object with attribute information
         '''
         attr_node = {}
+        attr_node['hash_code'] = str(node)
         for attr in self.universal_attributes:
             try:
                 attr_node[attr] = (getattr(node, attr))
@@ -88,11 +89,13 @@ class tree_mutations(object):
                 attr_node[attr] = None
         try:  # since aa_seq is split between SigPep, HA1 and HA2, need to combine them
             v_seperated_seq = attr_node['aa_seq']
-            attr_node['aa_seq'] = v_seperated_seq['SigPep'] + v_seperated_seq['HA1'] + v_seperated_seq['HA2']
+            del attr_node['aa_seq']
+            attr_node['seq'] = v_seperated_seq['SigPep'] + v_seperated_seq['HA1'] + v_seperated_seq['HA2']
         except:
             print("Couldn't combine a samples amino acid sequence chains")
             raise
-        return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.stability_output, "source-data/")
+        return attr_node
+        #return virus_stability(str(node), attr_node['strain'], attr_node['trunk'], attr_node['tip'], attr_node['date'], attr_node['aa_seq'], self.stability_output, "source-data/")
 
     def check_rethinkdb(self, seq):
         '''
@@ -118,14 +121,14 @@ class tree_mutations(object):
         '''
         print("Determining which sequences need to have stability calculated before continuing")
         for virus in self.hash_to_virus.values():
-            if virus.seq not in self.new_sequences:
-                calculated_structures = self.check_rethinkdb(virus.seq)
+            if virus['seq'] not in self.new_sequences:
+                calculated_structures = self.check_rethinkdb(virus['seq'])
                 new_structures =[]
                 for structure in self.structures:
                     if structure not in calculated_structures:
                         new_structures.append(structure)
                 if len(new_structures) > 0:
-                    self.new_sequences[virus.seq] = new_structures
+                    self.new_sequences[virus['seq']] = new_structures
 
         for seq in self.new_sequences:
             self.new_seq_file.write(",".join(self.new_sequences[seq]) + "\t" + seq + "\n")
