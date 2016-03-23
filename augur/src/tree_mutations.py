@@ -26,7 +26,7 @@ class tree_mutations(object):
         self.new_sequences = {}
         self.stability_output = "stability-data/"
         new_seq_fname = self.stability_output + "new_seq_file.txt"
-        self.new_seq_file = open(new_seq_fname, 'w')
+        self.new_seq_file = open(new_seq_fname, 'a')
         self.outgroup_strain = self.outgroup['strain']
 
         if 'RETHINK_AUTH_KEY' in os.environ:
@@ -111,7 +111,6 @@ class tree_mutations(object):
             else:
                 return[]
 
-
     def determine_new_sequences(self):
         '''
         Determine which unique sequences and structures that have not yet had stability calculated for them.
@@ -127,7 +126,6 @@ class tree_mutations(object):
                         new_structures.append(structure)
                 if len(new_structures) > 0:
                     self.new_sequences[virus.seq] = new_structures
-                    print(self.new_sequences[virus.seq])
 
         for seq in self.new_sequences:
             self.new_seq_file.write(",".join(self.new_sequences[seq]) + "\t" + seq + "\n")

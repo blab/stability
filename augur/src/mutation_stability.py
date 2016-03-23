@@ -7,12 +7,11 @@ class mutation_stability(object):
     '''
     def __init__(self, mut, structure):
         self.mut = mut  # list of mutations
-        self.mut_set = set(mut)  # set of mutations
-        self.mut_chain_info_set = set()
+        self.mut_chain_info =[]
         self.structure = structure  # either 1HA0 or 2YP7
 
-        if self.structure not in ["1HA0", "2YP7"]:
-            raise ValueError("This program only works for pdb structures 1HA0 or 2YP7")
+        if self.structure not in ["1HA0", "2YP7", "2YP2"]:
+            raise ValueError("This program only works for pdb structures 1HA0, 2YP7, 2YP2")
 
 
     def __str__(self):
@@ -42,28 +41,24 @@ class mutation_stability(object):
         foldx
         :param mutation: mutation in standard format
         '''
-
-        set_with_chain_mutations = set()
         if self.structure == "1HA0":
             chains = ["A", "M", "Y"]
         elif self.structure == "2YP7":
             chains = ["A", "P", "E"]
+        elif self.structure == "2YP2":
+            chains = ["A", "R", "I"]
         site = mutation[1:len(mutation) - 1]
         aa1 = mutation[0]
         aa2 = mutation[len(mutation)-1]
-        for chain in chains:
-            self.mut_chain_info_set.add(aa1+chain+site+aa2)
 
-    def check_valid_mutation(self):
+        return [aa1+chain+site+aa2 for chain in chains]
+
+    def get_formatted_mutations(self):
         '''
         checks each mutation in mut_set that it is a valid mutation for the structures 1HA0, 2YP7. Calls
         include_chain_info, which adds each mutation with chain info to self.mut_chain_info_set.
         '''
-        for mutation in self.mut_set:
-            site_valid = self.site_range_valid(mutation)
-            if site_valid:
-                self.include_chain_info(mutation)
-
-    def get_formatted_mutations(self):
-        self.check_valid_mutation()
-        return ';'.join(self.mut_chain_info_set)
+        self.valid_mut_list = filter(lambda mut: self.site_range_valid(mut), self.mut)
+        for mutation in self.valid_mut_list:
+            self.mut_chain_info.extend(self.include_chain_info(mutation))
+        return ';'.join(self.mut_chain_info)
