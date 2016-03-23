@@ -1,4 +1,4 @@
-import os, re, time, shutil
+import os, re, time, shutil, json
 import dendropy
 from seq_util import *
 from date_util import *
@@ -14,7 +14,7 @@ class tree_stability(object):
     '''
     def __init__(self, **kwargs):
         self.stability_output = "stability-data/"
-        self.output_file_name = "ddg_output.txt"
+        self.output_file = open(self.stability_output + "ddg_output.txt", 'w')
 
         self.sequence_to_stability = {}
 
@@ -46,16 +46,27 @@ class tree_stability(object):
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")
         self.sum_ddg()
-        self.viruses_ddG()
+        #self.epistasis_ddG()
         self.print_viruses()
-        self.assign_node_ddG()
+        #self.assign_node_ddG()
 
     def print_viruses(self):
         print("Printing Viruses")
-        for virus in self.hash_to_virus.values():
-            print(virus.__str__())
-            self.output_file.write(virus.__str__())
+        json.dump(self.hash_to_virus, self.output_file, indent=1)
         self.output_file.close()
+
+    def epistasis_ddG(self):
+        '''
+        go through each virus object and determine the list of foldx formatted mutations for each structure. Also calculate
+        the ddG from the outgroup to the current virus for each structure
+        '''
+        num = 0
+        for virus in self.hash_to_virus.values():
+            num += 1
+            print("virus " + str(num) + " of " + str(len(self.hash_to_virus.keys())) + " viruses")
+            ddg_list = self.get_stability(virus.seq)
+            print(ddg_list)
+            print("-------")
 
     def get_stability(self, sequence):
         '''
@@ -71,26 +82,6 @@ class tree_stability(object):
         print(hash_sequence)
         print(document)
 
-    def viruses_ddG(self):
-        '''
-        go through each virus object and determine the list of foldx formatted mutations for each structure. Also calculate
-        the ddG from the outgroup to the current virus for each structure
-        '''
-        num = 0
-        for virus in self.hash_to_virus.values():
-            num += 1
-            print("virus " + str(num) + " of " + str(len(self.hash_to_virus.keys())) + " viruses")
-            ddg_list = self.get_stability(virus.seq)
-            print(ddg_list)
-            print("-------")
-
-            '''
-            virus.align_to_outgroup()
-            virus.calculate_ddg_outgroup(ddg_list)
-            print(virus.ddg_outgroup.keys())
-            virus.determine_relative_time()
-            '''
-
     def sum_ddg(self):
         '''
         sum up individual ddg mutation effects compared to each structure
@@ -104,7 +95,6 @@ class tree_stability(object):
                 for mut in virus[structure]['mutations']:
                     ddg += self.mutator_ddg[structure][mut]
                 virus[structure]['sum_ddg'] = ddg
-            print(virus)
 
     def open_mutator(self):
         self.mutator_ddg = {}
@@ -114,7 +104,7 @@ class tree_stability(object):
             for line in file:
                 info = line.split()
                 mut_ddg[info[1]] = float(info[0])
-            self.mutator_ddg[structure]=mut_ddg
+            self.mutator_ddg[structure] = mut_ddg
 
     def align_to_structure(self, virus, structure):
         '''
