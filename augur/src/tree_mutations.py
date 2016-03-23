@@ -20,7 +20,7 @@ class tree_mutations(object):
         self.hash_to_virus = {}  # dictionary from accession to virus object
         self.virus_and_parent = []  # set of lists; containing each virus and it's parent
 
-        self.structures = ['2YP2', '2YP7']
+        self.structures = ['2YP2', '2YP7', '1HA0']
 
         self.sequences_calculated = set()
         self.new_sequences = {}
