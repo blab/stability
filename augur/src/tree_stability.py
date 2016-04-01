@@ -22,8 +22,8 @@ class tree_stability(object):
             self.auth_key = os.environ['RETHINK_AUTH_KEY']
         if self.auth_key is None:
             raise Exception("Missing auth_key")
-        self.database='test'
-        self.table='stability'
+        self.database = 'test'
+        self.table = 'stability'
         self.connect_rethink()
 
         self.structure_seqs = {}
@@ -60,27 +60,24 @@ class tree_stability(object):
         go through each virus object and determine the list of foldx formatted mutations for each structure. Also calculate
         the ddG from the outgroup to the current virus for each structure
         '''
-        num = 0
         for virus in self.hash_to_virus.values():
-            num += 1
-            print("virus " + str(num) + " of " + str(len(self.hash_to_virus.keys())) + " viruses")
-            ddg_list = self.get_stability(virus.seq)
-            print(ddg_list)
-            print("-------")
+            ddg_list = self.get_stability(virus)
 
-    def get_stability(self, sequence):
+    def get_stability(self, virus):
         '''
         checks the stability table to see if the sequence already has had stability calculated for it
         :return returns a list containing the stability output for that sequence, if it can't find the stability, raises an exception
         '''
-        print("Getting Stability")
+        sequence = virus['seq']
         hash_function = hashlib.md5()
         hash_function.update(sequence)
         hash_sequence = hash_function.hexdigest()
         document = r.table(self.table).get(hash_sequence).run()
-        print(sequence)
-        print(hash_sequence)
-        print(document)
+        if document is not None:
+            for structure in self.structures:
+                virus[structure]['epistasis_ddg'] = document[structure]
+        else:
+            raise Exception("Couldn't find this sequence in rethinkdb")
 
     def sum_ddg(self):
         '''

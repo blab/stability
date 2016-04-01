@@ -1,7 +1,7 @@
 import os, sys
-from virus_stability import virus_stability
 import rethinkdb as r
 import hashlib
+from mutation_stability import mutation_stability
 
 class run_stability():
 
@@ -40,9 +40,8 @@ class run_stability():
         self.read_sequence_file()
         self.viruses_outgroup_ddG()
 
-class virus_stability_cluster(virus_stability):
+class virus_stability_cluster():
     def __init__(self, sequence, split_number, structures):
-        virus_stability.__init__(self, None, None, None, None, None, sequence, "")
         self.output_file_name = split_number + "_sequences_ddg.txt"
         try:
             self.output_file = open(self.output_file_name, 'a')
@@ -50,7 +49,10 @@ class virus_stability_cluster(virus_stability):
             print("can't open output file in current directory")
             raise
         self.pdb_structures = structures
+        self.seq = sequence
         self.ddg_outgroup = {}
+        self.formatted_mut = {}
+        self.structure_muts = {}
 
         self.database = 'test'
         self.table = 'stability'
@@ -58,6 +60,11 @@ class virus_stability_cluster(virus_stability):
             self.auth_key = os.environ['RETHINK_AUTH_KEY']
         if self.auth_key is None:
             raise Exception("Missing auth_key")
+
+        self.structure_seqs = {}
+        self.structure_seqs['1HA0'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTLVKTITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDLFVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPGSGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRVTVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKMRTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLATGMRNVPEKQTQGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQINGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFEKTRRQLRENAEEMGNGCFKIYHKCDNACIESIRNGTYDHDVYRNEALNNRFQI"
+        self.structure_seqs['2YP7'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRKSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQIFLYAQASGRITVSTKRSQQTVIPNIGSRPRVRNIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
+        self.structure_seqs['2YP2'] = "MKTIIALSYILCLVFAQKLPGNDNSTATLCLGHHAVPNGTIVKTITNDQIEVTNATELVQSSSTGGICDSPHQILDGENCTLIDALLGDPQCDGFQNKKWDLFVERSKAYSNCYPYDVPDYASLRSLVASSGTLEFNNESFNWTGVTQNGTSSACKRRSNNSFFSRLNWLTHLKFKYPALNVTMPNNEKFDKLYIWGVHHPGTDNDQISLYAQASGRITVSTKRSQQTVIPNIGSRPRVRDIPSRISIYWTIVKPGDILLINSTGNLIAPRGYFKIRSGKSSIMRSDAPIGKCNSECITPNGSIPNDKPFQNVNRITYGACPRYVKQNTLKLATGMRNVPEKQTRGIFGAIAGFIENGWEGMVDGWYGFRHQNSEGIGQAADLKSTQAAINQINGKLNRLIGKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQHTIDLTDSEMNKLFERTKKQLRENAEDMGNGCFKIYHKCDNACIGSIRNGTYDHDVYRDEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVALLGFIMWACQKGNIRCNICI"
 
         self.connect_rethink()
 
@@ -91,6 +98,52 @@ class virus_stability_cluster(virus_stability):
                     raise FileNotFoundError
                 self.read_ddG_output(structure)
 
+    def find_mutations(self, structure):
+        '''
+        Finds and stores mutations that are valid for each of the structures specified
+        '''
+
+        self.align_to_structure(structure)
+        #list_of_mutations = list(self.mutations_from_outgroup)
+        list_of_mutations = self.structure_muts[structure]
+        mut_stability = mutation_stability(list_of_mutations, structure)
+        self.formatted_mut[structure] = mut_stability.get_formatted_mutations()
+
+    def align_to_structure(self, structure):
+        '''
+        aligns to structure sequence to virus sequence
+        :return: mutations from structure to self.seq
+        '''
+
+        mutations_set = set()
+        structure_align_seq = self.structure_seqs[structure][24:]
+        virus_align_seq = self.seq[24:]
+        if (len(structure_align_seq)>virus_align_seq):
+            print("Outgroup Sequence longer than the virus sequence")
+            raise Exception
+        for index in range(len(structure_align_seq)):
+            site = index + 9  # for both 1HA0 and 2YP7, start at site number 9 in structure ("STAT...")
+            if structure_align_seq[index] != virus_align_seq[index]:
+                mutation = structure_align_seq[index] + str(site) + virus_align_seq[index]
+                mutations_set.add(mutation)
+        self.structure_muts[structure] = list(mutations_set)
+
+    def overwrite_mutation_file(self, structure):
+        '''
+        creates or overwrites "mutation_runfile_list.txt" which includes foldx formated, comma-seperated list of mutations for current virus
+        :param structure: specify structure to be used in order to use right list of mutations
+        '''
+        try:
+            mutations = self.formatted_mut[structure]
+        except:
+            print("mutations were not formatted for this structure")
+            raise
+
+        mutationFileName = "individual_list.txt"
+        mutationFile = open(mutationFileName, 'w')  # overwrites the current file for FoldX
+        mutationFile.write(mutations + ";")
+        mutationFile.close()
+
     def read_ddG_output(self, structure):
         '''
         opens the output of the mutation command in foldX and gets the ddG value for the mutation that was just performed
@@ -115,27 +168,21 @@ class virus_stability_cluster(virus_stability):
         upload to dynamodb 'stability' table, also write to local file
         :return:
         '''
-
+        print("uploading calculation to rethinkdb...")
         hash_function = hashlib.md5()
         hash_function.update(self.seq)
         hash_sequence = hash_function.hexdigest()
-        self.ddg_outgroup['md5_sequence'] = hash_sequence
-
-        for structure in self.pdb_structures:
-            if len(self.structure_muts[structure]) > 0:
-                print("uploading calculation to rethinkdb...")
-                document = r.db(self.database).table(self.table).get(hash_sequence).run()
-                # Sequence doesn't exist in table yet so add it
-                if document is None:
-                    print("Inserting new sequence document")
-                    r.db(self.database).table(self.table).insert(self.ddg_outgroup).run()
-                # Sequence exists in table so just add stability information
-                else:
-                    print("Updating existing sequence document")
-                    r.db(self.database).table(self.table).get(hash_sequence).update({structure: self.ddg_outgroup[structure]}).run()
-                print("upload successful")
-            else:
-                print("skipping this sequence, no valid mutations")
+        document = r.table(self.table).get(hash_sequence).run()
+        # Sequence doesn't exist in table yet so add it
+        if document is None:
+            print("Inserting new sequence document")
+            self.ddg_outgroup['md5'] = hash_sequence
+            r.db(self.database).table(self.table).insert(self.ddg_outgroup).run()
+        else:
+            print("Updating existing sequence document")
+            for structure in self.pdb_structures:
+                r.db(self.database).table(self.table).get({'md5': hash_sequence}).update({structure: self.ddg_outgroup[structure]}).run()
+        print("upload successful")
 
 def main(index):
     os.chdir(index + "_foldx_split")

@@ -26,7 +26,7 @@ class tree_mutations(object):
         self.new_sequences = {}
         self.stability_output = "stability-data/"
         new_seq_fname = self.stability_output + "new_seq_file.txt"
-        self.new_seq_file = open(new_seq_fname, 'a')
+        self.new_seq_file = open(new_seq_fname, 'w')
         self.outgroup_strain = self.outgroup['strain']
 
         if 'RETHINK_AUTH_KEY' in os.environ:
@@ -51,10 +51,10 @@ class tree_mutations(object):
 
         existing_tables = r.db(self.database).table_list().run()
         if self.table not in existing_tables:
-            #create virus table with primary key 'strain'
+            #create virus table
             existing_tables = r.db(self.database).table_list().run()
             if self.table not in existing_tables:
-                r.db(self.database).table_create(self.table, primary_key='md5_sequence').run()
+                r.db(self.database).table_create(self.table, primary_key='md5').run()
 
     def tip_attribute(self, node):
         '''
@@ -107,12 +107,9 @@ class tree_mutations(object):
         hash_sequence = hash_function.hexdigest()
         document = r.table(self.table).get(hash_sequence).run()
         if document is None:
-                return []
+            return []
         else:
-            if self.outgroup_strain in document:
-                return document[self.outgroup_strain].keys()
-            else:
-                return[]
+            return document.keys()
 
     def determine_new_sequences(self):
         '''
@@ -129,7 +126,6 @@ class tree_mutations(object):
                         new_structures.append(structure)
                 if len(new_structures) > 0:
                     self.new_sequences[virus['seq']] = new_structures
-
         for seq in self.new_sequences:
             self.new_seq_file.write(",".join(self.new_sequences[seq]) + "\t" + seq + "\n")
         print("There were " + str(len(self.new_sequences)) + " new sequences, please calculate their stabilities on the cluster before continuing")
