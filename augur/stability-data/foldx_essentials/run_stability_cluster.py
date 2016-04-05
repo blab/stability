@@ -22,8 +22,8 @@ class run_stability():
         '''
         for line in self.sequence_file:
             split_line = line.split("\t")
-            structures = split_line[0].split(",")
-            sequence = split_line[1]
+            structures = split_line[0].strip().split(",")
+            sequence = split_line[1].strip()
             self.virus_list.append(virus_stability_cluster(sequence, self.split_number, structures))
 
     def viruses_outgroup_ddG(self):
