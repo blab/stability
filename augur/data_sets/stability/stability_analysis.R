@@ -50,3 +50,4 @@ p_jitter_1HA0 = ggplot(data=data, aes(x =classification, ddg_outgroup_1HA0, colo
 p_jitter_1HA0 + geom_jitter() + labs(title="Change in Stability over time for 1968 structure for trunk, branch and twig colored by year", y="Change in Stability from Outgroup on 1HA0 (ddg)")
 p_jitter_2YP7 = ggplot(data=data, aes(x =classification, ddg_outgroup_2YP7, colour=predict_year))
 p_jitter_2YP7 + geom_jitter() + labs(title="Change in Stability over time for 2005 structure for trunk, branch and twig colored by year", y="Change in Stability from Outgroup on 2YP7 (ddg)")
+

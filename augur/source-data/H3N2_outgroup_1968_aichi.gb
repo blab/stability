@@ -1,0 +1,105 @@
+LOCUS       KF874500                1701 bp    cRNA    linear   VRL 04-APR-2014
+DEFINITION  Influenza A virus (A/Aichi/2/1968(H3N2)) segment 4 hemagglutinin
+            (HA) gene, complete cds.
+ACCESSION   KF874500
+VERSION     KF874500.2  GI:584591693
+KEYWORDS    .
+SOURCE      Influenza A virus (A/Aichi/2/1968(H3N2))
+  ORGANISM  Influenza A virus (A/Aichi/2/1968(H3N2))
+            Viruses; ssRNA viruses; ssRNA negative-strand viruses;
+            Orthomyxoviridae; Influenzavirus A.
+REFERENCE   1  (bases 1 to 1701)
+  AUTHORS   Job,E.R., Bottazzi,B., Short,K.R., Deng,Y.M., Mantovani,A.,
+            Brooks,A.G. and Reading,P.C.
+  TITLE     A single amino acid substitution in the hemagglutinin of H3N2
+            subtype influenza A viruses is associated with resistance to the
+            long pentraxin PTX3 and enhanced virulence in mice
+  JOURNAL   J. Immunol. 192 (1), 271-281 (2014)
+   PUBMED   24307735
+REFERENCE   2  (bases 1 to 1701)
+  AUTHORS   Job,E.R., Bottazzi,B., Short,K.R., Deng,Y.-M., Mantovani,A.,
+            Brooks,A.G. and Reading,P.C.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (20-NOV-2013) Microbiology and Immunology, University of
+            Melbourne, Gate 11, Royal Parade, Parkville, Vic 3010, Australia
+REFERENCE   3  (bases 1 to 1701)
+  AUTHORS   Job,E.R., Bottazzi,B., Short,K.R., Deng,Y.-M., Mantovani,A.,
+            Brooks,A.G. and Reading,P.C.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (12-FEB-2014) Microbiology and Immunology, University of
+            Melbourne, Gate 11, Royal Parade, Parkville, Vic 3010, Australia
+  REMARK    Sequence update by submitter
+COMMENT     On Feb 12, 2014 this sequence version replaced gi:566560751.
+            
+            ##Assembly-Data-START##
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END##
+FEATURES             Location/Qualifiers
+     source          1..1701
+                     /organism="Influenza A virus (A/Aichi/2/1968(H3N2))"
+                     /mol_type="viral cRNA"
+                     /strain="A/Aichi/2/1968"
+                     /serotype="H3N2"
+                     /db_xref="taxon:387139"
+                     /segment="4"
+                     /note="PTX3-resistant selected mutant"
+     gene            1..1701
+                     /gene="HA"
+     CDS             1..1701
+                     /gene="HA"
+                     /codon_start=1
+                     /product="hemagglutinin"
+                     /protein_id="AHC68882.2"
+                     /db_xref="GI:584591694"
+                     /translation="MKTIIALSYIFCLALGQDLPGNDNSTATLCLGHHAVPNGTLVKT
+                     ITDDQIEVTNATELVQSSSTGKICNNPHRILDGIDCTLIDALLGDPHCDVFQNETWDL
+                     FVERSKAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPG
+                     NGFFSRLNWLTKSGSTYPVLNVTMPNNDNFDKLYIWGIHHPSTNQEQTSLYVQASGRV
+                     TVSTRRSQQTIIPNIGSRPWVRGLSSRISIYWTIVKPGDVLVINSNGNLIAPRGYFKM
+                     RTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQNTLKLAT
+                     GMRNVPEKQTRGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQ
+                     INGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQ
+                     HTIDLTDSEMNKLFEKTRRQLRENAEDMGNGCFKIYHKCDNACIESIRNGTYDHDVYR
+                     DEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVVLLGFIMWACQRGNIRCNICI
+                     "
+     CDS             1..49
+                     /product="Signal peptide"
+                     /gene="SigPep"
+     CDS             49..1036
+                     /product="HA1 protein"
+                     /gene="HA1"
+     CDS             1036..1699
+                     /product="HA2 protein"
+                     /gene="HA2"
+ORIGIN      
+        1 atgaagacca tcattgcttt gagctacatt ttctgtctgg ctctcggcca agaccttcca
+       61 ggaaatgaca acagcacagc aacgctgtgc ctgggacatc atgcggtgcc aaacggaaca
+      121 ctagtgaaaa caatcacaga tgatcagatt gaagtgacta atgctactga gctagttcag
+      181 agctcctcaa cggggaaaat atgcaacaat cctcatcgaa tccttgatgg aatagactgc
+      241 acactgatag atgctctatt gggggaccct cattgtgatg tttttcaaaa tgagacatgg
+      301 gaccttttcg ttgaacgcag caaagctttc agcaactgtt acccttatga tgtgccagat
+      361 tatgcctccc ttaggtcact agttgcctcg tcaggcactc tggagtttat cactgagggt
+      421 ttcacttgga ctggggtcac tcagaatggg ggaagcaatg cttgcaaaag gggacctggt
+      481 aacggttttt tcagtagact gaactggttg accaaatcag gaagcacata tccagtgctg
+      541 aacgtgacta tgccaaacaa tgacaatttt gacaaactat acatttgggg gattcaccac
+      601 ccgagcacga accaagaaca aaccagcctg tatgttcaag catcagggag agtcacagtc
+      661 tctaccagga gaagccagca aactataatc ccgaatatcg ggtccagacc ctgggtaagg
+      721 ggtctgtcta gtagaataag catctattgg acaatagtta agccgggaga cgtactggta
+      781 attaatagta atgggaacct aatcgctcct cggggttatt tcaaaatgcg cactgggaaa
+      841 agctcaataa tgaggtcaga tgcacctatt gatacctgta tttctgaatg catcactcca
+      901 aatggaagca ttcccaatga caagcccttt caaaacgtaa acaagatcac atatggagca
+      961 tgccccaagt atgttaagca aaacaccctg aagttggcaa cagggatgcg gaatgtacca
+     1021 gagaaacaaa ctagaggcct attcggcgca atagcaggtt tcatagaaaa tggttgggag
+     1081 ggaatgatag acggttggta cggtttcagg catcaaaatt ctgagggcac aggacaagca
+     1141 gcagatctta aaagcactca agcagccatc gaccaaatca atgggaaatt gaacagggta
+     1201 atcgagaaga cgaacgagaa attccatcaa atcgaaaagg aattctcaga agtagaaggg
+     1261 agaattcagg acctcgagaa atacgttgaa gacactaaaa tagatctctg gtcttacaat
+     1321 gcggagcttc ttgtcgctct ggagaatcaa catacaattg acctgactga ctcggaaatg
+     1381 aacaagctgt ttgaaaaaac aaggaggcaa ctgagggaaa atgctgaaga catgggcaat
+     1441 ggttgcttca aaatatacca caaatgtgac aacgcttgca tagagtcaat cagaaatggg
+     1501 acttatgacc atgatgtata cagagacgaa gcattaaaca accggtttca gatcaaaggt
+     1561 gttgaactga agtctggata caaagactgg atcctgtgga tttcctttgc catatcatgc
+     1621 tttttgcttt gtgttgtttt gctggggttc atcatgtggg cctgccagag aggcaacatt
+     1681 aggtgcaaca tttgcatttg a
+//
+
