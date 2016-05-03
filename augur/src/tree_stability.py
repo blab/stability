@@ -46,9 +46,20 @@ class tree_stability(object):
     def calculate_stability(self):
         print("Reading in new calculated stabilities for sequences")
         self.sum_ddg()
+        self.classify()
         #self.epistasis_ddG()
         self.print_viruses()
-        #self.assign_node_ddG()
+        self.assign_node_ddG()
+
+    def classify(self):
+        for virus in self.hash_to_virus.values():
+            if virus['trunk'] == True:
+                classification = 'trunk'
+            elif virus['tip'] == True:
+                classification = 'tip'
+            else:
+                classification = 'branch'
+            virus['classification'] = classification
 
     def print_viruses(self):
         print("Printing Viruses")
@@ -61,7 +72,7 @@ class tree_stability(object):
         the ddG from the outgroup to the current virus for each structure
         '''
         for virus in self.hash_to_virus.values():
-            ddg_list = self.get_stability(virus)
+            self.get_stability(virus)
 
     def get_stability(self, virus):
         '''
@@ -74,10 +85,11 @@ class tree_stability(object):
         hash_sequence = hash_function.hexdigest()
         document = r.table(self.table).get(hash_sequence).run()
         if document is not None:
-            for structure in self.structures:
-                virus[structure]['epistasis_ddg'] = document[structure]
+            if all(structure in document for structure in self.structures):
+                for structure in self.structures:
+                    virus[structure]['epistasis_ddg'] = document[structure]
         else:
-            raise Exception("Couldn't find this sequence in rethinkdb")
+            print("Couldn't find " + hash_sequence + " in rethinkdb")
 
     def sum_ddg(self):
         '''
@@ -90,7 +102,8 @@ class tree_stability(object):
                 virus[structure] = self.align_to_structure(virus, structure)
                 ddg = 0
                 for mut in virus[structure]['mutations']:
-                    ddg += self.mutator_ddg[structure][mut]
+                    if '*' not in mut:
+                        ddg += self.mutator_ddg[structure][mut]
                 virus[structure]['sum_ddg'] = ddg
 
     def open_mutator(self):
@@ -120,6 +133,8 @@ class tree_stability(object):
                 mutation = structure_align_seq[index] + str(site) + virus_align_seq[index]
                 mutations.append(mutation)
         mutations = filter(lambda mut: self.site_range_valid(mut), mutations)
+        if structure == '1HA0':
+            virus['predtime'] = len(mutations)
         return {'mutations': mutations}
         #self.structure_muts[structure] = list(mutations_set)
 
@@ -173,8 +188,9 @@ class tree_stability(object):
         for node in self.tree.postorder_node_iter():
             hash = str(node)
             virus = self.hash_to_virus[hash]
-            average_ddg = (virus.ddg_outgroup['1HA0'] + virus.ddg_outgroup['2YP7']) / 2
+            ddg = ((virus['2YP7']['sum_ddg'] + virus['2YP2']['sum_ddg']) / 2)
             try:
-                setattr(node, 'ep', average_ddg)
+                setattr(node, 'yvalue', ddg)
+                setattr(node, 'ep', ddg)
             except:
                 print("couldn't assign ddg attribute to current node")
