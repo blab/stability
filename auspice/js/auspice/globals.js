@@ -1,10 +1,14 @@
-var regions = ["Africa", "SouthAmerica", "WestAsia", "Oceania", "Europe", "JapanKorea", "NorthAmerica", "SoutheastAsia", "SouthAsia", "China"]
+var genericDomain = [0,0.111,0.222,0.333, 0.444, 0.555, 0.666, 0.777, 0.888, 1.0];
+var path = '/data/';
+var tip_labels = true;
 
 var cladeToSeq = {}
 
-var globalDate = new Date();
+if (typeof globalDate == 'undefined') {
+    var globalDate = new Date();
+}
 
-var nodes, tips, rootNode, links, vaccines;
+var nodes, tips, rootNode, links, vaccines, sera;
 
 var nDisplayTips, displayRoot;
 if (document.getElementById("gtspec") != null){
@@ -33,11 +37,14 @@ var legend = d3.select("#legend")
 
 var colorBy = document.getElementById("coloring").value;
 var colorScale;
+var serumSymbol = '\uf0fe';
 var epiColorDomain = genericDomain;
 var nonEpiColorDomain = genericDomain;
 var rbsColorDomain = genericDomain;
 var dateColorDomain = genericDomain;
+var HIColorDomain = genericDomain.map(function(d){return Math.round(100*(d*3.6))/100;});
 var dfreqColorDomain = genericDomain.map(function(d){return Math.round(100*(0.2+d*1.8))/100;});
+var fitnessColorDomain = genericDomain.map(function(d){return Math.round(100*((d-0.5)*16.0))/100;});
 var time_step;
 
 

@@ -16,6 +16,8 @@ def year_delta(start_date, years):
 
 def numerical_date(date, format = '%Y-%m-%d'):
 	"""Takes a calendar date and a numerical dates in terms of years"""
+	"""If date is missing precision, still return numerical date"""
+	date = date.replace("XX", "01")
 	if isinstance(date, basestring):
 		try:
 			date = datetime.datetime.strptime(date, format).date()
@@ -25,6 +27,14 @@ def numerical_date(date, format = '%Y-%m-%d'):
 	start_ord = start_date.toordinal()
 	end_ord = date.toordinal()
 	return date.year + (end_ord - start_ord) / 365.25
+	
+def calendar_date(numerical_date):
+	"""Takes a numerical date and returns a calendar date"""
+	year_part = int(numerical_date)
+	date = datetime.date(year=year_part, month = 1, day = 1)
+	days = round((numerical_date % 1) * 365.25)
+	delta = datetime.timedelta(days=days)
+	return date + delta
 
 def string_to_numerical_date(string):
 	date = string_to_date(string)

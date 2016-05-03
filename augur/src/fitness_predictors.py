@@ -1,6 +1,7 @@
 import dendropy, time
 import numpy as np
 from itertools import izip
+from scipy.stats import linregress
 from seq_util import translate
 from io_util import read_json
 from io_util import write_json
@@ -8,16 +9,31 @@ from tree_util import json_to_dendropy
 from tree_util import dendropy_to_json
 from fitness_tolerance import load_mutational_tolerance, calc_fitness_tolerance
 
-epitope_mask = np.fromstring("00000000000000000000000000000000000000000000000000000000000011111011011001010011000100000001001011110011100110101000001100000100000001000110101011111101011010111110001010011111000101011011111111010010001111101110111001010001110011111111000000111110000000101010101110000000000011100100000001011011100000000000001001011000110111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", dtype='S1')
+def setup_epitope_mask():
+	self.epitope_mask = ""
+	if "epitope_masks_fname" in self.kwargs and "epitope_mask_version" in self.kwargs:
+		epitope_map = {}
+		with open(self.kwargs["epitope_masks_fname"]) as f:
+			for line in f:
+				(key, value) = line.split()
+				epitope_map[key] = value
+		if self.kwargs["epitope_mask_version"] in epitope_map:
+			self.epitope_mask = epitope_map[self.kwargs["epitope_mask_version"]]
 
 def epitope_sites(aa):
 	aaa = np.fromstring(aa, 'S1')
-	return ''.join(aaa[epitope_mask[:len(aa)]=='1'])
+	return ''.join(aaa[self.epitope_mask[:len(aa)]=='1'])
 
 def nonepitope_sites(aa):
 	aaa = np.fromstring(aa, 'S1')
-	return ''.join(aaa[epitope_mask[:len(aa)]=='0'])
-	
+	return ''.join(aaa[self.epitope_mask[:len(aa)]=='0'])
+
+def receptor_binding_sites(aa):
+	sp = 16
+	aaa = np.fromstring(aa, 'S1')
+	receptor_binding_list = map(lambda x:x+sp-1, [145, 155, 156, 158, 159, 189, 193])
+	return ''.join(aaa[receptor_binding_list])	
+
 def epitope_distance(aaA, aaB):
 	"""Return distance of sequences aaA and aaB by comparing epitope sites"""
 	epA = epitope_sites(aaA)
@@ -32,6 +48,13 @@ def nonepitope_distance(aaA, aaB):
 	distance = sum(a != b for a, b in izip(neA, neB))
 	return distance
 
+def rbs_distance(aaA, aaB):
+	"""Return distance of sequences aaA and aaB by comparing receptor binding sites (Koel sites)"""
+	rbsA = receptor_binding_sites(aaA)
+	rbsB = receptor_binding_sites(aaB)
+	distance = sum(a != b for a, b in izip(rbsA, rbsB))
+	return distance
+
 def calc_epitope_distance(tree, attr='ep', ref = None):
 	'''
 	calculates the distance at epitope sites of any tree node  to ref
@@ -39,6 +62,7 @@ def calc_epitope_distance(tree, attr='ep', ref = None):
 	attr   --   the attribute name used to save the result
 	'''
 	if not hasattr(tree, "epitope_distance_assigned") or tree.epitope_distance_assigned==False:
+		setup_epitope_mask()	
 		if ref == None:
 			ref = translate(tree.seed_node.seq)
 		for node in tree.postorder_node_iter():
@@ -46,6 +70,21 @@ def calc_epitope_distance(tree, attr='ep', ref = None):
 				node.aa = translate(node.seq)
 			node.__setattr__(attr, epitope_distance(node.aa, ref))
 		tree.epitope_distance_assigned=True
+
+def calc_rbs_distance(tree, attr='rb', ref = None):
+	'''
+	calculates the distance at receptor binding sites of any tree node to ref
+	tree   --   dendropy tree
+	attr   --   the attribute name used to save the result
+	'''
+	if not hasattr(tree, "rbs_distance_assigned") or tree.rbs_distance_assigned==False:
+		if ref == None:
+			ref = translate(tree.seed_node.seq)
+		for node in tree.postorder_node_iter():
+			if not hasattr(node, 'aa'):
+				node.aa = translate(node.seq)
+			node.__setattr__(attr, rbs_distance(node.aa, ref))
+		tree.rbs_distance_assigned=True
 
 def  calc_tolerance(tree, attr='tol'):
 	'''
@@ -83,6 +122,7 @@ def calc_nonepitope_distance(tree, attr='ne', ref = None):
 	attr   --   the attribute name used to save the result
 	'''
 	if not hasattr(tree, "nonepitope_distance_assigned") or tree.nonepitope_distance_assigned==False:
+		setup_epitope_mask()	
 		if ref == None:
 			ref = translate(tree.seed_node.seq)
 		for node in tree.postorder_node_iter():
@@ -98,16 +138,17 @@ def calc_nonepitope_star_distance(tree, attr='ne_star', seasons = []):
 	attr   --   the attribute name used to save the result
 	'''
 	if not hasattr(tree, "nonepitope_star_distance_assigned") or tree.nonepitope_star_distance_assigned==False:
+		setup_epitope_mask()	
 		for node in tree.postorder_node_iter():
-			if len(node.tips) and node!=tree.seed_node:
+			if len(node.season_tips) and node!=tree.seed_node:
 				if not hasattr(node, 'aa'):
 					node.aa = translate(node.seq)
 				tmp_node = node.parent_node
-				cur_season = min(node.tips.keys())
+				cur_season = min(node.season_tips.keys())
 				prev_season = seasons[max(0,seasons.index(cur_season)-1)]
 				while True:
 					if tmp_node!=tree.seed_node:
-						if prev_season in tmp_node.tips and len(tmp_node.tips[prev_season])>0:
+						if prev_season in tmp_node.season_tips and len(tmp_node.season_tips[prev_season])>0:
 							break
 						else:
 							tmp_node=tmp_node.parent_node
@@ -157,7 +198,6 @@ def calc_LBI(tree, attr = 'lbi', tau=0.0005, transform = lambda x:x):
 		for child in node.child_nodes():
 			tmp_LBI += child.up_polarizer
 		node.__setattr__(attr, transform(tmp_LBI))
-
 
 def main(tree_fname = 'data/tree_refine.json'):
 

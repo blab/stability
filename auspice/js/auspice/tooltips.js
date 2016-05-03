@@ -1,19 +1,19 @@
 var virusTooltip = d3.tip()
-	.direction('e')
+	.direction('se')
 	.attr('class', 'd3-tip')
 	.offset([0, 12])
 	.html(function(d) {
-	
+
 		string = "";
-				
+
 		// safe to assume the following attributes
 		if (typeof d.strain != "undefined") {
 			string += d.strain;
 		}
 		string += "<div class=\"smallspacer\"></div>";
-		
-		string += "<div class=\"smallnote\">";		
-		
+
+		string += "<div class=\"smallnote\">";
+
 		// check if vaccine strain
 		if (vaccineStrains.indexOf(d.strain) != -1) {
 			string += "Vaccine strain<br>";
@@ -21,10 +21,13 @@ var virusTooltip = d3.tip()
 
 			string += "First chosen " + vaccine_date.toLocaleString("en-us", { month: "short" }) + " " + vaccine_date.getFullYear() + "<br>";
 			string += "<div class=\"smallspacer\"></div>";
-		}			
-		
+		}
+
 		if (typeof d.country != "undefined") {
 			string += d.country.replace(/([A-Z])/g, ' $1');
+		}
+		else if (typeof d.region != "undefined") {
+			string += d.region.replace(/([A-Z])/g, ' $1');
 		}
 		if (typeof d.date != "undefined") {
 			string += ", " + d.date;
@@ -32,23 +35,58 @@ var virusTooltip = d3.tip()
 		if ((typeof d.db != "undefined") && (typeof d.accession != "undefined") && (d.db == "GISAID")) {
 			string += "<br>GISAID ID: EPI" + d.accession;
 		}
+		if ((typeof d.db != "undefined") && (typeof d.accession != "undefined") && (d.db == "Genbank")) {
+			string += "<br>Accession: " + d.accession;
+		}		
 		if (typeof d.lab != "undefined") {
 			if (d.lab != "") {
 				string += "<br>Source: " + d.lab.substring(0,25);
 				if (d.lab.length>25) string += '...';
 			}
-		}			
+		}
+		if (typeof d.authors != "undefined") {
+			if (d.authors != "") {
+				string += "<br>Authors: " + d.authors.substring(0,25);
+				if (d.authors.length>25) string += '...';
+			}
+		}		
 		string += "</div>";
-		
+		// following may or may not be present
+		if ((typeof focusNode != "undefined")){
+			string += "<div class=\"smallspacer\"></div>";
+			string += "HI against serum from "+focusNode.strain;
+			string += "<div class=\"smallspacer\"></div>";
+			string += "<div class=\"smallnote\">"
+			string += '<table class="table table-condensed"><thead><tr><td>Serum</td><td>&#916log<sub>2</sub></td><td>heterol.</td><td>homol.</td></tr></thead><tbody>';
+			if (typeof focusNode.HI_titers[d.clade] != "undefined"){
+				for (var tmp_serum in focusNode.HI_titers[d.clade]){
+					var autoHI = focusNode.autologous_titers[tmp_serum];
+					var rawHI = focusNode.HI_titers_raw[d.clade][tmp_serum];
+					var logHI = focusNode.HI_titers[d.clade][tmp_serum];
+					if (correctVirus){logHI-=d.avidity_mut;}
+					if (correctPotency){logHI-=focusNode.potency_mut[tmp_serum];}
+					var serum_name;
+					if (tmp_serum.length<20){
+						serum_name = tmp_serum;
+					}else{
+						serum_name = tmp_serum.substring(0,17)+'...';
+					}
+					string += '<tr><td>' + serum_name + '</td><td>' +  logHI.toFixed(2) + '</td><td>' + rawHI.toFixed(0)+ '</td><td>' + autoHI.toFixed(0) +"</td></tr>";
+				}
+			}
+			string += '<tr><td>' + 'Tree model' + '</td><td>' +  d.HI_dist_tree.toFixed(2) + '</td><td> --- </td><td>---</td></tr>';
+			string += '<tr><td>' + 'Subs. model ' + '</td><td>' +  d.HI_dist_mut.toFixed(2) + '</td><td> --- </td><td>---</td></tr>';
+			string += "</tbody></table></div>";
+		}
+
 		string += "<div class=\"smallspacer\"></div>";
-				
 		// following may or may not be present
 		string += "<div class=\"smallnote\">";
+		if (typeof d.cHI != "undefined") {
+			string += "Antigenic adv: " + d.cHI.toFixed(1) + "<br>";
+		}
 		if (typeof d.ep != "undefined") {
 			string += "Epitope distance: " + d.ep + "<br>";
-		}
-		if (typeof d.ne != "undefined") {
-			string += "Non-epitope distance: " + d.ne + "<br>";
 		}
 		if (typeof d.rb != "undefined") {
 			string += "Receptor binding distance: " + d.rb + "<br>";
@@ -56,6 +94,15 @@ var virusTooltip = d3.tip()
 		if (typeof d.LBI != "undefined") {
 			string += "Local branching index: " + d.LBI.toFixed(3) + "<br>";
 		}
+		if (typeof d.dfreq != "undefined") {
+			string += "Freq. change: " + d.dfreq.toFixed(3) + "<br>";
+		}
+		if (typeof d.fitness != "undefined") {
+			string += "Fitness: " + d.fitness.toFixed(3) + "<br>";
+		}
+		if (typeof d.pred_distance != "undefined") {
+			string += "Predicted distance: " + d.pred_distance.toFixed(3) + "<br>";
+		}				
 		string += "</div>";
 		return string;
 	});
@@ -70,6 +117,9 @@ var linkTooltip = d3.tip()
 		string = ""
 		if (typeof d.frequency != "undefined") {
 			string += "Frequency: " + (100 * d.frequency).toFixed(1) + "%"
+		}
+		if (typeof d.dHI != "undefined") {
+			string += "<br>Titer drop: " + d.dHI.toFixed(2)
 		}
 		string += "<div class=\"smallspacer\"></div>";
 		string += "<div class=\"smallnote\">";
@@ -92,6 +142,9 @@ var linkTooltip = d3.tip()
 			string += "</li>";
 		}
 		string += "</ul>";
+		if (typeof d.fitness != "undefined") {
+			string += "Fitness: " + d.fitness.toFixed(3) + "<br>";
+		}			
 		string += "click to zoom into clade"
 		string += "</div>";
 		return string;

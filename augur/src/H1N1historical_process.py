@@ -1,6 +1,7 @@
 import time, re, os
 from virus_filter import flu_filter
 from virus_clean import virus_clean
+from tree_titer import HI_tree
 from tree_refine import tree_refine
 from H3N2_process import H3N2_refine as H1N1_refine
 from process import process, virus_config
@@ -20,19 +21,29 @@ epitope_mask = np.array(['1' if pos in [141,142,145,146,172,176,178,179,180,181,
 
 receptor_binding_sites = [x-1 for x in [159,169,170,172,173,203,207]]
 
+
+
+sp=17
 virus_config.update({
 	# data source and sequence parsing/cleaning/processing
 	'virus':'H1N1',
 	'alignment_file':'data/H1N1_gisaid_epiflu_sequence.fasta',
 	'outgroup':'A/Tokyo/1/51',
 	'time_interval':(1990,2010),
-	#'force_include':'source-data/HI_strains.txt',
-	'force_include_all':False,
+	'force_include':'source-data/H1N1_HI_strains.txt',
+	'force_include_all':True,
+	'date_spec':'year',
 	'max_global':True,   # sample as evenly as possible from different geographic regions 
+	'min_freq':0.10,
 	'cds':[0,None], # define the HA start i n 0 numbering
 	# define relevant clades in canonical HA1 numbering (+1)
 	'clade_designations': {},
-	'auspice_prefix':'H1N1_',
+	'auspice_prefix':'H1N1_HI_',
+	'HI_fname':'source-data/H1N1_HI_titers.txt',
+	'html_vars': {'coloring': 'ep, ne, rb, lbi, dfreq, region, date, HI',
+				   'gtplaceholder': 'HA1 positions...',
+					'freqdefault': '3c2.a, 3c3.a'},
+	'js_vars': {'LBItau': 0.0005, 'LBItime_window': 0.5, 'dfreq_dn':2},
 	})
 
 
@@ -107,7 +118,7 @@ class H1N1_clean(virus_clean):
 		self.clean_outbreaks()
 		print "Number of viruses after outbreak filtering:",len(self.viruses)
 
-class H1N1_process(process, H1N1_filter, H1N1_clean, H1N1_refine):
+class H1N1_process(process, H1N1_filter, H1N1_clean, H1N1_refine,HI_tree):
 	"""docstring for H1N1_process, H1N1_filter"""
 	def __init__(self,verbose = 0, force_include = None, 
 				force_include_all = False, max_global= True, **kwargs):
@@ -118,9 +129,10 @@ class H1N1_process(process, H1N1_filter, H1N1_clean, H1N1_refine):
 		H1N1_filter.__init__(self,**kwargs)
 		H1N1_clean.__init__(self,**kwargs)
 		H1N1_refine.__init__(self,**kwargs)
+		HI_tree.__init__(self,**kwargs)
 		self.verbose = verbose
 
-	def run(self, steps, viruses_per_month=50, raxml_time_limit = 1.0):
+	def run(self, steps, viruses_per_month=50, raxml_time_limit = 1.0, reg=0.2):
 		if 'filter' in steps:
 			print "--- Virus filtering at " + time.strftime("%H:%M:%S") + " ---"
 			self.filter()
@@ -159,13 +171,19 @@ class H1N1_process(process, H1N1_filter, H1N1_clean, H1N1_refine):
 			if 'genotype_frequencies' in steps: 
 					self.estimate_frequencies(tasks = ["genotypes"])
 			self.dump()
+		if 'HI' in steps:
+			print "--- Adding HI titers to the tree " + time.strftime("%H:%M:%S") + " ---"
+			self.map_HI_to_tree(training_fraction=0.9, method = 'nnl1reg', lam_HI=reg, lam_avi=reg, lam_pot = reg)
+			self.add_titers()
+			self.dump()
 		if 'export' in steps:
 			self.temporal_regional_statistics()
 			# exporting to json, including the H1N1 specific fields
-			self.export_to_auspice(tree_fields = ['ep', 'ne', 'rb', 'aa_muts','accession','isolate_id', 'lab','db'])
+			self.export_to_auspice(tree_fields = ['ep', 'ne', 'rb', 'aa_muts','accession','isolate_id', 'lab','db', 'country',
+												 'dHI', 'cHI', 'HI_titers', 'serum', 'HI_info', 'avidity', 'potency'])
 
 if __name__=="__main__":
-	all_steps = ['filter', 'align', 'clean', 'tree', 'ancestral', 'refine', 'frequencies','genotype_frequencies', 'export']
+	all_steps = ['filter', 'align', 'clean', 'tree', 'ancestral', 'refine', 'frequencies','genotype_frequencies','HI', 'export']
 	from process import parser,shift_cds
 	params = parser.parse_args()
 
@@ -173,6 +191,8 @@ if __name__=="__main__":
 	num_date = round(lt.tm_year+(lt.tm_yday-1.0)/365.0,2)
 	if params.interval is not None and len(params.interval)==2 and params.interval[0]<params.interval[1]:
 		params.time_interval = (params.interval[0], params.interval[1])
+	else:
+		params.time_interval = (1995,2009.5)
 	dt= params.time_interval[1]-params.time_interval[0]
 	params.pivots_per_year = 12.0 if dt<5 else 6.0 if dt<10 else 3.0
 	steps = all_steps[all_steps.index(params.start):(all_steps.index(params.stop)+1)]
@@ -181,9 +201,9 @@ if __name__=="__main__":
 			if tmp_step in steps:
 				print "skipping",tmp_step
 				steps.remove(tmp_step)
-	if params.HA1:
-		signal_peptide = 17
-		virus_config, epitope_mask, receptor_binding_sites = shift_cds(3*signal_peptide, virus_config, epitope_mask, receptor_binding_sites)
+	# modify clade designations
+	if not params.ATG:
+		virus_config, epitope_mask, receptor_binding_sites = shift_cds(3*sp, virus_config, epitope_mask, receptor_binding_sites)
 
 	# add all arguments to virus_config (possibly overriding)
 	virus_config.update(params.__dict__)

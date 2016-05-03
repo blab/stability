@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+# jekyll
+gem 'jekyll', '3.1.2'
+
+# compiling less
+gem 'therubyracer', '0.12.2'
+gem 'less', '2.6.0'
+
+# deploying
+gem 's3_website', '1.8.2'

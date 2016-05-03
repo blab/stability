@@ -2,12 +2,1319 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="269b1105-ca2c-42eb-bede-115100adae67" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_6b2_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_HI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_clades.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_counts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_mutations.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H1N1pdm_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_3c2a_LBI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_3c2a_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_HI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_basal_viruses.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_clades.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_counts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/H3N2_mutations.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/methods/figures/HI_prediction_mutation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/methods/figures/HI_prediction_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/methods/figures/HI_prediction_virus_mutation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/methods/figures/HI_prediction_virus_tree.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/Vic_counts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/Vic_mutations.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/Yam_clades.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/Yam_counts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/figures/feb-2016/Yam_mutations.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/img/play_make_live.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/modelkit/images/undoButton.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/_includes/12y_meta.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/_posts/2016-02-18-feb-2016.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/_includes/3y_meta.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/_includes/6y_meta.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/A4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/aflow/AFLOWReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/AMLExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/AU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/AbinitReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/AbstractButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/AbstractMethodError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractQueue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractSequentialList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/AbstractSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/AbstractStringBuilder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/AbstractTableModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/AccessibleObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/ActionEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/ActionListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/ActionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/AdfReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Adler32.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/AimsReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/AjaxURLConnection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/AjaxURLStreamHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/AjaxURLStreamHandlerFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/AlchemyReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AlphaMonomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AlphaPolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AminoMonomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AminoPolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/AmpacReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/AnIMLReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/AnimationManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/AnimationThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/AnnotatedElement.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Annotation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Annotation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/text/Annotation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/AnnotationData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/dssx/AnnotationParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/ApbsReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Appendable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/consolejs/AppletConsole.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/AppletFrame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ArithmeticException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Array.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ArrayDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ArrayIndexOutOfBoundsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/ArrayList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ArrayStoreException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Arrays.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/AssertionError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/Atom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Atom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AtomCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/atomdata/AtomData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/AtomDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/atomdata/AtomDataServer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/AtomIndexIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/AtomIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AtomIteratorWithinModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/AtomIteratorWithinModelSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/AtomPropertyMapper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/AtomSetCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/AtomSetCollectionReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/AtomSetObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/AtomShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/AtomType.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/image/AviCreator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Axes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/AxesRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BArray.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/BMPDecoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BSUtil.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Backbone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/BackboneRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Balls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/BallsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BasePair.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/BasisFunctionReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Bbcage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/BbcageRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/BilbaoReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/BinaryDcdReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BinaryDocument.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/binding/Binding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BioExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BioModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BioPolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/BioShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/BioShapeCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/BioShapeRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/BitSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/Bond.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Bond.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BondCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/BondIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BondIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BondIteratorSelected.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/BondSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Boolean.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/BorderLayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/BoxInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/dssx/Bridge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/Bspf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/Bspt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/BufferedInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/BufferedOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/BufferedReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/BufferedWriter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/ButtonGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Byte.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/ByteArrayInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/ByteArrayOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/BytePoster.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/C.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/CBK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapecgo/CGO.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapecgo/CGOMesh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendercgo/CGORenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/CMLExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/CMLReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CRC32.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/CRC32.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/CRCEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/CageRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/Calculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/Calculations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/CalculationsMMFF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/CalculationsUFF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/CarbohydrateMonomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/CarbohydratePolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Cartoon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/CartoonRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/CastepDensityReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/CastepReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/Cell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/CgdReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Chain.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/CharArrayReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/CharArrayWriter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/CharConversionException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/CharSequence.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Character.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/CheckedInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Checksum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/Checksum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/ChimeMessenger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CifDataParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/CifReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/CircleRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Class.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassCastException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassCircularityError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassFormatError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassLoaderProgressMonitor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ClassNotFoundException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/CloneNotSupportedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Cloneable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Closeable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/CmdExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Collection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Collections.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/Color.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ColorEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/ColorManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ColorParameters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ColoredAnnotation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/ColumnSelectionModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CommandHistory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/CommandWatcherThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Comparable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Comparator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/Component.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CompoundDocDirEntry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CompoundDocHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/CompoundDocument.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/ConcurrentModificationException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Console.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Constructor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/Contact.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ContactPair.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/ContactRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/Container.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ContextToken.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/CoordComparator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Coordinate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/CrystalReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/CsfReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/CubeIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/CubeReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/CubeReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/CylinderRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/DF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/io/DOMReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/dssx/DSSP.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/DSSPInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/DataInput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/DataInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/DataManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/DataOutput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/DataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Date.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/DefaultLogger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Deflate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Deflater.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/Deflater.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/DeflaterOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/DeflaterOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/DelPhiBinaryReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/DgridReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/DialogTableModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Dictionary.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/Dimension.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Dipole.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Dipoles.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/DipolesRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/Display.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/Display.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/DmolReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/Dockerfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Dockerfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/Document.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Dots.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/DotsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Double.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/binding/DragBinding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Draw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/DrawMesh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/DrawRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/Dsn6BinaryReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/DuplicateFormatFlagsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/EOFException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Echo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/EchoRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Edge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/EfvetReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Eigen.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/EigenInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/EigenSort.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/Element.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Elements.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Ellipsoid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Ellipsoids.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/EllipsoidsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/EmptyStackException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Encoding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Encoding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Enum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Enumeration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/geodesic/EnvelopeCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Error.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Escape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/EspressoReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/awt/Event.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/Event.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/EventListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/EventListenerProxy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/EventManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/EventObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Exception.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ExceptionInInitializerError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/Export3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/ExportInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/ExportInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ExportType.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/Exporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Externalizable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/FFParam.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/FIL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Field.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/FileInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/FileLoadThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/FileManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/FileNotFoundException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/FileOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/io/FileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/FileSaver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/io/FilesReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/FilterInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/FilterOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Float.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/FlowLayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Flushable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/FoldingXyzReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/Font.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/FontLineShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/FontLineShapeRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/FontManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/ForceField.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/ForceFieldMMFF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/ForceFieldReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/ForceFieldUFF.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/FormContext.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/FormExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/FormatFlagsConversionMismatchException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/FormatterClosedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Frank.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/FrankRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/G3DRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/i18n/GT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GZIPException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GZIPHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GZIPInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/GZIPInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GZIPOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GamessReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GamessUKReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GamessUSReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GaussianFchkReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GaussianReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GaussianWfnReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Gemfile.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Gemfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/GenNBOReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/GenericApplet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericBinaryDocument.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericCifDataParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericColor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/console/GenericConsole.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/GenericDeclaration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericFileInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/GenericGraphics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericImageDialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericImageEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericLineReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericMenuInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/app/GenericMouse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericMouseInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericPlatform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/GenericSignatureFormatError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/GenericSwingPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/console/GenericTextArea.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericZipInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/GenericZipTools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/GeoSurface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/GeoSurfaceRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Geodesic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/GhemicalMMReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/GifEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/GlobalSettings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/GraphSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/Graphics3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/Grid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/GridBagConstraints.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/GridBagLayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/GromacsReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Group.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/GulpReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/H1N1pdm_ref_strains.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/H3N2_77_outgroup.gb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/H3N2_epitope_masks.tsv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/H3N2_ref_strains.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/HB.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/HBond.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/auspice/HI.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/HI_map_validation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/HI_predictability.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/HTMLElement.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/HTMLWindowEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/HallInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/HallRotation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/HallRotationTerm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/HallTranslation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Halos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/HalosRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/HashMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/HashSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Hashtable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Helix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/HermiteRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Hover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/HoverRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/HoverWatcherThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/HyperChemReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/IOException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IdentityHashMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalAccessError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalAccessException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalArgumentException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatCodePointException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatConversionException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatFlagsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatPrecisionException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/IllegalFormatWidthException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalMonitorStateException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalStateException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IllegalThreadStateException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs/Image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/Image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/Image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/ImageEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ImageView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IncompatibleClassChangeError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/IndexOutOfBoundsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/InfBlocks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/InfCodes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/InfTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Inflate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Inflater.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/Inflater.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/InflaterInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/InflaterInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/awt/event/InputEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/InputMismatchException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/InputReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/InputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/InputStreamReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/Insets.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/InstantiationError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/InstantiationException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Int2IntHash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Integer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Integral.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/IntegralComparator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/IntegralData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/Interface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/Interface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/InternalError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/InterruptedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/InterruptedIOException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/InvalidClassException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/InvalidObjectException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/InvalidPropertiesFormatException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/InvalidSmilesException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/InvocationHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/InvocationTargetException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/IsoExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoFxyReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoFxyzReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoIntersectReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoMOReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoMepReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoMlpReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoPlaneReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoShapeReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/IsoSolventReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/Isosurface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/IsosurfaceMesh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/IsosurfaceRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/ItemEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Iterable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Iterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/J2SIgnoreImport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/J2SRequireImport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/JC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JCheckBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JCheckBoxMenuItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JComboBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JComponent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JComponentImp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JContentPane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/JDXCompressor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXDataObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXDecompressor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/JDXExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jsv/JDXMOLParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXSource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/JDXSourceStreamTokenizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JDialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JEditorPane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JLabel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JMenuItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JPopupMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JRadioButtonMenuItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/JSExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/JSFile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs/JSFont.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/JSFont.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/JSInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/JSModelKitPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/JSONEncodable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/JSONReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/JSSwingPopupHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/app/JSVApp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVAppInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/app/JSVAppPro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/appletjs/JSVApplet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVAppletInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/appletjs/JSVAppletPro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/exception/JSVException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVFileDropper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVFileHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/JSVFileManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/popup/JSVGenericPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JSVInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVMainPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVPdfWriter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVPopupMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/popup/JSVPopupResourceBundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVPrintDialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVTreeNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVTreePath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVViewPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/JSVZipFileSequentialReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVZipInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/JSVZipReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/JSVZipUtil.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/JSVersion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/JSViewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JScrollPane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/JSmol.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jsv/JSpecView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JSplitPane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JTable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JTextField.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/JTextPane.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/JZlib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/JaguarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/JaguarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/JanaReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/JcampdxReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/JmeReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/appletjs/Jmol.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/Jmol.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/Jmol.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAbstractButton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAdapter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAdapterAtomIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAdapterBondIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAdapterStructureIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAnnotationParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAppAPI.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAppConsoleInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolAppletInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/JmolAsyncException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/io/JmolBinary.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/binding/JmolBinding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/JmolBioModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/JmolBioModelSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolBioResolver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolCallbackListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/JmolChimeMessenger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolDataManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolDialogInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolDomReaderInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolEnvCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolFilesReaderInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/JmolGenericPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolGestureServerInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolGraphicsInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolJDXMOLParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolJDXMOLReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/JmolJSPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolJSpecView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolMeasurementClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolModulationSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/JmolMolecule.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolMovieCreatorInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolNMRInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolNavigatorInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/JmolObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolParallelProcessor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolPatternMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolPdfCreatorInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolPropertyManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolRendererInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolRepaintManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolSceneGenerator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolScriptEditorInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolScriptEvaluator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolScriptFunction.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolScriptManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolSelectionListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/JmolStateCreator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolStatusListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolSyncInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/JmolThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolTouchSimulatorInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/io/JmolUtil.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolViewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/JmolZipUtilities.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/Jpg64Encoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/JpgEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsDialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsDialogManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsFile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsFileHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsFont.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/JsG2D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsG2D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsMainPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsParameters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsPlatform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/js2d/JsPopup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/JvxlReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/JvxlXmlReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/awt/event/KeyEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/KinemageReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/LabelToken.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Labels.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/LabelsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/i18n/Language.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/LayoutManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/LcaoCartoon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/LcaoCartoonRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/Leaf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/LimitedLineReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/LineRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/LinkageError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/LinkedHashMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/LinkedHashSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/LinkedList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/List.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ListDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/ListIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/ListResourceBundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/ListSelectionModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Locale.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Logger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/LoggerInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Long.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Lst.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/M3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/M34.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/M4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/MMCifReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/MMCifValidationParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFAngleCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFDistanceCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFESCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFOOPCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFSBCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFTorsionCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/MMFFVDWCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/MOCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/MOCalculationInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/MOReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/MSCifRdr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/MSInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/MSRdr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/MagresReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/MainPopupResourceBundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/MalformedParameterizedTypeException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/MalformedURLException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/MapEntry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/MapFileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/calc/MarchingCubes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/calc/MarchingSquares.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/regex/MatchResult.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/regex/Matcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/MathExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Matrix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/MdCrdReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/MdTopReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Measure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Measurement.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Measurement.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MeasurementData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/MeasurementData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MeasurementPending.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Measures.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/MeasuresRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Member.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/MepCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/MepCalculationInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Mesh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/MeshCapper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/MeshCollection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/MeshData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/api/MeshDataServer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/MeshRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/MeshRibbon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/MeshRibbonRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/MeshSlicer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/MeshSurface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/text/MessageFormat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Method.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinAngle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinAtom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinBond.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinPosition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinTorsion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/MinimizationThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Minimizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/MinimizerInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/MissingFormatArgumentException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/MissingFormatWidthException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/MissingResourceException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/MlpCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/modelkit/ModelKitPopupResourceBundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/ModelLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/ModelManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/ModelSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Modifier.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Modulation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ModulationSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/Mol2Reader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/molxyz/Mol3DReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/molxyz/MolReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/MoldenReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/MolecularOrbital.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/MolecularOrbitalRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Monomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/MopacArchiveReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/MopacGraphfReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/MopacReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/MopacSlaterReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/Mouse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/awt/event/MouseEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/MouseState.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/awt/event/MouseWheelEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/MoveToThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/MrcBinaryReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/MsmsReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/NBO.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/NBORenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/NMRCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/NWChemReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/navigate/Navigator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/NciCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NegativeArraySizeException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/NffReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NoClassDefFoundError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/NoSuchElementException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NoSuchFieldError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NoSuchFieldException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NoSuchMethodError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NoSuchMethodException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/bspt/Node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Normix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/NotActiveException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/NotSerializableException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/NucleicMonomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/NucleicPolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/NucleicRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NullPointerException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Number.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/NumberFormatException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/OC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/ObjReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Object2d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Object2dShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/ObjectStreamException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/ObjectStreamField.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Observable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Observer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/OdysseyReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/OptionalDataException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Orientation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/OutOfMemoryError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/OutputManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/OutputManagerJS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/OutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pdb/P2nReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/P3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/P3i.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/P4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/PAL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/export/PDFCreator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/export/PDFObject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PDFWriter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/PT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PanelData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/PanelListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PanelNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/Parameters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Parameters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/Parts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/regex/Pattern.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/PatternMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/regex/PatternSyntaxException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pdb/PdbReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/PdfEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PeakData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PeakInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PeakPick.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PeakPickEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/PeriodicVolumeFileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/binding/PfaatBinding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/PhosphorusMonomer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/PhosphorusPolymer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/PickleReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/Pixelator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/PixelatorScreened.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/PixelatorShaded.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/PixelatorT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs/Platform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/awtjs2d/Platform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/Platform3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/PlatformDialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/PlatformViewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/Plot3D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/Plot3DRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PlotWidget.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/PltFormattedReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapesurface/Pmesh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/Pmesh4Reader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/PmeshReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/rendersurface/PmeshRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/PngEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Point3fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/PointGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/PolygonFileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Polyhedra.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/PolyhedraRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Polyhedron.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/PopupHelper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/popup/PopupResource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/PpmEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pdb/PqrReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/PrecisionRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/PrintLayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Properties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/PropertyManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/ProteinStructure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/Proxy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/PsiReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/PushbackInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/PyMOL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/PyMOLGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/PyMOLMeshReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/PyMOLReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/pymol/PyMOLScene.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/PymolAtomReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/QMAtom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/QS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/QchemReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/QuantumCalculation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/QuantumPlaneCalculationInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Quat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Queue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/atomdata/RadiusData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Random.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/RandomAccess.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/binding/RasmolBinding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Rdr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Readable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Reader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Rectangle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/ReflectPermission.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/RepaintManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/RepaintManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/Resolver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Resolver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/i18n/Resource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/ResourceBundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Rgb16.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Ribbons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/RibbonsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/RocketRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Rockets.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/RocketsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Runnable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/RuntimeException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/SB.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/SC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/STER.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/STR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SV.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/SVGExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ScaleData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptCompiler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptContext.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptDelayThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptEval.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptExpr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptFlowContext.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptFunction.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/ScriptInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptInterruption.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptMathProcessor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptParallelProcessor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptParam.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptProcess.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptProcessRunnable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptQueueThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ScriptToken.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/ScriptTokenParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ScriptTokenizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/SecurityException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/SelectionManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/SequenceInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Serializable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Set.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Shader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Shape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/ShapeManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/ShapeRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Sheet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/ShelxReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Short.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/SiestaReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/tree/SimpleTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/tree/SimpleTreeEnumeration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/tree/SimpleTreeModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/tree/SimpleTreeNode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/tree/SimpleTreePath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/SimpleUnitCell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/SlaterData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/SlaterReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/SmarterJmolAdapter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesAromatic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesAtom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesBond.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesExt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesGenerator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/SmilesMatcherInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesMeasure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SmilesSearch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/SortedMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/SortedSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/SourceReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SpaceGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/SpartanArchive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/SpartanInputReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/SpartanReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/SpartanSmolReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Spectrum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/SphereRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/SpinThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Stack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StackOverflowError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StackTraceElement.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Stars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/StarsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/StateCreator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/StateManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/StateScript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/StaticTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/StatusManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Sticks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/SticksRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Strands.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/StrandsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/StreamCorruptedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StrictMath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/String.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StringBuffer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/StringBufferInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StringBuilder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StringBuilder.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/StringDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/StringIndexOutOfBoundsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/StringReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/StringTokenizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/StringWriter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/Structure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/StructureIterator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/SubSpecChangeEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/cif/Subsystem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/SurfaceFileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/SurfaceGenerator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/SurfaceReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/SwingConstants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/SwingController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/Symmetry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SymmetryDesc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SymmetryInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/SymmetryInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/SymmetryOperation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/SyncFailedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/T.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/T3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/T3d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/T3i.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/T4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/TODO.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/TableCellRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/swing/TableColumn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/TempArray.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Tensor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Text.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/TextRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/TextRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/TextShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/TextString.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Thread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ThreadDeath.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/ThreadGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Throwable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/TickInfo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/TimeoutThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/simple/TinkerReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/more/TlsDataOnlyReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/TooManyListenersException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapebio/Trace.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderbio/TraceRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Trajectory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/TransformManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/TransformManager4D.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/Translator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Tree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/TreeMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/TreeSet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/TriangleData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/g3d/TriangleRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Triangulator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Turn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Txt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/TypeNotPresentException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/TypeVariable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/UFFAngleCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/UFFDistanceCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/UFFOOPCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/UFFTorsionCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/FF/UFFVDWCalc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URLConnection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URLDecoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URLEncoder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URLStreamHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/URLStreamHandlerFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/UTFDataFormatException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shape/Uccage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/render/UccageRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/UhbdReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect/UndeclaredThrowableException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/UnitCell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/UnknownError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/UnknownFormatConversionException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/UnknownFormatFlagsException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/net/UnknownServiceException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/UnsatisfiedLinkError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/UnsupportedClassVersionError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/UnsupportedEncodingException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/UnsupportedOperationException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/UseTable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JM/Util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/V3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/molxyz/V3000Rdr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/V3d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/c/VDW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JS/VTemp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/VaspChgcarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/VaspChgcarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/VaspOutcarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/VaspPoscarReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/Vector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/shapespecial/Vectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/renderspecial/VectorsRenderer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/VerifyError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/api/VertexDataServer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/Vibration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/thread/VibrationThread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/Vic_ref_strains.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ViewData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/Viewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/VirtualMachineError.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/Visible.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/api/VisibleInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/Void.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/api/VolumeDataInterface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/VolumeDataReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/VolumeFileReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/WeakHashMap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/quantum/WebMOReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/Wien2kReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/WindowEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/awt/event/WindowListener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/WriteAbortedException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/io/Writer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/XMLExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/XMLParser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/source/XMLReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/XYScaleConverter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xtal/XcrysdenReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlArgusReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlChem3dReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlCmlReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlMagResReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlMolproReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlOdysseyReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlQEReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/XmlReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/XmlUtil.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlVaspReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/xml/XmlXsdReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/XplorReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/jvxl/readers/XsfReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/smarter/XtalSymmetry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/adapter/readers/molxyz/XyzReader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/Yam_ref_strains.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/api/ZInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ZStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ZStreamException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZStreamRef.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/source-data/Zika_outgroup.gb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/Zika_process.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipConstants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipConstants64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ZipData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipEntry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipException.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipInputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/util/zip/ZipOutputStream.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/ZipTools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/common/ZoomEvent.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_IdtfExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_MayaExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_ObjExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_PovrayExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_TachyonExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_VrmlExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/_X3dExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/__CartesianExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/__RayTracerExporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/export/___Exporter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/analyze_validation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/animl_nmr.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/animl_tmp.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/atomicLipophilicity.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/_layouts/auspice_zika.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/auspice_zika.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/check_culture_adaptation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/cml_nmr.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/cml_tmp.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/compare_fitness_models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corebinary.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corebio.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coreconsole.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejmol.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejmoljsv.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejsv.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejsvdialog.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejsvexport.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corejsvmenu.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coremenu.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coremin.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coreprop.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corepymol.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corescript.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corescriptcmd.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corescriptmath.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coresmiles.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corestate.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coresurface.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coreswing.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coresym.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/coretext.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/corezip.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/_layouts/default_zika.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/diagnostic_figures.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker-compose-local.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker-compose.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker-notes.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/error.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/tex/feb-2016.tex" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H1N1pdm/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H1N1pdm/12y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H1N1pdm/3y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H1N1pdm/6y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H3N2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H3N2/12y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H3N2/3y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/H3N2/6y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Vic/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Vic/12y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Vic/3y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Vic/6y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Yam/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Yam/12y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Yam/3y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/Yam/6y/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/zika/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/muttree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/nextflu_process.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/J/quantum/nmr_data.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JU/package.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JV/package.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/core/package.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/javajs/img/package.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/tex/plos.bst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/plot.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/JSV/export/resources/plot_ink.vm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/reports/tex/references.bib" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/j2s/java/lang/reflect.z.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auspice/js/auspice/structure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/submit.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/submit_HIvalidation.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/submit_all.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/submit_all_HImap.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/tree_titer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/trunk_cHI.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augur/src/vdb_download.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/scratch/fitness_epitope.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/scratch/fitness_nonepitope.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/scratch/sync.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/source-data/H3N2_HI.tsv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augur/source-data/HI_strains.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H1N1pdm/12y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H1N1pdm/1y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H1N1pdm/3y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H1N1pdm/6y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H1N1pdm/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H3N2/12y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H3N2/1y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H3N2/3y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H3N2/6y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/H3N2/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Vic/12y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Vic/1y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Vic/3y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Vic/6y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Vic/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Yam/12y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Yam/1y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Yam/3y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Yam/6y/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/Yam/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/auspice/js/auspice/muttree.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/auspice/js/auspice/autocomplete.js" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/autocomplete.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/auspice/js/auspice/c3.min.js" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/c3.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/auspice/js/auspice/d3.min.js" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/d3.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/auspice/js/auspice/d3.tip.js" afterPath="$PROJECT_DIR$/auspice/js/thirdparty/d3.tip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/H1N1historical_process.py" afterPath="$PROJECT_DIR$/augur/src/H1N1historical_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_includes/H1N1pdm_meta.js" afterPath="$PROJECT_DIR$/auspice/_includes/H1N1pdm_meta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/H1N1pdm_process.py" afterPath="$PROJECT_DIR$/augur/src/H1N1pdm_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_includes/H3N2_meta.js" afterPath="$PROJECT_DIR$/auspice/_includes/H3N2_meta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/source-data/H3N2_outgroup.gb" afterPath="$PROJECT_DIR$/augur/source-data/H3N2_outgroup.gb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/H3N2_process.py" afterPath="$PROJECT_DIR$/augur/src/H3N2_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_includes/Vic_meta.js" afterPath="$PROJECT_DIR$/auspice/_includes/Vic_meta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/Vic_process.py" afterPath="$PROJECT_DIR$/augur/src/Vic_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_includes/Yam_meta.js" afterPath="$PROJECT_DIR$/auspice/_includes/Yam_meta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/Yam_process.py" afterPath="$PROJECT_DIR$/augur/src/Yam_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_layouts/auspice.html" afterPath="$PROJECT_DIR$/auspice/_layouts/auspice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice.js" afterPath="$PROJECT_DIR$/auspice/js/auspice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/css/auspice.less" afterPath="$PROJECT_DIR$/auspice/css/auspice.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/bernoulli_frequency.py" afterPath="$PROJECT_DIR$/augur/src/bernoulli_frequency.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_data/color_options.json" afterPath="$PROJECT_DIR$/auspice/_data/color_options.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/colors.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/colors.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/date.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/date.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/date_util.py" afterPath="$PROJECT_DIR$/augur/src/date_util.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/ddg_output.txt" afterPath="$PROJECT_DIR$/augur/stability-data/ddg_output.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/H3N2/index.html" afterPath="$PROJECT_DIR$/auspice/H3N2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/new_seq_file.txt" afterPath="$PROJECT_DIR$/augur/stability-data/new_seq_file.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/data_sets/stability/stability_analysis.R" afterPath="$PROJECT_DIR$/augur/data_sets/stability/stability_analysis.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/stability-data/stability_analysis.ipynb" afterPath="$PROJECT_DIR$/augur/stability-data/stability_analysis.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_stability.py" afterPath="$PROJECT_DIR$/augur/src/tree_stability.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_layouts/default.html" afterPath="$PROJECT_DIR$/auspice/_layouts/default.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/fetch_outgroups.py" afterPath="$PROJECT_DIR$/augur/src/fetch_outgroups.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/fitness_model.py" afterPath="$PROJECT_DIR$/augur/src/fitness_model.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/fitness_predictors.py" afterPath="$PROJECT_DIR$/augur/src/fitness_predictors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/fitness_tolerance.py" afterPath="$PROJECT_DIR$/augur/src/fitness_tolerance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/frequencies.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/frequencies.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/source-data/geo_synonyms.tsv" afterPath="$PROJECT_DIR$/augur/source-data/geo_synonyms.tsv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/globals.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/globals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/index.html" afterPath="$PROJECT_DIR$/auspice/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/acknowledgements/index.html" afterPath="$PROJECT_DIR$/auspice/acknowledgements/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/help/index.html" afterPath="$PROJECT_DIR$/auspice/help/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/methods/index.html" afterPath="$PROJECT_DIR$/auspice/methods/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/io_util.py" afterPath="$PROJECT_DIR$/augur/src/io_util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/legend.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/legend.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/make_all.py" afterPath="$PROJECT_DIR$/augur/src/make_all.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_layouts/muttree.html" afterPath="$PROJECT_DIR$/auspice/_layouts/muttree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/reports/plot_clades.py" afterPath="$PROJECT_DIR$/auspice/reports/plot_clades.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/process.py" afterPath="$PROJECT_DIR$/augur/src/process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_layouts/report.html" afterPath="$PROJECT_DIR$/auspice/_layouts/report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/run.py" afterPath="$PROJECT_DIR$/augur/src/run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/tooltips.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/tooltips.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/js/auspice/tree.js" afterPath="$PROJECT_DIR$/auspice/js/auspice/tree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_refine.py" afterPath="$PROJECT_DIR$/augur/src/tree_refine.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/tree_util.py" afterPath="$PROJECT_DIR$/augur/src/tree_util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/virus_clean.py" afterPath="$PROJECT_DIR$/augur/src/virus_clean.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augur/src/virus_filter.py" afterPath="$PROJECT_DIR$/augur/src/virus_filter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auspice/_data/viruses.json" afterPath="$PROJECT_DIR$/auspice/_data/viruses.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="stability.iws" />
@@ -44,10 +1351,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tree_stability.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree_stability.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/augur/src/tree_stability.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.20361991" vertical-offset="1245" max-vertical-offset="3015">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="3015">
               <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
@@ -56,14 +1363,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analyze_stability.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/augur/stability-data/analyze_stability.py">
+      <file leaf-file-name="H3N2_process.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="615">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.2688679" vertical-offset="5454" max-vertical-offset="7095">
+              <caret line="376" column="48" selection-start-line="376" selection-start-column="48" selection-end-line="376" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tree_refine.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/augur/src/tree_refine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3045">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,7 +1433,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/augur/data/clean_IRD_data.py" />
         <option value="$PROJECT_DIR$/augur/cluster_run/foldx_cluster_runpipeline.py" />
         <option value="$PROJECT_DIR$/augur/mac_test_run/split_file.py" />
         <option value="$PROJECT_DIR$/augur/cluster_run_9_10_2015/foldx_cluster_runcall.py" />
@@ -152,7 +1466,6 @@
         <option value="$PROJECT_DIR$/augur/src/mutate_structure.py" />
         <option value="$PROJECT_DIR$/augur/structure_repair/mutate_structure.py" />
         <option value="$PROJECT_DIR$/augur/structure_repair/virus_stability.py" />
-        <option value="$PROJECT_DIR$/augur/src/H3N2_process.py" />
         <option value="$PROJECT_DIR$/augur/stability-data/calculate_stability.py" />
         <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/mutation_stability.py" />
         <option value="$PROJECT_DIR$/augur/mutator/mutator_sbatch_call.sh" />
@@ -169,6 +1482,8 @@
         <option value="$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py" />
         <option value="$PROJECT_DIR$/augur/src/tree_mutations.py" />
         <option value="$PROJECT_DIR$/augur/src/tree_stability.py" />
+        <option value="$PROJECT_DIR$/augur/src/tree_refine.py" />
+        <option value="$PROJECT_DIR$/augur/src/H3N2_process.py" />
       </list>
     </option>
   </component>
@@ -200,7 +1515,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,6 +1607,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -570,7 +1885,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -626,6 +1941,60 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1722" max-vertical-offset="2385">
+          <caret line="153" column="26" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3015">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2352" max-vertical-offset="3015">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/virus_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="3795">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/mutation_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1050">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/stability-data/calculate_stability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1710">
+          <caret line="71" column="137" selection-start-line="71" selection-start-column="137" selection-end-line="71" selection-end-column="137" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/augur/stability-data/calculate_stability.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1710">
@@ -655,13 +2024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="630">
@@ -676,13 +2038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="720">
-          <caret line="25" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/tree_mutations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="660">
@@ -694,13 +2049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3135" max-vertical-offset="4905">
           <caret line="245" column="29" selection-start-line="245" selection-start-column="29" selection-end-line="245" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -722,13 +2070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17518248" vertical-offset="0" max-vertical-offset="1035">
           <caret line="8" column="9" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FoldX/feed_foldx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96827585" vertical-offset="63" max-vertical-offset="855">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -807,27 +2148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/tree_refine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1317" max-vertical-offset="2850">
-          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/structure_repair/virus_stability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2627" max-vertical-offset="3570">
-          <caret line="151" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/structure_repair/mutate_structure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4931071" vertical-offset="0" max-vertical-offset="943">
-          <caret line="31" column="127" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/virus_filter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="4020">
@@ -881,13 +2201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="3720">
           <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45502093" vertical-offset="0" max-vertical-offset="956">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -950,23 +2263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5882353" vertical-offset="1245" max-vertical-offset="5610">
-          <caret line="120" column="37" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augur/stability-data/analyze_stability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augur/stability-data/foldx_essentials/run_stability_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2352" max-vertical-offset="3015">
@@ -989,11 +2285,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/augur/src/tree_stability.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20361991" vertical-offset="1245" max-vertical-offset="3015">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="3015">
           <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/tree_refine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3045">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augur/src/H3N2_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2688679" vertical-offset="5454" max-vertical-offset="7095">
+          <caret line="376" column="48" selection-start-line="376" selection-start-column="48" selection-end-line="376" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

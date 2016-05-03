@@ -1,0 +1,163 @@
+---
+layout: default_zika
+categories:
+ - app
+---
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="spacer"></div>
+		<div class="io-container title">
+			Phylogeny
+		</div>
+		<div class="spacer"></div>
+		<div class="row">
+			<div class="col-xs-6 io-container">
+				<div>
+					<svg id="date-input"></svg>
+				</div>
+				<div>
+					<h5 id="legend-title">Legend</h5>
+					<svg id="legend"></svg>
+				</div>
+				<div class="spacer"></div>
+			</div>
+			<div class="col-xs-6 io-container">
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+							<label class="col-xs-4 control-label">Color by</label>
+							<div class="col-xs-8 controls">
+								<select id="coloring" class="form-control">
+								{% for color_option in site.data.color_options %}
+									{% if page.coloring contains color_option[0] %}
+									<option value={{color_option[0] }}>{{ color_option[1] }}</option>
+									{% endif %}
+								{% endfor %}
+								</select>
+							</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label">Or</label>
+						<div class="col-xs-8 controls">
+							<input id="gt-color" type="search" placeholder= "{{ page.gtplaceholder }}"  class="form-control">
+							<input type="checkbox" id="branchlabels"> branch labels
+						</div>
+					</div>
+				</form>
+				<div class="spacer"></div>
+
+				<!--
+				{% for res in site.data.restrictions %}
+				<form class="form-horizontal form-small">
+					<div class="form-group">
+						<label class="col-xs-4 control-label">{{res.label}}</label>
+						<div class="col-xs-8 controls">
+							<select id="{{res.id}}" class="form-control">
+								{% for reg in res.fields %}
+								<option value="{{ reg[0] }}">{{reg[1] }}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+				</form>
+				{% endfor %}
+				-->
+
+				<div id="search"></div>
+				<div class="spacer"></div>
+
+				<div id="straininput"></div>
+				<div class="spacer"></div>
+				<button id="searchinputclear" class="btn btn-default">clear</button>
+				<div class="bigspacer"></div>
+				<div>
+					<button id="reset" class="btn btn-default">reset layout</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="treeplot-container" id="treeplot-container">
+			<svg id="treeplot"></svg>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="bigspacer"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-9">
+		<hr>
+		<p>
+		Built by <a href="https://neherlab.wordpress.com/">Richard Neher</a> and
+		<a href="http://bedford.io">Trevor Bedford</a>. Give us a shout at 
+		<a href="https://twitter.com/richardneher" target="_blank">@richardneher</a> or
+		<a href="https://twitter.com/trvrb" target="_blank">@trvrb</a> with questions or comments. All
+		<a href="http://github.com/blab/nextflu" target="_blank">source code</a> is freely available under the terms of the
+		<a href="http://github.com/blab/nextflu/blob/master/LICENSE.txt" target="_blank">GNU Affero General Public License</a>.
+		Data  updated <span id="updated"></span> and processed with commit <span id="commit"></span>.
+		</p>
+
+		<p>
+		This work is made possible by the open sharing of genetic data by research groups from all over the world. We 
+		gratefully acknowledge their contributions. In particular we thank:
+		
+		<ul class="list-inline">
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU707826">Alcantara et al</a></li>
+			<li><a href="http://www.eurosurveillance.org/ViewArticle.aspx?ArticleId=21409">Barzon et al</a></li>
+			<li><a href="http://biorxiv.org/content/early/2016/03/24/045443">Bonaldo et al</a></li>			
+			<li><a href="http://www.thelancet.com/journals/laninf/article/PIIS1473-3099(16)00095-5/">Calvet et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU991811">Carletti et al</a></li>			
+			<li><a href="http://genomea.asm.org/content/4/2/e00032-16.abstract">Cunha et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU820898">Deng et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU922923">Diaz-Quinonez et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU870645">Driggers et al</a></li>
+			<li><a href="http://www.thelancet.com/journals/lancet/article/PIIS0140-6736(16)00003-9/abstract">Enfissi et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU321639">Esposito et al</a></li>
+			<li><a href="http://science.sciencemag.org/content/early/2016/03/23/science.aaf5036">Faria et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU820897">Kneubehl et al</a></li>
+			<li><a href="http://wwwnc.cdc.gov/eid/article/22/5/16-0065_article">Lanciotti et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU509998">Lednicky et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KX056898">Li et al</a></li>			
+			<li><a href="http://www.nejm.org/doi/full/10.1056/NEJMoa1600651">Mlakar et al</a></li>
+			<li><a href="http://biorxiv.org/content/early/2016/04/24/049916">Naccache et al</a></li>			
+			<li><a href="http://www.sciencedirect.com/science/article/pii/S2052297516000305">Piorkowski et al</a></li>	
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU940228">Sardi et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KX087101">Shabman et al</a></li>			
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU740184">Tong et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU761564">Wu et al</a></li>
+			<li><a href="http://www.ncbi.nlm.nih.gov/nuccore/KU820899">Zhang et al</a></li>													
+		</ul>
+		
+		Special thanks to Charlton Callender, Karl Erlandson, Nuno Faria and Andrew Rambaut for comments and suggestions.
+
+		</p>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-9">
+		<hr>
+		<div class="center text-gray smallnote">
+			&copy; 2015-2016 Trevor Bedford and Richard Neher
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="bigspacer"></div>
+	</div>
+</div>
+
+{{ content }}
+
+<script src="/js/auspice_zika.js"></script>

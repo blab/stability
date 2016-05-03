@@ -1,6 +1,8 @@
 var frequencies, pivots;
 var gene = 'nuc';
 var mutType = 'aa';
+var plot_frequencies = true;
+
 /**
  * for each node, calculate the derivative of the frequency tranjectory. if none exists, copy parent
 **/
@@ -11,7 +13,7 @@ function calcDfreq(node, freq_ii){
 				if (node.children[i1].freq["global"] != "undefined"){
 					var tmp_freq = node.children[i1].freq["global"]
 					//node.children[i1].dfreq = 0.5*(tmp_freq[freq_ii] - tmp_freq[freq_ii-dfreq_dn])/(tmp_freq[freq_ii] + tmp_freq[freq_ii-dfreq_dn] + 0.2);
-					node.children[i1].dfreq = (tmp_freq[freq_ii] + 0.01)/(tmp_freq[freq_ii-dfreq_dn] + 0.03);
+					node.children[i1].dfreq = (tmp_freq[freq_ii] + 0.01)/(tmp_freq[freq_ii-dfreq_dn] + 0.01);
 				} else {
 					node.children[i1].dfreq = node.dfreq;
 				}
@@ -19,30 +21,6 @@ function calcDfreq(node, freq_ii){
 			calcDfreq(node.children[i1], freq_ii);
 		}
 	}
-};
-function parse_gt_string(gt){
-	mutations = [];
-	gt.split(',').map( function (d) {
-		var tmp = d.split(/[\s//]/); //FIXME: make more inclusive
-		var region;
-		var positions = [];
-		for (var i=0; i<tmp.length; i++){
-			if (contains(["EU","NA","AS","OC"], tmp[i])){
-				region = tmp[i];
-			}else{
-				if (tmp[i].length>0) positions.push(tmp[i]);
-			}
-		}
-		if (typeof region == "undefined") region="global";
-		// sort if this is a multi mutation genotype
-		if (positions.length>1){
-			positions.sort(function (a,b){
-				return parseInt(a.substring(0,a.length-1)) - parseInt(b.substring(0,b.length-1));
-			});
-		}
-		mutations.push([region, positions.join('/')]);
-	});
-	return mutations;
 };
 
 /**
@@ -85,7 +63,7 @@ function get_frequencies(region, gt){
 	return freq.map(function (d) {return Math.round(d*100)/100;});
 };
 
-
+var freqDataString = "";
 function make_gt_chart(gt){
 	var tmp_data = [];
 	var tmp_trace = ['x'];
@@ -111,6 +89,13 @@ function make_gt_chart(gt){
        	unload: true
 	});
 	gt_chart.data.colors(tmp_colors);
+	// construct a tab separated string the frequency data
+	freqDataString="";
+	for (var ii=0; ii<tmp_data[0].length; ii+=1){
+		for (var jj=0; jj<tmp_data.length; jj+=1){
+			freqDataString += "" + tmp_data[jj][ii] + ((jj<tmp_data.length-1)?"\t":"\n");
+		}
+	}
 }
 
 function addClade(d) {
@@ -192,12 +177,6 @@ var gt_chart = c3.generate({
 		columns: [],
 	}
 });
-
-function contains(arr, obj) {
-    for(var i=0; i<arr.length; i++) {
-        if (arr[i] == obj) return true;
-    }
-}
 
 d3.json(path + file_prefix + "frequencies.json", function(error, json){
 	console.log(error);
@@ -344,6 +323,13 @@ d3.json(path + file_prefix + "frequencies.json", function(error, json){
 		.on("click", function (){
 			gt = parse_gt_string(document.getElementById("gtspec").value);
 			make_gt_chart(gt);
+		});
+	d3.select("#downloadfreq")
+		.on("click", function (){
+			gt = parse_gt_string(document.getElementById("gtspec").value);
+			make_gt_chart(gt);
+			var blob = new Blob([freqDataString], {type: "text/plain;charset=utf-8"});
+			saveAs(blob,'frequencies.tsv');
 		});
 	make_gt_chart(parse_gt_string(document.getElementById("gtspec").value));
 });

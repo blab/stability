@@ -8,39 +8,96 @@
 		<title>{{ page.title }}</title>
 
     	<!-- Customized Bootstrap + Font Awesome -->
-		<link href="css/style.css" rel="stylesheet" media="screen">
-		
+
+		<link href="/css/style.css" rel="stylesheet" media="screen">
+
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.png"/>			
-		
+		<link rel="shortcut icon" href="/images/favicon.png"/>
+
+		<script type="text/javascript" src="/js/bootstrap.js"></script>
+
+		<!-- Typekit -->
+		<script>
+			(function(d) {
+				var config = {
+					kitId: 'nzp8tsk',
+					scriptTimeout: 3000
+				},
+				h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+			})(document);
+		</script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-26244371-3', 'auto');
+			ga('send', 'pageview');
+		</script>
+
 	</head>
 
 	<body>
-
-		<nav class="navbar navbar-default navbar-static-top" role="navigation">	
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container">
+				<ul class="nav navbar-nav navbar-right nav-tabs">
+					{% if page.categories.first == 'methods' %}
+					<li class="active" role="presentation">
+					{% else %}
+					<li role="presentation">
+					{% endif %}
+						<a href="/methods/">
+							Methods
+						</a>
+					</li>
+					{% if page.categories.first == 'help' %}
+					<li class="active" role="presentation">
+					{% else %}
+					<li role="presentation">
+					{% endif %}
+						<a href="/help/">
+							Help
+						</a>
+					</li>
+					{% if page.categories.first == 'reports' %}
+					<li class="active dropdown" role="presentation">
+					{% else %}
+					<li class="dropdown" role="presentation">
+					{% endif %}
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Reports
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							{% for report in site.categories.reports %}
+							{% if page.linktitle == report.linktitle %}
+							<li class="disabled" role="presentation">
+								<a>{{ report.linktitle }}</a>
+							{% else %}
+							<li role="presentation">
+								<a href="{{ report.url }}">{{ report.linktitle }}</a>
+							{% endif %}
+							</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>			
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>				
 					<a class="navbar-brand" href="/">
 						<div class="navtitle">
 							<span class="c2">n</span><span class="c3">e</span><span class="c4">x</span><span class="c5">t</span><span class="c6">f</span><span class="c7">l</span><span class="c8">u</span>
 						</div>
-					</a>			
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav navbar-left nav-pills">
-						<li role="presentation"><p>/</p></li>
+					</a>
+					<ul class="nav navbar-nav navbar-left">
+						<li class="dropdown hidden-xs"><p>/</p></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								{% if page.categories.first == 'app' %}
+								{% if page.virus %}
 								{{ page.virus }}
 								{% else %}
-								Virus 
+								Virus
 								{% endif %}
 								<span class="caret"></span>
 							</a>
@@ -52,20 +109,20 @@
 										<a>{{ entry.virus }}</a>
 									{% else %}
 									<li>
-										<a href="/{{ entry.virus }}/{{ page.resolution }}">{{ entry.virus }}</a>
+										<a href="/{{ entry.virus | downcase }}/{{ page.resolution | downcase }}">{{ entry.virus }}</a>
 									{% endif %}
 									</li>
 								{% endfor %}
 							</ul>
 						</li>
-						{% if page.categories.first == 'app' %}						
-						<li role="presentation"><p>/</p></li>
+						{% if page.virus %}
+						<li class="dropdown hidden-xs"><p>/</p></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								{% if page.categories.first == 'app' %}
-								{{ page.resolution }}
+								{% if page.resolution %}
+								{{ page.resolution | replace:'-',' ' |  }}
 								{% else %}
-								Time 
+								Time
 								{% endif %}
 								<span class="caret"></span>
 							</a>
@@ -76,10 +133,10 @@
 										{% for res in entry.resolutions %}
 											{% if page.resolution == res %}
 											<li class="disabled">
-												<a>{{ res }}</a>
+												<a>{{ res | replace:'-',' ' }}</a>
 											{% else %}
 											<li>
-												<a href="/{{ entry.virus }}/{{ res }}">{{ res }}</a>
+												<a href="/{{ entry.virus | downcase }}/{{ res | downcase }}">{{ res | replace:'-',' ' }}</a>
 											{% endif %}
 											</li>
 										{% endfor %}
@@ -87,56 +144,23 @@
 								{% endfor %}
 							</ul>
 						</li>
-						{% endif %}										
-					</ul>
-					<ul class="nav navbar-nav navbar-right nav-tabs">
-						{% if page.categories.first == 'methods' %}
-						<li class="active" role="presentation">
-						{% else %}
-						<li role="presentation">
-						{% endif %}										
-							<a href="/methods/">
-								Methods
-							</a>
-						</li>
-						{% if page.categories.first == 'help' %}
-						<li class="active" role="presentation">
-						{% else %}
-						<li role="presentation">
-						{% endif %}							
-							<a href="/help/">
-								Help
-							</a>
-						</li>
-						{% if page.categories.first == 'reports' %}
-						<li class="active dropdown" role="presentation">
-						{% else %}
-						<li class="dropdown" role="presentation">
-						{% endif %}							
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								Reports
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								{% for report in site.categories.reports %}
-								{% if page.linktitle == report.linktitle %}
-								<li class="disabled" role="presentation">
-									<a>{{ report.linktitle }}</a>
-								{% else %}
-								<li role="presentation">
-									<a href="{{ report.url }}">{{ report.linktitle }}</a>
-								{% endif %}	
-								</li>
-								{% endfor %}
-							</ul>
-						</li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
 		</nav>
+		
 
 		<div class="container">
-		
+
+		<div class="row hidden-xs">
+			<div class="col-md-12">
+				<div class="subtitle-container navsubtitle">
+					Real-time tracking of influenza virus evolution
+				</div>
+			</div>
+		</div>
+
 		{{ content }}
 
     	</div>

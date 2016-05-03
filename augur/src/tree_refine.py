@@ -25,7 +25,12 @@ class tree_refine(object):
 		will add strain attributes to nodes and translate the sequences -> produces aa_aln
 		'''
 		self.node_lookup = {node.taxon.label:node for node in self.tree.leaf_iter()}
-		# self.remove_outgroup()
+		if remove_outgroup:
+			pass
+			#self.remove_outgroup()
+		self.node_lookup.update({node.taxon.label.lower():node for node in self.tree.leaf_iter()})
+		self.node_lookup.update({node.taxon.label.upper():node for node in self.tree.leaf_iter()})
+
 		self.collapse()
 		self.ladderize()
 		self.add_node_attributes()
@@ -38,7 +43,9 @@ class tree_refine(object):
 		self.layout()
 		self.define_trunk()
 
-		tmp_nucseqs = [SeqRecord(Seq(node.seq), id=node.strain, annotations = {'num_date':node.num_date, 'region':node.region}) for node in self.tree.leaf_iter()]
+		tmp_nucseqs = [SeqRecord(Seq(node.seq), id=node.strain, 
+					  annotations = {'num_date':node.num_date, 'region':node.region}) 
+					  for node in self.tree.leaf_iter()]
 		tmp_nucseqs.sort(key = lambda x:x.annotations['num_date'])
 		self.nuc_aln = MultipleSeqAlignment(tmp_nucseqs)
 
@@ -47,13 +54,19 @@ class tree_refine(object):
 		if self.outgroup['strain'] in self.node_lookup:
 			outgroup_node = self.node_lookup[self.outgroup['strain']]
 			self.tree.prune_subtree(outgroup_node)
+			self.node_lookup.pop(self.outgroup['strain'])
 			print "removed outgroup",self.outgroup['strain']
 		else:
 			print "outgroup",self.outgroup['strain'], "not found"
-		if len(self.tree.seed_node.child_nodes())==1:
+		while len(self.tree.seed_node.child_nodes())==1:
 			print "ROOT had one child only, moving root up!"
+			if hasattr(self.tree.seed_node, 'pivots'):
+				tmp_pivots = self.tree.seed_node.pivots
+			else:
+				tmp_pivots=None
 			self.tree.seed_node = self.tree.seed_node.child_nodes()[0]
 			self.tree.seed_node.parent_node = None
+			self.tree.seed_node.pivots = tmp_pivots
 		self.tree.seed_node.edge_length = 0.001
 
 	def collapse(self):

@@ -4,16 +4,27 @@ ec2-startup.sh
 data
 _site/
 .idea/
+augur/data/
+augur/output/
+auspice/data/
+figures
+validation
 temp_*
+tmp
+*.pdf
 
+# Jekyll #
+##########
+.jekyll-metadata
+_site/
 
 # Tex # 
-###################
-*aux
-*pdf
-*bbl
-*blg
-*log
+#######
+*.aux
+*.bbl
+*.blg
+*.log
+*.toc
 
 # Compiled source #
 ###################
@@ -56,15 +67,18 @@ ehthumbs.db
 Thumbs.db
 
 # autosave #
+############
 *~
 
 # IDE #
 #######
 *sublime*
 
-
-
 # stability #
 augur/data_sets/*
 
 .idea/workspace.xml
+
+# cluster log #
+###############
+*.sh.*

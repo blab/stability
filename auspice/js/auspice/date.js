@@ -26,7 +26,7 @@ var drag = d3.behavior.drag()
 		d3.selectAll(".date-input-edge").style("stroke", "#CCC");
 		dragend();
 	});
-	
+
 var dragMin = d3.behavior.drag()
 	.on("drag", draggedMin)
 	.on("dragstart", function() {
@@ -41,12 +41,12 @@ var dragMin = d3.behavior.drag()
 		d3.selectAll(".date-input-window").style("stroke", "#CCC");
 		d3.selectAll(".date-input-edge").style("stroke", "#CCC");
 		dragend();
-	});	
+	});
 
 
 function calcNodeAges(tw){
 	tips.forEach(function (d) {
-		var date = new Date(d.date);
+		var date = new Date(d.date.replace(/XX/g, "01"));
 		var oneYear = 365.25*24*60*60*1000; // days*hours*minutes*seconds*milliseconds
 		var diffYears = (globalDate.getTime() - date.getTime()) / oneYear;
 		d.diff = diffYears;
@@ -71,8 +71,8 @@ function dragged(d) {
 	d.x = dateScale(d.date);
 	var startDate = new Date(d.date);
 	startDate.setDate(startDate.getDate() - (time_window * 365.25));
-	d.x2 = dateScale(startDate);	
-	
+	d.x2 = dateScale(startDate);
+
 	d3.selectAll(".date-input-text")
 		.attr("dx", function(d) {return 0.5*d.x})
 		.text(function(d) {
@@ -86,18 +86,18 @@ function dragged(d) {
 		.attr("x2", function(d) {return d.x2});
 	d3.selectAll(".date-input-edge")
 		.attr("x1", function(d) {return d.x2;})
-		.attr("x2", function(d) {return d.x2});		
+		.attr("x2", function(d) {return d.x2});
 
 	globalDate = d.date;
 
 	calcNodeAges(time_window);
-	treeplot.selectAll(".link")
-		.style("stroke", function(d){return "#ccc";})
+//	treeplot.selectAll(".link")
+//		.style("stroke", function(d){return "#ccc";})
 
 	treeplot.selectAll(".tip")
-		.style("visibility", tipVisibility)
-		.style("fill", "#CCC")
-		.style("stroke", "#AAA");
+		.style("visibility", tipVisibility);
+//		.style("fill", "#CCC")
+//		.style("stroke", "#AAA");
 
 	treeplot.selectAll(".vaccine")
 		.style("visibility", function(d) {
@@ -117,21 +117,21 @@ function draggedMin(d) {
 
 	var oneYear = 365.25*24*60*60*1000; // days*hours*minutes*seconds*milliseconds
 	time_window = (globalDate.getTime() - d.date.getTime()) / oneYear;
-	
+
 	d3.selectAll(".date-input-window")
 		.attr("x2", function(d) {return d.x2});
 	d3.selectAll(".date-input-edge")
 		.attr("x1", function(d) {return d.x2;})
-		.attr("x2", function(d) {return d.x2});		
+		.attr("x2", function(d) {return d.x2});
 
 	calcNodeAges(time_window);
-	treeplot.selectAll(".link")
-		.style("stroke", function(d){return "#ccc";})
+//	treeplot.selectAll(".link")
+//		.style("stroke", function(d){return "#ccc";})
 
 	treeplot.selectAll(".tip")
-		.style("visibility", tipVisibility)
-		.style("fill", "#CCC")
-		.style("stroke", "#AAA");
+		.style("visibility", tipVisibility);
+//		.style("fill", "#CCC")
+//		.style("stroke", "#AAA");
 
 	treeplot.selectAll(".vaccine")
 		.style("visibility", function(d) {
@@ -145,9 +145,9 @@ function draggedMin(d) {
 }
 
 function dragend() {
-	var num_date = globalDate/1000/3600/24/365.25+1970;	
-
-	updateColorDomains(num_date);
+	var num_date = globalDate/1000/3600/24/365.25+1970;
+//	updateColorDomains(num_date);
+//	initHIColorDomain();
 	for (var ii=0; ii<rootNode.pivots.length-1; ii++){
 		if (rootNode.pivots[ii]<num_date && rootNode.pivots[ii+1]>=num_date){
 			freq_ii=Math.max(dfreq_dn,ii+1);
@@ -160,59 +160,71 @@ function dragend() {
 	adjust_coloring_by_date();
 	console.log("updating frequencies");
 	adjust_freq_by_date();
+	if (typeof calcDfreq == 'function') {	
+		calcDfreq(rootNode, freq_ii);
+	}
 
 	if (colorBy == "genotype") {
 		colorByGenotype();
 	}
-	if (colorBy == "date") {
+	if ((colorBy == "date")||(colorBy=='cHI')) {
 		removeLegend();
 		makeLegend();
 	}
 
-	d3.selectAll(".link")
+	treeplot.selectAll(".link")
 		.transition().duration(500)
 		.attr("points", branchPoints)
 		.style("stroke-width", branchStrokeWidth)
-		.style("stroke", branchStrokeColor);				
+		.style("stroke", branchStrokeColor);
 
-	d3.selectAll(".tip")
+	treeplot.selectAll(".tip")
 		.transition().duration(500)
 		.style("visibility", tipVisibility)
 		.style("fill", tipFillColor)
 		.style("stroke", tipStrokeColor);
-				
-	
+
+
 	if ((typeof tip_labels != "undefined")&&(tip_labels)) {
 		nDisplayTips = displayRoot.fullTipCount;
-		d3.selectAll(".tipLabel")
+		treeplot.selectAll(".tipLabel")
 			.transition().duration(1000)
 			.style("font-size", tipLabelSize);
-	}	
-	
+	}
+
 }
 
 
 function date_init(){
 	nodes.forEach(function (d) {d.dateval = new Date(d.date)});
 	var dateValues = nodes.filter(function(d) {
-		return typeof d.date === 'string';
+		return (typeof d.date === 'string')&(typeof vaccineChoice[d.strain]=="undefined")&(typeof reference_viruses[d.strain]=="undefined");
 		}).map(function(d) {
 		return new Date(d.date);
 	});
-	earliestDate = new Date(d3.min(dateValues));
-	earliestDate.setDate(earliestDate.getDate() + 1);
-	
+
+	var time_back = 1.0;
+	if (typeof time_window != "undefined"){
+		time_back = time_window;
+	}
+	if (typeof full_data_time_window != "undefined"){
+		time_back = full_data_time_window;
+	}
+
+	var earliestDate = new Date(globalDate);
+	earliestDate.setDate(earliestDate.getDate() - (time_back * 365.25));
+
 	dateScale = d3.time.scale()
 		.domain([earliestDate, globalDate])
 		.range([5, 205])
-		.clamp([true]);	
-	
+		.clamp([true]);
+
 	niceDateScale = d3.time.scale()
 		.domain([earliestDate, globalDate])
 		.range([5, 205])
 		.clamp([true])
 		.nice(d3.time.month);
-	
+
 	counterData = {}
 	counterData['date'] = globalDate
 	counterData['x'] = dateScale(globalDate)
@@ -230,7 +242,7 @@ function date_init(){
 		.append("text")
 		.attr("class", "date-input-text")
 		.attr("text-anchor", "left")
-		.attr("dx", function(d) {return 0.5*d.x})		
+		.attr("dx", function(d) {return 0.5*d.x})
 		.attr("dy", "1.0em")
 		.text(function(d) {
 			var format = d3.time.format("%Y %b %-d");
@@ -272,25 +284,25 @@ function date_init(){
 		.append("line")
 		.attr("class", "date-input-window")
 		.attr("x1", function(d) { return d.x; })
-		.attr("x2", function(d) { return d.x2; })	
+		.attr("x2", function(d) { return d.x2; })
 		.attr("y1", 35)
-		.attr("y2", 35)		
+		.attr("y2", 35)
 		.style("stroke", "#CCC")
 		.style("stroke-width", 5);
-		
+
 	var edge = d3.select("#date-input").selectAll(".date-input-edge")
 		.data([counterData])
 		.enter()
 		.append("line")
 		.attr("class", "date-input-edge")
 		.attr("x1", function(d) { return d.x2; })
-		.attr("x2", function(d) { return d.x2; })	
+		.attr("x2", function(d) { return d.x2; })
 		.attr("y1", 30)
 		.attr("y2", 40)
 		.style("stroke", "#CCC")
-		.style("stroke-width", 3)	
+		.style("stroke-width", 3)
 		.style("cursor", "pointer")
-		.call(dragMin);		
+		.call(dragMin);
 
 	var marker = d3.select("#date-input").selectAll(".date-input-marker")
 		.data([counterData])
@@ -301,7 +313,7 @@ function date_init(){
 		.attr("cy", 35)
 		.attr("r", 6)
 		.style("fill", "#CCC")
-		.style("stroke", "#777")		
+		.style("stroke", "#777")
 		.style("cursor", "pointer")
 		.call(drag);
 
