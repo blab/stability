@@ -151,4 +151,4 @@ class tree_mutations(object):
                     self.hash_to_virus[str(parent)] = parent_virus
                 self.virus_and_parent.append([node_virus, parent_virus])
                 #self.mutations_file.write(str(node_virus) + " | " + str(parent_virus) +"\n")  # won't need this once dump implemented
-        self.determine_new_sequences()
+        #self.determine_new_sequences()
